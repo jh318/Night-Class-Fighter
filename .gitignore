@@ -1,7 +1,7 @@
 .DS_Store
 *.sln
 *.userprefs
-
+*.cs_proj
 .vs/*
 .vscode/*
 Assembly-*
