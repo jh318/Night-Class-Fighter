@@ -1,13 +1,14 @@
 .DS_Store
+*.sln
+*.userprefs
 
+.vs/*
+.vscode/*
+Assembly-*
 Assets/_*
 build/*
 builds/*
 capture/*
-Assembly-*
 Library/*
 Temp/*
 Screenshots/*
-.vscode/*
-*.sln
-*.userprefs
