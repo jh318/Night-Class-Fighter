@@ -10,5 +10,6 @@ build/*
 builds/*
 capture/*
 Library/*
+obj/*
 Temp/*
 Screenshots/*
