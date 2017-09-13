@@ -1,0 +1,119 @@
+Game Controls
+789
+456		ABC
+123	
+
+Directional Input
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9
+
+Attack Input
+A, //Light Attack
+B, //Medium Attack
+C  //Strong Attack
+
+
+"Action"		// Basic character states
+-Stand
+-Walk
+-Crouch
+-Jump
+
+"Block"			// StandBlock blocks High and Mid attacks. CrouchBlock blocks Mid and Low attacks.
+-StandBlock
+-CrouchBlock
+
+"BlockStun"     // Animation for when player blocks standing or crouching.
+-StandBlockStun
+-CrouchBlockStun
+
+"Parry"			// Block an attack and ignore BlockStun
+-StandParry
+-CrouchParry
+
+"HitStun"		// Animation for when character is hit in Crouch or Stand state
+-StandHitStun
+-CrouchHitStun
+
+"Knockdown"    // Attack property that puts opponent on ground instead of HitStun
+-HardKnockdown
+-SoftKnockdown
+-GroundBounce
+-WallBounce
+-Juggle
+
+"Recovery" // How the player exits knockdown
+-Neutral
+-Forward
+-Back
+-Instant
+-Air
+-Grab
+
+"Attack" // Description of attack type
+-Light
+-Medium
+-Heavy
+-Grab
+-Special
+-SpecialGrab
+-Super
+
+"AttackHitStun" // How long attack puts opponent in HitStun
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackBlockStun" // How long attack puts opponent in BlockStun
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackKnockBackHit" // How far the attack moves the opponent on hit
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackKnockBackBlock" // How far the attack moves the opponent on blocks
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackStartUp" // How long until Attack's hitbox is enabled. Start of Attack
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackActive" // How long until Attack's hitbox is disabled. Middle of Attack
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+"AttackRecovery" // How long until character returns to basic "Action" state. End of Attack
+-Lvl1
+-Lvl2
+-Lvl3
+-Lvl4
+-Lvl5
+
+
+
