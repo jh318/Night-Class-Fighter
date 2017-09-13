@@ -75,11 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BlinkShader.cs" />
+    <Compile Include="Assets\Scripts\C#Scripts\NewBehaviourScript.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Hologram.shader" />
-    <None Include="Assets\HologramShader.shader" />
+    <None Include="Assets\Scripts\Shaders\Hologram.shader" />
+    <None Include="Assets\Scripts\Shaders\HologramShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
