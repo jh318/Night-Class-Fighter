@@ -154,7 +154,7 @@ public class ControlMapper : MonoBehaviour {
             return Input.GetKeyUp(control.keycode);
         }
     }
-
+    
     private void Update()
     {
         foreach (Control c in player1ControlsArray)
