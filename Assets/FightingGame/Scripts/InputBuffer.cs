@@ -41,7 +41,6 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void GetDirectionInput(){
-		//Current Input
 		if(ControlMapper.GetButtonDown(playerNumber, GameButton.Up)){
 			direction = GameButton.Up;
 			Debug.Log("U");
