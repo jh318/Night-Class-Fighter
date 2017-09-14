@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ddcf588cb6b97490593cc6ce70d6fcdc
+=======
+<<<<<<< HEAD
+guid: b01d6bd98635637488aa4eeab725eab6
+=======
+guid: ddcf588cb6b97490593cc6ce70d6fcdc
+>>>>>>> commit before merge to master
+>>>>>>> 5af44dda3dbfe767aa33f144465f7c42e6767043
 timeCreated: 1505183444
 licenseType: Free
 DefaultImporter:

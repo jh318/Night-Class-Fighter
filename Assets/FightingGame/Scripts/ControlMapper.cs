@@ -23,10 +23,13 @@ public enum GameButton
     Up,
     Down, 
     Left,
-    Right
+    Right,
+    None    
 }
 
 public class ControlMapper : MonoBehaviour {
+
+    [Range(0,1)] public float threshold = 0.5f;
 
     public string player1Xaxis, player1Yaxis, player2Xaxis, player2Yaxis;
     public Control[] player1ControlsArray;
@@ -85,11 +88,11 @@ public class ControlMapper : MonoBehaviour {
         Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
         if (control.isAxis)
         {
-            if (control.isPositive && control.currentValue > 0.5f)
+            if (control.isPositive && control.currentValue > instance.threshold)
             {
                 return true;
             }
-            else if (!control.isPositive && control.currentValue < -0.5f)
+            else if (!control.isPositive && control.currentValue < -instance.threshold)
             {
                 return true;
             }
@@ -100,7 +103,7 @@ public class ControlMapper : MonoBehaviour {
         }
         else
         {
-            return Input.GetKeyDown(control.keycode);
+            return Input.GetKey(control.keycode);
         }
     }
 
@@ -109,11 +112,11 @@ public class ControlMapper : MonoBehaviour {
         Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
         if (control.isAxis)
         {
-            if (control.isPositive && control.currentValue > 0.5f && control.previousValue <= 0.5f)
+            if (control.isPositive && control.currentValue > instance.threshold && control.previousValue <= instance.threshold)
             {
                 return true;
             }
-            else if (!control.isPositive && control.currentValue < -0.5f && control.previousValue >= -0.5f)
+            else if (!control.isPositive && control.currentValue < -instance.threshold && control.previousValue >= -instance.threshold)
             {
                 return true;
             }
@@ -128,6 +131,30 @@ public class ControlMapper : MonoBehaviour {
         }
     }
 
+    public static bool GetButtonUp(int player, GameButton button)
+    {
+        Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
+        if (control.isAxis)
+        {
+            if (control.isPositive && control.currentValue < instance.threshold && control.previousValue >= instance.threshold)
+            {
+                return true;
+            }
+            else if (!control.isPositive && control.currentValue > -instance.threshold && control.previousValue <= -instance.threshold)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return Input.GetKeyUp(control.keycode);
+        }
+    }
+    
     private void Update()
     {
         foreach (Control c in player1ControlsArray)
@@ -135,7 +162,7 @@ public class ControlMapper : MonoBehaviour {
             if (c.isAxis)
             {
                 c.previousValue = c.currentValue;
-                c.currentValue = Input.GetAxis(c.axis);
+                c.currentValue = Input.GetAxisRaw(c.axis);
             }
         }
     }
