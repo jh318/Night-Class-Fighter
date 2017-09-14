@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: b57d08879110b1e4dbbb3b0556fdff55
+=======
 guid: 7c8989cba7e864f219c67840c05eeb54
+>>>>>>> commit before merge to master
 timeCreated: 1505183405
 licenseType: Free
 NativeFormatImporter:
