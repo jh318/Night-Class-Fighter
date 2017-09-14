@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3d3fdc58e6f6506448c7c8058eef5666
 timeCreated: 1505346669
+=======
+guid: 333db155c0df1d544bc88ea7c0ebc3f8
+timeCreated: 1505347159
+>>>>>>> Character select scene and minor gray boxing.
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
