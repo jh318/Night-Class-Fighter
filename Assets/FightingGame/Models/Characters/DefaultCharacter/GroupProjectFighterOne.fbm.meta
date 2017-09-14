@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2b1426ee0d6e4394782f860a6739bbbf
 folderAsset: yes
 timeCreated: 1505346667
+=======
+guid: 2e9117996c2a80b4bbcbf0151dd8da29
+folderAsset: yes
+timeCreated: 1505347158
+>>>>>>> Character select scene and minor gray boxing.
 licenseType: Free
 DefaultImporter:
   userData: 
