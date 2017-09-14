@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9eb0d90ab4adf5f4790d44db26148331
+=======
+guid: daad8ccf8839c0a47bbd2409d3541f0d
+>>>>>>> fixes missing material, deletes 'CharacterModles' folder
 folderAsset: yes
 timeCreated: 1505186747
 licenseType: Free
