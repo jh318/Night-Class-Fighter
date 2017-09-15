@@ -178,120 +178,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &700819544
-GameObject:
+--- !u!1001 &526966559
+Prefab:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 700819547}
-  - component: {fileID: 700819546}
-  - component: {fileID: 700819545}
-  - component: {fileID: 700819548}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &700819545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700819544}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e22520940719742bb118b6bf912f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &700819546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700819544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58138d269872e5243ba7fa7ac962f26b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  threshold: 0.752
-  player1Xaxis: joystick 1 axis 1
-  player1Yaxis: joystick 1 axis 2
-  player2Xaxis: joystick 2 axis 1
-  player2Yaxis: joystick 2 axis 2
-  player1ControlsArray:
-  - name: 2
-    keycode: 352
-    axis: 
-    isAxis: 0
-    isPositive: 0
-  - name: 1
-    keycode: 353
-    axis: 
-    isAxis: 0
-    isPositive: 0
-  - name: 0
-    keycode: 351
-    axis: 
-    isAxis: 0
-    isPositive: 0
-  - name: 3
-    keycode: 350
-    axis: joystick 1 axis 2
-    isAxis: 1
-    isPositive: 1
-  - name: 4
-    keycode: 350
-    axis: joystick 1 axis 2
-    isAxis: 1
-    isPositive: 0
-  - name: 5
-    keycode: 350
-    axis: joystick 1 axis 1
-    isAxis: 1
-    isPositive: 0
-  - name: 6
-    keycode: 350
-    axis: joystick 1 axis 1
-    isAxis: 1
-    isPositive: 1
-  - name: 6
-    keycode: 350
-    axis: joystick 1 axis 1
-    isAxis: 1
-    isPositive: 1
-  player2ControlsArray: []
---- !u!4 &700819547
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700819544}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8500175, y: 1.5441498, z: -8.940141}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &700819548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700819544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcb149737b3f6444d8250dd5d3462fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNumber: 0
-  inputBuffer: 
-  inputBufferDisplay: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.8500175
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.5441498
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.940141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989005459486944, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1801934180
 GameObject:
   m_ObjectHideFlags: 0

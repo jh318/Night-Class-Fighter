@@ -87,7 +87,5 @@ public class InputBuffer : MonoBehaviour {
 			Debug.Log(direction);
 			inputBuffer.Add(direction);
 		}
-	}
-
-	
+	}	
 }
