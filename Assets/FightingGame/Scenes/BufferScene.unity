@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58138d269872e5243ba7fa7ac962f26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: 0.748
+  threshold: 0.752
   player1Xaxis: joystick 1 axis 1
   player1Yaxis: joystick 1 axis 2
   player2Xaxis: joystick 2 axis 1
@@ -243,12 +243,12 @@ MonoBehaviour:
     keycode: 350
     axis: joystick 1 axis 2
     isAxis: 1
-    isPositive: 0
+    isPositive: 1
   - name: 4
     keycode: 350
     axis: joystick 1 axis 2
     isAxis: 1
-    isPositive: 1
+    isPositive: 0
   - name: 5
     keycode: 350
     axis: joystick 1 axis 1
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 700819544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a873893d9e94afa459737198a2fa01f6, type: 3}
+  m_Script: {fileID: 11500000, guid: dcb149737b3f6444d8250dd5d3462fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 0

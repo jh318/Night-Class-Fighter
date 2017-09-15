@@ -24,6 +24,10 @@ public enum GameButton
     Down, 
     Left,
     Right,
+    DownL,
+    DownR,
+    UpL,
+    UpR,
     None    
 }
 
