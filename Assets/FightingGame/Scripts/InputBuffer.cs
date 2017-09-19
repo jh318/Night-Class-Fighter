@@ -10,11 +10,14 @@ public class InputBuffer : MonoBehaviour {
 	public List<GameButton> inputBuffer;
 	[HideInInspector]
 	public Text inputBufferDisplay;
+	[HideInInspector]
+	public GameButton direction;
+	[HideInInspector]
+	public GameButton button;
 
 	private ControlMapper controlMapper;
 	private GameButton lastDirection;
-	private GameButton direction;
-	private GameButton button;
+	
 
 	void Start(){
 		controlMapper = GetComponent<ControlMapper>();
