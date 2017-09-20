@@ -88,6 +88,7 @@
     <Compile Include="Assets\FightingGame\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\FightingGame\Scripts\InputBuffer.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneTransitionTest.cs" />
+    <Compile Include="Assets\TimerScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FightingGame\Notes\FightEnumNotes.txt" />

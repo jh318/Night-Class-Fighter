@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: dc7a43ee485dbd742a09e5ecae186725
+timeCreated: 1505874136
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Alien Lines
+  fontNames:
+  - Alien Lines
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
