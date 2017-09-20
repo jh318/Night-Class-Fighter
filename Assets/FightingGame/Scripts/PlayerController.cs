@@ -11,19 +11,18 @@ public class PlayerController : MonoBehaviour {
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
+		animator.Play("Stand");
 	}
 
 	void Update(){
-		if(playerInput.GetComponent<InputBuffer>().direction == GameButton.None){
-			animator.Play("Stand");
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Right)){
-			animator.Play("MoveForward");
+		float x = 0;
+		if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Right)){
+			x = 1;
 		}
 		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Left)){
-			animator.Play("MoveBackward");
+			x = -1;
 		}
-		
+		animator.SetFloat("xInput", x);
 		ButtonUpdate();
 
 	}
@@ -32,8 +31,18 @@ public class PlayerController : MonoBehaviour {
 		// if(playerInput.GetComponent<InputBuffer>().button == GameButton.LightAttack){
 		// 	animator.Play("stA");
 		// }
-		if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
+		if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
+			//PlayAttackAnim("stA");
+			Debug.Log("Punch");
 			animator.Play("stA");
+		}
+	}
+
+	void PlayAttackAnim(string attackAnim){
+		float timer = 2.0f;
+		while(timer > 0){
+			animator.Play(attackAnim);
+			timer -= Time.deltaTime;
 		}
 	}
 }
