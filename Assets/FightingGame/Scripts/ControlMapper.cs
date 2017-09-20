@@ -42,7 +42,7 @@ public class ControlMapper : MonoBehaviour {
     public static ControlMapper instance;
 
     public static Dictionary<GameButton, Control> player1Mapping = new Dictionary<GameButton, Control>();
-    private Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
+    private static Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
 
     private void Awake()
     {
@@ -90,7 +90,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButton(int player, GameButton button)
     {
-        Control control = (player == 0) ? player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue > instance.threshold)
@@ -114,7 +114,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButtonDown(int player, GameButton button)
     {
-        Control control = (player == 0) ? player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue > instance.threshold && control.previousValue <= instance.threshold)
@@ -138,7 +138,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButtonUp(int player, GameButton button)
     {
-        Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue < instance.threshold && control.previousValue >= instance.threshold)
