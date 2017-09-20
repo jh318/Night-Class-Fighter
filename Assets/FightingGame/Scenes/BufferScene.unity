@@ -37,7 +37,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -91,18 +95,123 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!1 &337008165
+=======
+--- !u!1 &346454629
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   - component: {fileID: 337008170}
   - component: {fileID: 337008169}
   - component: {fileID: 337008168}
   - component: {fileID: 337008167}
   - component: {fileID: 337008166}
+=======
+  - component: {fileID: 346454631}
+  - component: {fileID: 346454630}
+  - component: {fileID: 346454632}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &346454630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346454629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58138d269872e5243ba7fa7ac962f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Xaxis: 
+  player1Yaxis: 
+  player2Xaxis: 
+  player2Yaxis: 
+  player1ControlsArray:
+  - name: 2
+    keycode: 350
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  - name: 1
+    keycode: 351
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  - name: 0
+    keycode: 353
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  - name: 3
+    keycode: 0
+    axis: joystick 1 axis 2
+    isAxis: 1
+    isPositive: 0
+  - name: 4
+    keycode: 0
+    axis: joystick 1 axis 2
+    isAxis: 1
+    isPositive: 1
+  - name: 5
+    keycode: 0
+    axis: joystick 1 axis 1
+    isAxis: 1
+    isPositive: 0
+  - name: 0
+    keycode: 108
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  player2ControlsArray: []
+--- !u!4 &346454631
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346454629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 518.93695, y: 128.26126, z: 374.9493}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346454632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 346454629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e22520940719742bb118b6bf912f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1850873493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1850873498}
+  - component: {fileID: 1850873497}
+  - component: {fileID: 1850873496}
+  - component: {fileID: 1850873495}
+  - component: {fileID: 1850873494}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -110,33 +219,59 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!81 &337008166
+=======
+--- !u!81 &1850873494
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 337008165}
   m_Enabled: 1
 --- !u!124 &337008167
+=======
+  m_GameObject: {fileID: 1850873493}
+  m_Enabled: 1
+--- !u!124 &1850873495
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 337008165}
   m_Enabled: 1
 --- !u!92 &337008168
+=======
+  m_GameObject: {fileID: 1850873493}
+  m_Enabled: 1
+--- !u!92 &1850873496
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Behaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 337008165}
   m_Enabled: 1
 --- !u!20 &337008169
+=======
+  m_GameObject: {fileID: 1850873493}
+  m_Enabled: 1
+--- !u!20 &1850873497
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 337008165}
+=======
+  m_GameObject: {fileID: 1850873493}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -165,12 +300,20 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!4 &337008170
+=======
+--- !u!4 &1850873498
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 337008165}
+=======
+  m_GameObject: {fileID: 1850873493}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -178,6 +321,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!1001 &526966559
 Prefab:
   m_ObjectHideFlags: 0
@@ -221,14 +365,22 @@ Prefab:
   m_ParentPrefab: {fileID: 100100000, guid: 773c0f402171b7648b13ea67e32deef2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1801934180
+=======
+--- !u!1 &2009880838
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   - component: {fileID: 1801934182}
   - component: {fileID: 1801934181}
+=======
+  - component: {fileID: 2009880840}
+  - component: {fileID: 2009880839}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -236,12 +388,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!108 &1801934181
+=======
+--- !u!108 &2009880839
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Light:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 1801934180}
+=======
+  m_GameObject: {fileID: 2009880838}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
@@ -270,12 +430,20 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
 --- !u!4 &1801934182
+=======
+--- !u!4 &2009880840
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD:Assets/FightingGame/Scenes/BufferScene.unity
   m_GameObject: {fileID: 1801934180}
+=======
+  m_GameObject: {fileID: 2009880838}
+>>>>>>> origin/cmatthews:Assets/FightingGame/Scenes/Test.unity
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
