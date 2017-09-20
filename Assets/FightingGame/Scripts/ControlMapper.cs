@@ -24,6 +24,10 @@ public enum GameButton
     Down, 
     Left,
     Right,
+    DownL,
+    DownR,
+    UpL,
+    UpR,
     None    
 }
 
@@ -154,7 +158,7 @@ public class ControlMapper : MonoBehaviour {
             return Input.GetKeyUp(control.keycode);
         }
     }
-    
+
     private void Update()
     {
         foreach (Control c in player1ControlsArray)

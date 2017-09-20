@@ -10,10 +10,14 @@ public class InputBuffer : MonoBehaviour {
 	public List<GameButton> inputBuffer;
 	[HideInInspector]
 	public Text inputBufferDisplay;
+	[HideInInspector]
+	public GameButton direction;
+	[HideInInspector]
+	public GameButton button;
 
 	private ControlMapper controlMapper;
-	private GameButton direction;
-	private GameButton button;
+	private GameButton lastDirection;
+	
 
 	void Start(){
 		controlMapper = GetComponent<ControlMapper>();
@@ -41,25 +45,50 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void GetDirectionInput(){
-		if(ControlMapper.GetButtonDown(playerNumber, GameButton.Up)){
-			direction = GameButton.Up;
-			Debug.Log("U");
+		lastDirection = direction;
+
+		Vector2 axis = Vector2.zero;
+		if(ControlMapper.GetButton(playerNumber, GameButton.Right)) axis.x = 1;
+		else if (ControlMapper.GetButton(playerNumber, GameButton.Left))  axis.x = -1;
+		
+		if(ControlMapper.GetButton(playerNumber, GameButton.Up)) axis.y = 1;
+		else if (ControlMapper.GetButton(playerNumber, GameButton.Down)) axis.y = -1;
+
+		if (axis.sqrMagnitude > ControlMapper.instance.threshold) {
+			if (Vector2.Angle (Vector2.up, axis) < 22.5f) {
+				direction = GameButton.Up;
+			}
+			else if (Vector2.Angle (Vector2.down, axis) < 22.5f) {
+				direction = GameButton.Down;
+			}
+			else if (Vector2.Angle (Vector2.left, axis) < 22.5f) {
+				direction = GameButton.Left;
+			}
+			else if (Vector2.Angle (Vector2.right, axis) < 22.5f) {
+				direction = GameButton.Right;
+			}
+			else if (Vector2.Angle (Vector2.one, axis) < 22.5f) {
+				direction = GameButton.UpR;
+			}
+			else if (Vector2.Angle (new Vector2(1,-1), axis) < 22.5f) {
+				direction = GameButton.DownR;
+			}
+			else if (Vector2.Angle (-Vector2.one, axis) < 22.5f) {
+				direction = GameButton.DownL;
+			}
+			else if (Vector2.Angle (new Vector2(-1,1), axis) < 22.5f) {
+				direction = GameButton.UpL;
+			} 
 		}
-		else if(ControlMapper.GetButtonDown(playerNumber, GameButton.Down)){
-			direction = GameButton.Down;
-			Debug.Log("D");
-		}
-		else if(ControlMapper.GetButtonDown(playerNumber, GameButton.Left)){
-			direction = GameButton.Left;
-			Debug.Log("B");
-		}
-		else if(ControlMapper.GetButtonDown(playerNumber, GameButton.Right)){
-			direction = GameButton.Right;
-			Debug.Log("F");
+		else {
+			direction = GameButton.None;
 		}
 	}
 
 	void ParseDirection(){
-		inputBuffer.Add(direction);
-	}
+		if (direction != lastDirection) {
+			Debug.Log(direction);
+			inputBuffer.Add(direction);
+		}
+	}	
 }
