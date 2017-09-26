@@ -147,7 +147,7 @@ ModelImporter:
     400138: //RootNode
     4300000: Alpha_Surface
     4300002: Alpha_Joints
-    7400000: mixamo.com
+    7400000: HeavyKick
     9500000: //RootNode
     13700000: Alpha_Joints
     13700002: Alpha_Surface
@@ -176,7 +176,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: HeavyKick
       takeName: mixamo.com
       firstFrame: 0
       lastFrame: 75

@@ -22,6 +22,13 @@ public class PlayerController : MonoBehaviour {
 		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Left)){
 			x = -1;
 		}
+		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Down)){
+			
+			animator.Play("Crouch");
+		}
+		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Up)){
+			animator.Play("NeutralJumpStart");
+		}
 		animator.SetFloat("xInput", x);
 		ButtonUpdate();
 
@@ -35,6 +42,13 @@ public class PlayerController : MonoBehaviour {
 			//PlayAttackAnim("stA");
 			Debug.Log("Punch");
 			animator.Play("stA");
+		}
+		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.MediumAttack)){
+			Debug.Log("MPunch");
+			animator.Play("stB");
+		}
+		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.HeavyAttack)){
+			animator.Play("stC");
 		}
 	}
 
