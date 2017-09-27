@@ -28,6 +28,7 @@ public class InputBuffer : MonoBehaviour {
 		GetButtonInput();
 		ParseDirection();
 		ParseButton();
+	//	Debug.Log("Buff: " + inputBuffer[inputBuffer.Count-1]);
 	}
 
 	void GetButtonInput(){
@@ -87,7 +88,7 @@ public class InputBuffer : MonoBehaviour {
 
 	void ParseDirection(){
 		if (direction != lastDirection) {
-			Debug.Log(direction);
+			// Debug.Log(direction);
 			inputBuffer.Add(direction);
 		}
 	}	

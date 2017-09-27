@@ -5,17 +5,55 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	GameObject playerInput;
-	//GameObject inputBuffer;
+	InputBuffer inputBuffer;
 	Animator animator;
 
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
-		animator.Play("Stand");
+		inputBuffer = playerInput.GetComponent<InputBuffer>();
 	}
 
 	void Update(){
+		DirectionUpdateBuffer();
+		ButtonUpdateBuffer();
+
+	}
+
+	void ButtonUpdate(){
+		// if(playerInput.GetComponent<InputBuffer>().button == GameButton.LightAttack){
+		// 	animator.Play("stA");
+		// }
+		if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
+			//PlayAttackAnim("stA");
+			// Debug.Log("Punch");
+			animator.Play("stA");
+		}
+		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.MediumAttack)){
+			// Debug.Log("MPunch");
+			animator.Play("stB");
+		}
+		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.HeavyAttack)){
+			animator.Play("stC");
+		}
+	}
+
+	void ButtonUpdateBuffer(){
+		//Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
+			animator.Play("stA");	
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
+			animator.Play("stB");
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
+			animator.Play("stC");
+		}
+	}
+
+	void DirectionUpdate(){
 		float x = 0;
+
 		if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Right)){
 			x = 1;
 		}
@@ -29,34 +67,22 @@ public class PlayerController : MonoBehaviour {
 		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Up)){
 			animator.Play("NeutralJumpStart");
 		}
+
 		animator.SetFloat("xInput", x);
-		ButtonUpdate();
-
 	}
 
-	void ButtonUpdate(){
-		// if(playerInput.GetComponent<InputBuffer>().button == GameButton.LightAttack){
-		// 	animator.Play("stA");
-		// }
-		if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
-			//PlayAttackAnim("stA");
-			Debug.Log("Punch");
-			animator.Play("stA");
-		}
-		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.MediumAttack)){
-			Debug.Log("MPunch");
-			animator.Play("stB");
-		}
-		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.HeavyAttack)){
-			animator.Play("stC");
-		}
-	}
+	void DirectionUpdateBuffer(){
+		float x = 0;
 
-	void PlayAttackAnim(string attackAnim){
-		float timer = 2.0f;
-		while(timer > 0){
-			animator.Play(attackAnim);
-			timer -= Time.deltaTime;
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Right){
+			x = 1;
 		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Left){
+			x = -1;
+		}
+		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
+
+		animator.SetFloat("xInput", x);
 	}
+	
 }
