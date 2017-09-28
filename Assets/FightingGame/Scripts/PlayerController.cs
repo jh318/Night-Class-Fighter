@@ -7,39 +7,28 @@ public class PlayerController : MonoBehaviour {
 	GameObject playerInput;
 	InputBuffer inputBuffer;
 	Animator animator;
+	public int playerNumber;
 
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
-		inputBuffer = playerInput.GetComponent<InputBuffer>();
+		//Find player's input buffer
+		InputBuffer[] buff = FindObjectsOfType(typeof(InputBuffer)) as InputBuffer[];
+		for(int i = 0; i < buff.Length; i++){
+			if(buff[i].playerNumber == playerNumber){
+				inputBuffer = buff[i];
+			}
+		}
+		
 	}
 
 	void Update(){
-		DirectionUpdateBuffer();
-		ButtonUpdateBuffer();
+		DirectionUpdate();
+		ButtonUpdate();
 
 	}
 
 	void ButtonUpdate(){
-		// if(playerInput.GetComponent<InputBuffer>().button == GameButton.LightAttack){
-		// 	animator.Play("stA");
-		// }
-		if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
-			//PlayAttackAnim("stA");
-			// Debug.Log("Punch");
-			animator.Play("stA");
-		}
-		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.MediumAttack)){
-			// Debug.Log("MPunch");
-			animator.Play("stB");
-		}
-		else if(ControlMapper.GetButtonDown(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.HeavyAttack)){
-			animator.Play("stC");
-		}
-	}
-
-	void ButtonUpdateBuffer(){
-		//Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
 			animator.Play("stA");
 			inputBuffer.inputBuffer.Clear();	
@@ -58,26 +47,6 @@ public class PlayerController : MonoBehaviour {
 	void DirectionUpdate(){
 		float x = 0;
 
-		if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Right)){
-			x = 1;
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Left)){
-			x = -1;
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Down)){
-			
-			animator.Play("Crouch");
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Up)){
-			animator.Play("NeutralJumpStart");
-		}
-
-		animator.SetFloat("xInput", x);
-	}
-
-	void DirectionUpdateBuffer(){
-		float x = 0;
-
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Right){
 			x = 1;
 		}
@@ -93,6 +62,5 @@ public class PlayerController : MonoBehaviour {
 		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
 
 		animator.SetFloat("xInput", x);
-	}
-	
+	}	
 }
