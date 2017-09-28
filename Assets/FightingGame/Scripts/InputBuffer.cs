@@ -17,6 +17,7 @@ public class InputBuffer : MonoBehaviour {
 
 	private ControlMapper controlMapper;
 	private GameButton lastDirection;
+	private GameButton lastButton;
 	
 
 	void Start(){
@@ -28,11 +29,11 @@ public class InputBuffer : MonoBehaviour {
 		GetButtonInput();
 		ParseDirection();
 		ParseButton();
-	//	Debug.Log("Buff: " + inputBuffer[inputBuffer.Count-1]);
 	}
 
-	void GetButtonInput(){
+	void GetButtonInput(){		
 		button = GameButton.None;
+
 		if(ControlMapper.GetButton(playerNumber, GameButton.LightAttack))
 			button = GameButton.LightAttack;
 		if(ControlMapper.GetButton(playerNumber, GameButton.MediumAttack))
@@ -42,7 +43,8 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void ParseButton(){
-		inputBuffer.Add(button);
+		if(button != GameButton.None)
+			inputBuffer.Add(button);
 	}
 
 	void GetDirectionInput(){
@@ -88,7 +90,10 @@ public class InputBuffer : MonoBehaviour {
 
 	void ParseDirection(){
 		if (direction != lastDirection) {
-			// Debug.Log(direction);
+			inputBuffer.Add(direction);
+		}
+		else{
+		
 			inputBuffer.Add(direction);
 		}
 	}	

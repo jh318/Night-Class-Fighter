@@ -41,13 +41,17 @@ public class PlayerController : MonoBehaviour {
 	void ButtonUpdateBuffer(){
 		//Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
-			animator.Play("stA");	
+			animator.Play("stA");
+			inputBuffer.inputBuffer.Clear();	
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
 			animator.Play("stB");
+			inputBuffer.inputBuffer.Clear();	
+			
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
 			animator.Play("stC");
+			inputBuffer.inputBuffer.Clear();	
 		}
 	}
 
@@ -79,6 +83,12 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Left){
 			x = -1;
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Down){
+			animator.Play("Crouch");
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Up){
+			animator.Play("NeutralJumpStart");
 		}
 		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
 
