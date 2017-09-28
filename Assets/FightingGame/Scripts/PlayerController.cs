@@ -5,35 +5,62 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	GameObject playerInput;
-	//GameObject inputBuffer;
+	InputBuffer inputBuffer;
 	Animator animator;
+	public int playerNumber;
 
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
+		//Find player's input buffer
+		InputBuffer[] buff = FindObjectsOfType(typeof(InputBuffer)) as InputBuffer[];
+		for(int i = 0; i < buff.Length; i++){
+			if(buff[i].playerNumber == playerNumber){
+				inputBuffer = buff[i];
+			}
+		}
+		
 	}
 
 	void Update(){
-		if(playerInput.GetComponent<InputBuffer>().direction == GameButton.None){
-			animator.Play("Stand");
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Right)){
-			animator.Play("MoveForward");
-		}
-		else if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.Left)){
-			animator.Play("MoveBackward");
-		}
-		
+		DirectionUpdate();
 		ButtonUpdate();
 
 	}
 
 	void ButtonUpdate(){
-		// if(playerInput.GetComponent<InputBuffer>().button == GameButton.LightAttack){
-		// 	animator.Play("stA");
-		// }
-		if(ControlMapper.GetButton(playerInput.GetComponent<InputBuffer>().playerNumber, GameButton.LightAttack)){
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
 			animator.Play("stA");
+			inputBuffer.inputBuffer.Clear();	
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
+			animator.Play("stB");
+			inputBuffer.inputBuffer.Clear();	
+			
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
+			animator.Play("stC");
+			inputBuffer.inputBuffer.Clear();	
 		}
 	}
+
+	void DirectionUpdate(){
+		float x = 0;
+
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Right){
+			x = 1;
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Left){
+			x = -1;
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Down){
+			animator.Play("Crouch");
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Up){
+			animator.Play("NeutralJumpStart");
+		}
+		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
+
+		animator.SetFloat("xInput", x);
+	}	
 }
