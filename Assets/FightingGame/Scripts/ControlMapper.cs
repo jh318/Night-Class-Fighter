@@ -6,10 +6,11 @@ using UnityEngine;
 public class Control
 {
     public GameButton name;
-    public KeyCode keycode;
+    public KeyCode keycode = KeyCode.Joystick1Button0;
     public string axis;
     public bool isAxis;
     public bool isPositive;
+    public Sprite buttonPic;
 
     [System.NonSerialized] public float currentValue;
     [System.NonSerialized] public float previousValue;
@@ -40,8 +41,8 @@ public class ControlMapper : MonoBehaviour {
     public Control[] player2ControlsArray;
     public static ControlMapper instance;
 
-    private Dictionary<GameButton, Control> player1Mapping = new Dictionary<GameButton, Control>();
-    private Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
+    public static Dictionary<GameButton, Control> player1Mapping = new Dictionary<GameButton, Control>();
+    private static Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
 
     private void Awake()
     {
@@ -89,7 +90,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButton(int player, GameButton button)
     {
-        Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue > instance.threshold)
@@ -113,7 +114,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButtonDown(int player, GameButton button)
     {
-        Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue > instance.threshold && control.previousValue <= instance.threshold)
@@ -137,7 +138,7 @@ public class ControlMapper : MonoBehaviour {
 
     public static bool GetButtonUp(int player, GameButton button)
     {
-        Control control = (player == 0) ? instance.player1Mapping[button] : instance.player2Mapping[button];
+        Control control = (player == 0) ? player1Mapping[button] : player2Mapping[button];
         if (control.isAxis)
         {
             if (control.isPositive && control.currentValue < instance.threshold && control.previousValue >= instance.threshold)
