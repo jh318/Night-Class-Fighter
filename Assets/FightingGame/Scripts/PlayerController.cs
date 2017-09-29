@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
+		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
 		DirectionUpdate();
 		ButtonUpdate();
 		FlipSide();
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FlipSide(){
-		if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f){
+		//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f){
 			if(transform.position.x < opponent.transform.position.x - 0.2f){
 				rightSide = false;
 				transform.localEulerAngles = flipLeftRotate;
@@ -100,6 +101,6 @@ public class PlayerController : MonoBehaviour {
 				//transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
 
 			}
-		}
+		//}
 	}
 }
