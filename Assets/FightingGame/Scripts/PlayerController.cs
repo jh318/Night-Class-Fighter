@@ -85,16 +85,21 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FlipSide(){
-		if(transform.position.x < opponent.transform.position.x){
-			rightSide = false;
-			transform.localEulerAngles = flipLeftRotate;
-			transform.localScale = flipLeftScale;
+		if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f){
+			if(transform.position.x < opponent.transform.position.x - 0.2f){
+				rightSide = false;
+				transform.localEulerAngles = flipLeftRotate;
+				transform.localScale = flipLeftScale;
+				//transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
 
-		}
-		else if(transform.position.x > opponent.transform.position.x){
-			rightSide = true;
-			transform.localEulerAngles = flipRightRotate;
-			transform.localScale = flipRightScale;
+			}
+			else if(transform.position.x > opponent.transform.position.x + 0.2f){
+				rightSide = true;
+				transform.localEulerAngles = flipRightRotate;
+				transform.localScale = flipRightScale;
+				//transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+
+			}
 		}
 	}
 }
