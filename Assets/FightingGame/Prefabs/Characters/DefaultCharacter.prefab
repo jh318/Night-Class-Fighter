@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 95238870339220036}
   - component: {fileID: 54634145470106552}
   - component: {fileID: 114899978213813854}
+  - component: {fileID: 136838677556684616}
   m_Layer: 0
   m_Name: DefaultCharacter
   m_TagString: Untagged
@@ -2586,6 +2587,19 @@ MonoBehaviour:
   hitBoxHandLeft: {fileID: 1689221679070626}
   hitBoxFootRight: {fileID: 1383887968094008}
   hitBoxFootLeft: {fileID: 1797556834146230}
+--- !u!136 &136838677556684616
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010184205770812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.37
+  m_Height: 1.69
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.12, z: 0.38}
 --- !u!137 &137038255995674986
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
