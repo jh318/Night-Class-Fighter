@@ -91,6 +91,23 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &115025641 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d,
+    type: 2}
+  m_PrefabInternal: {fileID: 613190258}
+--- !u!114 &115025645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 115025641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
 --- !u!1 &307701747
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,11 +192,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.9396927
+      value: 0.8191521
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalRotation.z
@@ -187,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.34202018
+      value: -0.5735764
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_RootOrder
@@ -236,7 +253,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_LocalScale.z
@@ -247,7 +264,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 250
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114557245969452400, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &998786785
@@ -441,6 +467,23 @@ MonoBehaviour:
   inputBufferDisplay: {fileID: 0}
   direction: 0
   button: 0
+--- !u!1 &1431417699 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1820092856}
+--- !u!114 &1431417703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1431417699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 0
 --- !u!1001 &1820092856
 Prefab:
   m_ObjectHideFlags: 0
@@ -537,7 +580,12 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114557245969452400, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2096536756

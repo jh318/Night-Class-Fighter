@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	
 	GameObject playerInput;
 	InputBuffer inputBuffer;
 	Animator animator;
 	public int playerNumber;
+	GameObject opponent;
+
+
+	Vector3 flipLeftRotate = new Vector3(0.0f, 140.0f, 0.0f);
+	Vector3 flipRightRotate = new Vector3(0.0f,250.0f,0.0f);
+	Vector3 flipLeftScale = new Vector3(1,1,1);
+	Vector3 flipRightScale = new Vector3(-1,1,1);
+	bool rightSide = false;
+
 
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
@@ -19,12 +29,21 @@ public class PlayerController : MonoBehaviour {
 				inputBuffer = buff[i];
 			}
 		}
-		
+		//Find opponent
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+		for(int i = 0; i < players.Length; i++){
+			if(players[i].GetComponent<PlayerController>()){
+				if(players[i].GetComponent<PlayerController>().playerNumber != playerNumber){
+					opponent = players[i];
+				}
+			}
+		}	
 	}
 
 	void Update(){
 		DirectionUpdate();
 		ButtonUpdate();
+		FlipSide();
 
 	}
 
@@ -61,6 +80,21 @@ public class PlayerController : MonoBehaviour {
 		}
 		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
 
+		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
-	}	
+	}
+
+	void FlipSide(){
+		if(transform.position.x < opponent.transform.position.x){
+			rightSide = false;
+			transform.localEulerAngles = flipLeftRotate;
+			transform.localScale = flipLeftScale;
+
+		}
+		else if(transform.position.x > opponent.transform.position.x){
+			rightSide = true;
+			transform.localEulerAngles = flipRightRotate;
+			transform.localScale = flipRightScale;
+		}
+	}
 }
