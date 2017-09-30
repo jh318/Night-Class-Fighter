@@ -52,5 +52,4 @@ public class HitBoxController : MonoBehaviour
     {
         hitBoxFootLeft.SetActive(false);
     }
-
 }

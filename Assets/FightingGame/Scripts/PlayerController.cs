@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour {
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
 
+	HitBoxController hitBoxController;
+
+
+
 
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
@@ -37,7 +41,10 @@ public class PlayerController : MonoBehaviour {
 					opponent = players[i];
 				}
 			}
-		}	
+		}
+
+		hitBoxController = GetComponent<HitBoxController>();
+
 	}
 
 	void Update(){
@@ -45,7 +52,9 @@ public class PlayerController : MonoBehaviour {
 		DirectionUpdate();
 		ButtonUpdate();
 		FlipSide();
+		if(hitBoxController.hitBoxHandRight.GetComponent<BoxCollider>()){
 
+		}
 	}
 
 	void ButtonUpdate(){
@@ -102,5 +111,12 @@ public class PlayerController : MonoBehaviour {
 
 			}
 		//}
+	}
+
+	void OnTriggerEnter(Collider c){
+		Debug.Log("Trigger");
+		if(c.gameObject.tag == "Player"){
+			Debug.Log("Hit");
+		}
 	}
 }
