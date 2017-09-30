@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 	HitBoxController hitBoxController;
 
 
+	public delegate void Knockout(int player);
+	public static event Knockout knockout = delegate{};
 
 
 	void Start(){
@@ -114,9 +116,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider c){
-		Debug.Log("Trigger");
-		if(c.gameObject.tag == "Player"){
+		if(c.gameObject == opponent){
 			Debug.Log("Hit");
+			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
+			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
+			opponent.GetComponent<PlayerController>().CheckHealth();
+		}
+	}
+
+	void CheckHealth(){
+		if(GetComponent<HealthController>().healthPointCurr <= 0){
+			Debug.Log("KO");
+			gameObject.SetActive(false);
+			knockout(playerNumber);
+
 		}
 	}
 }
