@@ -9,6 +9,10 @@ public class FightManager : MonoBehaviour {
 		PlayerController.knockout += OnKnockout;
 	}
 
+	void Start(){
+		AudioManager.PlayMusic("MainTheme");
+	}
+
 	void OnKnockout(int player){
 		if(player == 0){
 			Debug.Log("Player 1 Lose");
@@ -17,6 +21,6 @@ public class FightManager : MonoBehaviour {
 			Debug.Log("Player 2 Lose");
 		}
 
-		SceneManager.LoadScene("Main Menu");
+		SceneDirector.instance.Title();
 	}
 }

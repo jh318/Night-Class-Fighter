@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59375, y: 0.19433305}
   m_AnchorMax: {x: 0.9142501, y: 0.82500005}
-  m_AnchoredPosition: {x: 0.00029706955, y: -1.834204}
+  m_AnchoredPosition: {x: 0.000289917, y: -1.834204}
   m_SizeDelta: {x: -0.020324707, y: 3.6496887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313056567
@@ -1010,8 +1010,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e49dcc29ae37384bafdcc89a1bd7c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1MugShot: {fileID: 1576712579}
-  p2MugShot: {fileID: 1408970329}
+  p1MugShot: {fileID: 0}
+  p2MugShot: {fileID: 0}
   p1CharName: {fileID: 1244482634}
   p2CharName: {fileID: 892443788}
   p1ReadyUI: {fileID: 1986157928}
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 892578954}
   rightDoor: {fileID: 1195474338}
-  scene: Test
+  scene: Fight Scene
   music: 
 --- !u!1 &727430031
 GameObject:
@@ -1265,7 +1265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.09075001, y: 0.19433305}
   m_AnchorMax: {x: 0.41000003, y: 0.82500005}
-  m_AnchoredPosition: {x: 200.08, y: -3.4503002}
+  m_AnchoredPosition: {x: 200.07999, y: -3.4503002}
   m_SizeDelta: {x: 543.94, y: 133.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877335783
