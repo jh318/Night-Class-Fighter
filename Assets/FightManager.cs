@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour {
 
@@ -15,5 +16,7 @@ public class FightManager : MonoBehaviour {
 		else if(player == 1){
 			Debug.Log("Player 2 Lose");
 		}
+
+		SceneManager.LoadScene("Main Menu");
 	}
 }
