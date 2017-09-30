@@ -32,4 +32,20 @@ public class SceneTransitionTest : MonoBehaviour {
         SceneManager.LoadScene(scene); 
     }
 
+    public void SceneCustomizations()
+    {
+        if (scene == "MenuScene")
+        {
+            // Menu Music
+        }
+        else if (scene == "CharacterSelectScene")
+        {
+            // CharacterSelect Music
+        }
+        else if (scene == "FightScene")
+        {
+            // Fight Music
+        }
+    }
+
 }

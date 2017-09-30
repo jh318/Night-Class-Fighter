@@ -75,7 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FightingGame\Scriptable Objects\CharacterData.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ButtonCatcher.cs" />
+    <Compile Include="Assets\FightingGame\Scripts\CharSelectController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\FightingGame\Scripts\HitBoxController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\InputBuffer.cs" />

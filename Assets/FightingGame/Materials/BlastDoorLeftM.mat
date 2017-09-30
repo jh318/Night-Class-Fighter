@@ -90,13 +90,21 @@ Material:
       second: 0
     - first:
         name: _Glossiness
+<<<<<<< HEAD
       second: 0.736
+=======
+      second: 0.25
+>>>>>>> origin/Joe_Bro
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
+<<<<<<< HEAD
       second: 1
+=======
+      second: 0.75
+>>>>>>> origin/Joe_Bro
     - first:
         name: _Mode
       second: 0
