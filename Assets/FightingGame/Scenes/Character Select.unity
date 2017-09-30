@@ -114,7 +114,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 62050172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 484240239}
   - component: {fileID: 484240238}
   - component: {fileID: 484240237}
+  - component: {fileID: 484240240}
   m_Layer: 5
   m_Name: Button (Major Tom)
   m_TagString: Untagged
@@ -544,6 +545,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 484240235}
+--- !u!114 &484240240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484240235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 11400000, guid: 61a786ffb6efb1146b0365daf6fee36a, type: 2}
 --- !u!1 &546593144
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +711,7 @@ GameObject:
   - component: {fileID: 590550045}
   - component: {fileID: 590550044}
   - component: {fileID: 590550043}
+  - component: {fileID: 590550046}
   m_Layer: 5
   m_Name: Button (Space Man)
   m_TagString: Untagged
@@ -798,6 +812,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 590550041}
+--- !u!114 &590550046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590550041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 11400000, guid: 09b11d32695a14c48b054c3440f278bb, type: 2}
 --- !u!1 &609013973
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +940,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e49dcc29ae37384bafdcc89a1bd7c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1ReadyUI: {fileID: 1986157928}
+  p2ReadyUI: {fileID: 355343634}
   p1: {fileID: 590550043}
   p2: {fileID: 755190930}
   defaultButton: {fileID: 590550043}
@@ -1002,6 +1030,7 @@ GameObject:
   - component: {fileID: 755190932}
   - component: {fileID: 755190931}
   - component: {fileID: 755190930}
+  - component: {fileID: 755190933}
   m_Layer: 5
   m_Name: Button (Rocket Man)
   m_TagString: Untagged
@@ -1102,6 +1131,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 755190928}
+--- !u!114 &755190933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755190928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 11400000, guid: 5d3b3701976e55046827b770a3e64ba6, type: 2}
 --- !u!1 &877335781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1731,7 @@ GameObject:
   - component: {fileID: 1305533167}
   - component: {fileID: 1305533166}
   - component: {fileID: 1305533165}
+  - component: {fileID: 1305533168}
   m_Layer: 5
   m_Name: Button (Kick Start)
   m_TagString: Untagged
@@ -1790,6 +1832,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1305533163}
+--- !u!114 &1305533168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305533163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 11400000, guid: 7ffa39e3f3f49f345a45684c2f83737f, type: 2}
 --- !u!1 &1305683958
 GameObject:
   m_ObjectHideFlags: 0

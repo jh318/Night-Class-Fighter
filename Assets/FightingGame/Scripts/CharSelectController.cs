@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 
 public class CharSelectController : MonoBehaviour {
 
+    public GameObject p1ReadyUI;
+    public GameObject p2ReadyUI;
+
     [Header("Selected Button")]
     public Selectable p1;
     public Selectable p2;
@@ -27,7 +30,10 @@ public class CharSelectController : MonoBehaviour {
     public bool p1Ready = false;
     public bool p2Ready = false;
 
+
+
     // To-Do
+
     // Selection(Transfer to ready state after selecting a character);
     // Make sound when moving or selecting(Play animations);
     // Make a previous newSelection to allow for sounds to play during selection changes;
@@ -43,88 +49,103 @@ public class CharSelectController : MonoBehaviour {
 
 	void Update ()
     {
-        // Get Input p1
-        float p1Hori = Input.GetAxisRaw("Horizontal");
-        float p1Vert = Input.GetAxisRaw("Vertical");
-        Vector2 p1Dir = new Vector2(p1Hori, p1Vert);
-        Debug.Log(p1Dir);
-
-        // Get Input p2
-        float p2Hori = Input.GetAxisRaw("Horizontal2");
-        float p2Vert = Input.GetAxisRaw("Vertical2");
-        Vector2 p2Dir = new Vector2(p2Hori, p2Vert);
-
-        // Initialize the Selectable and look for other selectables in the direction of the players' choice;
-        newSelection1 = p1.FindSelectable(p1Dir);
-        newSelection2 = p2.FindSelectable(p2Dir);
-
-        //----------------------------------------------------------------------------------------
-
-        if (newSelection1 != null)
+        // while p1 and p2 !Ready;
+        if (!p1Ready)
         {
-            p1Indicator.transform.position = newSelection1.transform.position;
+            // Get Input p1
+            float p1Hori = Input.GetAxisRaw("Horizontal");
+            float p1Vert = Input.GetAxisRaw("Vertical");
+            Vector2 p1Dir = new Vector2(p1Hori, p1Vert);
+
+            newSelection1 = p1.FindSelectable(p1Dir);
+
+            if (newSelection1 != p1 && newSelection1 != null)
+            {
+                p1 = newSelection1;
+                Debug.Log("Moved To The P1 Spot.");
+            }
+
+            if (newSelection1 != null)
+            {
+                p1Indicator.transform.position = newSelection1.transform.position;
+            }
+
+            CheckSelectionChange();
+
+            if (Input.GetButton("AButton"))
+            {
+                p1ReadyUI.gameObject.SetActive(true);
+                // Gray out p2Indicator;
+                // Set character image and information;
+                Debug.Log("I'm Selecting YO!");
+                p1Ready = true;
+            }
+        }
+        else if (Input.GetButton("BackButton") && p1Ready)
+        {
+            p1Ready = false;
+            p1ReadyUI.gameObject.SetActive(false);
+            // Color p1Indicator;
+            Debug.Log("I do exist!");
         }
 
-        if (newSelection2 != null)
+        //---------------------------------------------------------------------------------
+
+        if (!p2Ready)
         {
-            p2Indicator.transform.position = newSelection2.transform.position;
+            // Get Input p2
+            float p2Hori = Input.GetAxisRaw("Horizontal2");
+            float p2Vert = Input.GetAxisRaw("Vertical2");
+            Vector2 p2Dir = new Vector2(p2Hori, p2Vert);
+
+            newSelection2 = p2.FindSelectable(p2Dir);
+
+            if (newSelection2 != p2 && newSelection2 != null)
+            {
+                p2 = newSelection2;
+                Debug.Log("Moved To The P2 Spot.");
+            }
+
+            if (newSelection2 != null)
+            {
+                p2Indicator.transform.position = newSelection2.transform.position;
+            }
+
+            CheckSelectionChange();
+
+            if (Input.GetButton("AButton2") && !p2Ready)
+            {
+                p2ReadyUI.gameObject.SetActive(true);
+                // Gray out p2Indicator;
+                // Set character image and information;
+                p2Ready = true;
+            }
+        }
+        else if (Input.GetButton("BackButton2") && p2Ready)
+        {
+            p2Ready = false;
+            p2ReadyUI.gameObject.SetActive(false);
+            // Color p2Indicator;
         }
 
-        //----------------------------------------------------------------------------------------
-
-        if (newSelection1 != p1 && newSelection1 != null)
-        {
-            p1 = newSelection1;
-            Debug.Log("Moved To The P1 Spot.");
-        }
-
-        if (newSelection2 != p2 && newSelection2 != null)
-        {
-            p2 = newSelection2;
-            Debug.Log("Moved To The P2 Spot.");
-        }
-
-        //----------------------------------------------------------------------------------------
-
-        CheckSelectionChange();
-
-        //----------------------------------------------------------------------------------------
-
-        if (Input.GetButton("AButton") && !p1Ready)
-        {
-            // p1Ready = true;
-            newSelection1.Select();
-            Debug.Log("I'm Selecting YO!");
-        }
-        //else if (Input.GetButtonDown("BackButton") && p1Ready)
-        //{
-        //    p1Ready = false;
-        //}
-
-        if (Input.GetButtonDown("AButton2") && !p1Ready)
-        {
-            p1Ready = true;
-
-        }
-        //else if (Input.GetButtonDown("BackButton2") && p1Ready)
-        //{
-        //    p1Ready = false;
-        //}
+        // Change Scene on input AButton after while loop exits!;
 
     }
+
+    //---------------------------------------------------------------------------------
 
     void CheckSelectionChange()
     {
         if (prevSelect1 != newSelection1 && prevSelect1 != null)
         {
             prevSelect1 = newSelection1;
-            // Change music and Animation
+            // Change sound and Animation
         }
 
         if (prevSelect2 != newSelection2 && prevSelect2 != null)
         {
             prevSelect2 = newSelection2;
-            // Change music and Animation
+            // Change sound and Animation
         }
     }
 
