@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e10e70b6846d446a650a46742362de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 99
+  time: 2
   TimeUI: {fileID: 2086232214}
   TimesUpUI: {fileID: 2121158678}
 --- !u!114 &2086232214 stripped
