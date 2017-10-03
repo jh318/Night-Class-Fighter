@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 public class CharSelectController : MonoBehaviour {
 
     [Header("Mug Shots")]
-    public Sprite p1MugShot;
-    public Sprite p2MugShot;
+    public RawImage p1MugShot;
+    public RawImage p2MugShot;
 
     [Header("Character Names")]
     public Text p1CharName;
@@ -90,7 +90,9 @@ public class CharSelectController : MonoBehaviour {
                 {
                     p1ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
-                    // ScriptableObject p1Info = GetComponent<ScriptableObject>();
+                    CharacterInfo p1Info = p1.GetComponent<CharacterInfo>();
+                    p1CharName.text = p1Info.characterInfo.characterName;
+                    p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
                     Debug.Log("I'm Selecting YO!");
                     p1Ready = true;
                 }
@@ -131,7 +133,9 @@ public class CharSelectController : MonoBehaviour {
                 {
                     p2ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
-                    // Set character image and information;
+                    CharacterInfo p2Info = p2.GetComponent<CharacterInfo>();
+                    p2CharName.text = p2Info.characterInfo.characterName;                   
+                    p2MugShot.texture = p2Info.characterInfo.mugShot.texture;
                     p2Ready = true;
                 }
             }
