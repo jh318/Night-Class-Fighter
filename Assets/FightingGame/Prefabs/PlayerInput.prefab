@@ -93,82 +93,98 @@ MonoBehaviour:
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 1
     keycode: 353
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 0
     keycode: 351
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 3
     keycode: 0
     axis: joystick 1 axis 2
     isAxis: 1
     isPositive: 1
+    buttonPic: {fileID: 0}
   - name: 4
     keycode: 0
     axis: joystick 1 axis 2
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 5
     keycode: 0
     axis: joystick 1 axis 1
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 6
     keycode: 0
     axis: joystick 1 axis 1
     isAxis: 1
     isPositive: 1
+    buttonPic: {fileID: 0}
   - name: 11
     keycode: 0
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   player2ControlsArray:
   - name: 2
     keycode: 372
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 1
     keycode: 373
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 0
     keycode: 371
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 3
     keycode: 0
     axis: joystick 2 axis 2
     isAxis: 1
     isPositive: 1
+    buttonPic: {fileID: 0}
   - name: 4
     keycode: 0
     axis: joystick 2 axis 2
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 5
     keycode: 0
     axis: joystick 2 axis 1
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 6
     keycode: 0
     axis: joystick 2 axis 1
     isAxis: 1
     isPositive: 1
+    buttonPic: {fileID: 0}
   - name: 11
     keycode: 0
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
 --- !u!114 &114771699021805678
 MonoBehaviour:
   m_ObjectHideFlags: 1
