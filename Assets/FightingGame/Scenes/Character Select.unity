@@ -1059,7 +1059,7 @@ MonoBehaviour:
   player2Yaxis: joystick 2 axis 2
   player1ControlsArray:
   - name: 2
-    keycode: 0
+    keycode: 352
     axis: 
     isAxis: 0
     isPositive: 0
