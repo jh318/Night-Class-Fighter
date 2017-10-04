@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 81dac24263611e9488d1c48c78fc0a4a
+timeCreated: 1505874136
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MEGA SLANT LINE
+  fontNames:
+  - MEGA SLANT LINE
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -67,8 +67,8 @@ public class CharSelectController : MonoBehaviour {
             if (!p1Ready)
             {
                 // Get Input p1
-                float p1Hori = Input.GetAxisRaw("Horizontal");
-                float p1Vert = Input.GetAxisRaw("Vertical");
+                float p1Hori = Input.GetAxis("joystick 1 axis 1");
+                float p1Vert = Input.GetAxis("joystick 1 axis 2");
                 Vector2 p1Dir = new Vector2(p1Hori, p1Vert);
 
                 newSelection1 = p1.FindSelectable(p1Dir);
@@ -97,7 +97,7 @@ public class CharSelectController : MonoBehaviour {
                     p1Ready = true;
                 }
             }
-            else if (Input.GetButton("BackButton") && p1Ready)
+            else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p1Ready)
             {
                 p1Ready = false;
                 p1ReadyUI.gameObject.SetActive(false);

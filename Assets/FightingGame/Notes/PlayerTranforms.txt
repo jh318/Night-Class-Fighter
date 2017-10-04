@@ -1,0 +1,4 @@
+Left:  Position: -0.05, 0.94, -0.27 | Rotation: 0, 140, 0 | Scale: 1, 1, 1
+Right: Position:1.2,0.94,-0.27 | Rotation: 0,230,0 | Scale: -1,1,1
+
+*(Position probably not important)
