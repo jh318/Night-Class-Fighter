@@ -33,6 +33,9 @@ public class AudioManager : MonoBehaviour
             master = this;
             DontDestroyOnLoad(gameObject);
         }
+        else {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -99,6 +102,10 @@ public class AudioManager : MonoBehaviour
     //Music Group
     public static void PlayMusic(string songName)
     {
+        if (master == null) {
+            Debug.Log("no audio manager setup");
+            return;
+        }
         AudioClip song = null;
         for (int i = 0; i < master.music.Length; ++i)
         {
