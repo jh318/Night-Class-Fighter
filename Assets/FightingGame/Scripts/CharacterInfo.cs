@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class CharacterInfo : MonoBehaviour {
 
-    public ScriptableObject characterInfo;
+    public CharacterData characterInfo;
 
 }
