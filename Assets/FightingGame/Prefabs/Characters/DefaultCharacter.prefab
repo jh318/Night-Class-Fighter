@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114899978213813854}
   - component: {fileID: 136838677556684616}
   - component: {fileID: 114813135851036980}
+  - component: {fileID: 114945504783552208}
   m_Layer: 0
   m_Name: DefaultCharacter
   m_TagString: Player
@@ -909,6 +910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4265814714654014}
   - component: {fileID: 65725210548696960}
+  - component: {fileID: 114521081343643024}
   m_Layer: 0
   m_Name: RightHandHitBox
   m_TagString: Untagged
@@ -1458,7 +1460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1010184205770812}
   m_LocalRotation: {x: 0, y: 0.8191521, z: -0, w: -0.5735764}
-  m_LocalPosition: {x: 2.602, y: 0.9464, z: -0.27548516}
+  m_LocalPosition: {x: 2.602, y: 0.9464, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4973351059272888}
@@ -2457,7 +2459,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.27, z: 0.1}
+  m_Size: {x: 0.5, y: 0.8, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65624991267278604
 BoxCollider:
@@ -2560,6 +2562,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114521081343643024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811859888670290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da28974bad602743ad80d8d1f992534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114813135851036980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2587,6 +2600,20 @@ MonoBehaviour:
   hitBoxHandLeft: {fileID: 1689221679070626}
   hitBoxFootRight: {fileID: 1383887968094008}
   hitBoxFootLeft: {fileID: 1797556834146230}
+--- !u!114 &114945504783552208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010184205770812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe7eb2186d5dd54288ea1fb282fcf08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPointMax: 10
+  healthPointCurr: 10
+  healthBarUI: {fileID: 0}
 --- !u!136 &136838677556684616
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3033,7 +3060,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: e481296fc08211f43a5620921752c3e8, type: 3}
+  m_Mesh: {fileID: 4300018, guid: e481296fc08211f43a5620921752c3e8, type: 3}
   m_Bones:
   - {fileID: 4041777743377552}
   m_BlendShapeWeights: []

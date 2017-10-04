@@ -81,6 +81,8 @@ ModelImporter:
     100146: mixamorig:Spine2
     100148: Shoes
     100150: Tops
+    100152: default1
+    100154: EyeLashes
     400000: Body
     400002: Bottoms
     400004: default
@@ -157,6 +159,24 @@ ModelImporter:
     400146: mixamorig:Spine2
     400148: Shoes
     400150: Tops
+    400152: default1
+    400154: EyeLashes
+    2300000: Body
+    2300002: Bottoms
+    2300004: EyeLashes
+    2300006: Eyes
+    2300008: Gloves
+    2300010: Hair
+    2300012: Shoes
+    2300014: Tops
+    3300000: Body
+    3300002: Bottoms
+    3300004: EyeLashes
+    3300006: Eyes
+    3300008: Gloves
+    3300010: Hair
+    3300012: Shoes
+    3300014: Tops
     4300000: default
     4300002: Eyes
     4300004: Body
@@ -165,6 +185,8 @@ ModelImporter:
     4300010: Bottoms
     4300012: Shoes
     4300014: Tops
+    4300016: default1
+    4300018: EyeLashes
     7400000: mixamo.com
     9500000: //RootNode
     13700000: Body
@@ -175,8 +197,10 @@ ModelImporter:
     13700010: Hair
     13700012: Shoes
     13700014: Tops
+    13700016: default1
+    13700018: EyeLashes
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
