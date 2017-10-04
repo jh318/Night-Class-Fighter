@@ -14,9 +14,12 @@ public class InputBuffer : MonoBehaviour {
 	public GameButton direction;
 	[HideInInspector]
 	public GameButton button;
+	[HideInInspector]
+	public bool rightSide = false;
 
 	private ControlMapper controlMapper;
 	private GameButton lastDirection;
+	private GameButton lastButton;
 	
 
 	void Start(){
@@ -30,8 +33,9 @@ public class InputBuffer : MonoBehaviour {
 		ParseButton();
 	}
 
-	void GetButtonInput(){
+	void GetButtonInput(){		
 		button = GameButton.None;
+
 		if(ControlMapper.GetButton(playerNumber, GameButton.LightAttack))
 			button = GameButton.LightAttack;
 		if(ControlMapper.GetButton(playerNumber, GameButton.MediumAttack))
@@ -41,7 +45,8 @@ public class InputBuffer : MonoBehaviour {
 	}
 
 	void ParseButton(){
-		inputBuffer.Add(button);
+		if(button != GameButton.None)
+			inputBuffer.Add(button);
 	}
 
 	void GetDirectionInput(){
@@ -51,6 +56,8 @@ public class InputBuffer : MonoBehaviour {
 		if(ControlMapper.GetButton(playerNumber, GameButton.Right)) axis.x = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Left))  axis.x = -1;
 		
+		//if(rightSide) axis.x = axis.x * -1;
+			
 		if(ControlMapper.GetButton(playerNumber, GameButton.Up)) axis.y = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Down)) axis.y = -1;
 
@@ -62,10 +69,12 @@ public class InputBuffer : MonoBehaviour {
 				direction = GameButton.Down;
 			}
 			else if (Vector2.Angle (Vector2.left, axis) < 22.5f) {
-				direction = GameButton.Left;
+					direction = GameButton.Left;
+					Debug.Log("LEFT");	
 			}
 			else if (Vector2.Angle (Vector2.right, axis) < 22.5f) {
-				direction = GameButton.Right;
+					direction = GameButton.Right;
+					Debug.Log("RIGHT");	
 			}
 			else if (Vector2.Angle (Vector2.one, axis) < 22.5f) {
 				direction = GameButton.UpR;
@@ -87,8 +96,10 @@ public class InputBuffer : MonoBehaviour {
 
 	void ParseDirection(){
 		if (direction != lastDirection) {
-			Debug.Log(direction);
 			inputBuffer.Add(direction);
 		}
-	}	
+		else{	
+			inputBuffer.Add(direction);
+		}
+	}
 }

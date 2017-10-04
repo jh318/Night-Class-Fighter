@@ -170,5 +170,13 @@ public class ControlMapper : MonoBehaviour {
                 c.currentValue = Input.GetAxisRaw(c.axis);
             }
         }
+        foreach (Control c in player2ControlsArray)
+        {
+            if (c.isAxis)
+            {
+                c.previousValue = c.currentValue;
+                c.currentValue = Input.GetAxisRaw(c.axis);
+            }
+        }
     }
 }
