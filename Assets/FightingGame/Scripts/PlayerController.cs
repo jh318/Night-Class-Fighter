@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void ButtonUpdate(){
+		if (inputBuffer.inputBuffer.Count == 0) return;
+
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
 			animator.Play("stA");
 			inputBuffer.inputBuffer.Clear();	
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void DirectionUpdate(){
+		if (inputBuffer.inputBuffer.Count == 0) return;
+
 		float x = 0;
 
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Right){
