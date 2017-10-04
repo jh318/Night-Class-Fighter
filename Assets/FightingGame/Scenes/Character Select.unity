@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59375, y: 0.19433305}
   m_AnchorMax: {x: 0.9142501, y: 0.82500005}
-  m_AnchoredPosition: {x: 0.00029706955, y: -1.834204}
+  m_AnchoredPosition: {x: 0.00030517578, y: -1.834204}
   m_SizeDelta: {x: -0.020324707, y: 3.6496887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313056567
@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 609013974}
   - component: {fileID: 609013978}
   - component: {fileID: 609013979}
+  - component: {fileID: 609013980}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1010,8 +1011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e49dcc29ae37384bafdcc89a1bd7c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1MugShot: {fileID: 1576712579}
-  p2MugShot: {fileID: 1408970329}
+  p1MugShot: {fileID: 0}
+  p2MugShot: {fileID: 0}
   p1CharName: {fileID: 1244482634}
   p2CharName: {fileID: 892443788}
   p1ReadyUI: {fileID: 1986157928}
@@ -1041,6 +1042,43 @@ MonoBehaviour:
   rightDoor: {fileID: 1195474338}
   scene: Test
   music: 
+--- !u!114 &609013980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 609013973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58138d269872e5243ba7fa7ac962f26b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Xaxis: joystick 1 axis 1
+  player1Yaxis: joystick 1 axis 2
+  player2Xaxis: joystick 1 axis 1
+  player2Yaxis: joystick 2 axis 2
+  player1ControlsArray:
+  - name: 2
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  - name: 0
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  player2ControlsArray:
+  - name: 0
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
+  - name: 0
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
 --- !u!1 &727430031
 GameObject:
   m_ObjectHideFlags: 0

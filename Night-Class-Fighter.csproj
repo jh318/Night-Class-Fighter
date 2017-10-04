@@ -89,6 +89,7 @@
     <Compile Include="Assets\FightingGame\Scripts\CharSelectController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\CharacterInfo.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ControlMapper.cs" />
+    <Compile Include="Assets\FightingGame\Scripts\MenuNavigation.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneTransitionTest.cs" />
   </ItemGroup>
   <ItemGroup>

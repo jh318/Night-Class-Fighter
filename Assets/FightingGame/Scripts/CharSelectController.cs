@@ -86,13 +86,13 @@ public class CharSelectController : MonoBehaviour {
 
                 CheckSelectionChange();
 
-                if (Input.GetButton("AButton"))
+                if (ControlMapper.GetButton(0, GameButton.LightAttack))
                 {
                     p1ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
                     CharacterInfo p1Info = p1.GetComponent<CharacterInfo>();
                     p1CharName.text = p1Info.characterInfo.characterName;
-                    p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
+                    // p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
                     Debug.Log("I'm Selecting YO!");
                     p1Ready = true;
                 }
