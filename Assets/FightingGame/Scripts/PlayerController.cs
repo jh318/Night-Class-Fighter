@@ -10,19 +10,19 @@ public class PlayerController : MonoBehaviour {
 	Animator animator;
 	public int playerNumber;
 	GameObject opponent;
-
-
 	Vector3 flipLeftRotate = new Vector3(0.0f, 140.0f, 0.0f);
 	Vector3 flipRightRotate = new Vector3(0.0f,250.0f,0.0f);
 	Vector3 flipLeftScale = new Vector3(1,1,1);
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
-
 	HitBoxController hitBoxController;
-
 
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
+
+	void OnEnable(){
+		FightManager.nextRound += OnNextRound;
+	}
 
 
 	void Start(){
@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 
 		hitBoxController = GetComponent<HitBoxController>();
 
+		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
+		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
 	}
 
 	void Update(){
@@ -135,5 +137,15 @@ public class PlayerController : MonoBehaviour {
 			knockout(playerNumber);
 
 		}
+	}
+
+	void OnNextRound(int player){
+		if(player == playerNumber){
+			gameObject.SetActive(true);
+		}
+		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
+		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
+		GetComponent<HealthController>().healthPointCurr = GetComponent<HealthController>().healthPointMax;
+		GetComponent<HealthController>().healthBarUI.size = 1;
 	}
 }
