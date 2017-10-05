@@ -12,7 +12,7 @@ public class SceneDirector : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     public void Title ()
@@ -22,5 +22,13 @@ public class SceneDirector : MonoBehaviour
     public void MainMenu ()
     {
         SceneManager.LoadScene("Main Menu");
+    }
+    public void CharacterSelect()
+    {
+        SceneManager.LoadScene("Character Select");
+    }
+    public void FightScene()
+    {
+        SceneManager.LoadScene("FightScene");
     }
 }

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Kick Start
   m_EditorClassIdentifier: 
   characterName: Kick Start
+  mugShot: {fileID: 114318473791071630, guid: 38030d6ad78df964d91ea9391da133f6, type: 2}
   charPrefab: {fileID: 0}
   altCharPrefab: {fileID: 0}

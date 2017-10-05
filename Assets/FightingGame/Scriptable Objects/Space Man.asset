@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Space Man
   m_EditorClassIdentifier: 
   characterName: Space Man
+  mugShot: {fileID: 114712413595911176, guid: 4f81ab092e3748c48a939e19ab61f452, type: 2}
   charPrefab: {fileID: 0}
   altCharPrefab: {fileID: 0}

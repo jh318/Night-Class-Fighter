@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Name: Major Tom
   m_EditorClassIdentifier: 
   characterName: Major Tom
+  mugShot: {fileID: 114243939567347794, guid: 2d36f1d2d2666404b9ca2a522072b5f4, type: 2}
   charPrefab: {fileID: 0}
   altCharPrefab: {fileID: 0}

@@ -85,18 +85,18 @@ public class CharSelectController : MonoBehaviour {
                 }
 
                 CheckSelectionChange();
-
-                if (ControlMapper.GetButton(0, GameButton.LightAttack))
+                // Below is the A Button Input;
+                if (ControlMapper.GetButton(0, GameButton.LightAttack) && !p1Ready)
                 {
                     p1ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
                     CharacterInfo p1Info = p1.GetComponent<CharacterInfo>();
                     p1CharName.text = p1Info.characterInfo.characterName;
-                    // p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
+                    p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
                     Debug.Log("I'm Selecting YO!");
                     p1Ready = true;
                 }
-            }
+            }        // Below is the B Button Input;
             else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p1Ready)
             {
                 p1Ready = false;
@@ -110,8 +110,8 @@ public class CharSelectController : MonoBehaviour {
             if (!p2Ready)
             {
                 // Get Input p2
-                float p2Hori = Input.GetAxisRaw("Horizontal2");
-                float p2Vert = Input.GetAxisRaw("Vertical2");
+                float p2Hori = Input.GetAxisRaw("joystick 2 axis 1");
+                float p2Vert = Input.GetAxisRaw("joystick 2 axis 2");
                 Vector2 p2Dir = new Vector2(p2Hori, p2Vert);
 
                 newSelection2 = p2.FindSelectable(p2Dir);
@@ -128,8 +128,8 @@ public class CharSelectController : MonoBehaviour {
                 }
 
                 CheckSelectionChange();
-
-                if (Input.GetButton("AButton2") && !p2Ready)
+                // Below is the A Button Input;
+                if (ControlMapper.GetButton(1, GameButton.LightAttack) && !p2Ready)
                 {
                     p2ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
@@ -138,8 +138,8 @@ public class CharSelectController : MonoBehaviour {
                     p2MugShot.texture = p2Info.characterInfo.mugShot.texture;
                     p2Ready = true;
                 }
-            }
-            else if (Input.GetButton("BackButton2") && p2Ready)
+            }        // Below is the B Button Input;
+            else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p2Ready)
             {
                 p2Ready = false;
                 p2ReadyUI.gameObject.SetActive(false);
@@ -149,7 +149,7 @@ public class CharSelectController : MonoBehaviour {
         }
         else
         {
-            test.ChangeScene();
+            SceneDirector.instance.FightScene();
         }
         
 
