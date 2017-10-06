@@ -13,22 +13,21 @@ public class FightManager : MonoBehaviour {
 	public int roundsToWin = 2;
 	public Vector3 player1StartPosition = new Vector3(-1.5f,1.0f,0.0f);
 	public Vector3 player2StartPosition = new Vector3(1.5f,1.0f,0.0f);
+	public GameObject player1;
+	public GameObject player2;
 
 	int roundsPlayer1 = 0;
 	int roundsPlayer2 = 0;
 	bool winPlayer1 = false;
 	bool winPlayer2 = false;
-	TimerScript timeComponent;
-	float roundTime;
+	bool roundOver = false;
+	bool matchOver = false;
 
 	public delegate void NextRound(int player);
 	public static event NextRound nextRound = delegate{};
 
-
 	void OnEnable(){
-		if(instance == null){
-			instance = this;
-		}
+		if(instance == null){ instance = this;}
 		PlayerController.knockout += OnKnockout;
 	}
 
@@ -36,49 +35,54 @@ public class FightManager : MonoBehaviour {
 		AudioManager.PlayMusic("MainTheme");
 		roundsPlayer1 = 0;
 		roundsPlayer2 = 0;
-		timeComponent = GetComponent<TimerScript>();
-		roundTime = GetComponent<TimerScript>().time;
 
 		for(int i = 0; i < roundPlayer1Images.Length; i++){
 			roundPlayer1Images[i].enabled = false;
 			roundPlayer2Images[i].enabled = false;
 			Debug.Log("Disable rounds");
 		}
+
+		FindPlayer(player1, 0);
+		FindPlayer(player2, 1);
+		//player1.GetComponent<HealthController>().healthPointCurr = 3;
 	}
 
 	void Update(){
-		if(timeComponent.time < 0.0f){
+		if(TimerScript.instance.time < 0.0f && !roundOver){
 			Debug.Log("Out of time");
-			nextRound(-1);
-			timeComponent.time = (int)roundTime;
+			StartCoroutine(EndOfRound(2.0f, -1));
+		}
+		if(matchOver){
+			Debug.Log("STOP TIME");
+			TimerScript.instance.StopCoroutine("Timer");
 		}
 	}
 	
-
 	void OnKnockout(int player){
-		if(player == 0 && player < roundsToWin){
-			roundsPlayer2++;
-			roundPlayer2Images[roundsPlayer2--].enabled = true;
-			timeComponent.time = (int)roundTime;
-			nextRound(0);
+		if(!matchOver){
+			if(player == 0 && player < roundsToWin){
+				roundsPlayer2++;
+				roundPlayer2Images[roundsPlayer2--].enabled = true;
+				if(roundsPlayer2 < roundsToWin && !roundOver) { StartCoroutine(EndOfRound(2.0f, 0)); }
+			}
+			else if(player == 1 && player < roundsToWin){
+				roundsPlayer1++;
+				roundPlayer1Images[roundsPlayer1-1].enabled = true;
+				if(roundsPlayer1 < roundsToWin && !roundOver) { StartCoroutine(EndOfRound(2.0f, 1)); }			
+			}			
 		}
-		else if(player == 1 && player < roundsToWin){
-			roundsPlayer1++;
-			roundPlayer1Images[roundsPlayer1-1].enabled = true;
-			timeComponent.time = (int)roundTime;
-			nextRound(1);
-		}
-		
+				
 		if(roundsPlayer1 == roundsToWin){
-			//ResetGame(3.0f);
+			Debug.Log("Match over");
+			matchOver = true;
 			StartCoroutine("ResetGameCoroutine", 3.0f);
 		}
 		else if(roundsPlayer2 == roundsToWin){
-			//ResetGame(3.0f);
+			matchOver = true;
 			StartCoroutine("ResetGameCoroutine", 3.0f);
 		}
 		else{
-			nextRound(player);
+			//if(!roundOver) StartCoroutine(EndOfRound(2.0f, player));
 		}
 	}
 
@@ -98,4 +102,44 @@ public class FightManager : MonoBehaviour {
 		}
 		SceneDirector.instance.Title();
 	}
+
+	IEnumerator EndOfRound(float time, int player){
+		Debug.Log("Resetting round");
+		roundOver = true;
+		while(time > 0.0f){
+			time -= Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+		if(roundOver) nextRound(player);
+		roundOver = false;
+		TimerScript.instance.StopCoroutine("Timer");
+		TimerScript.instance.StartCoroutine("Timer");
+	}
+
+	void TimeOverWinConditions(){
+
+		//if player 1 health > player 2
+			//player 1 wins rounds
+		//else if player 2 health > player 1 health
+			//player 2 wins
+		//else
+			//niether player gets a points
+	}
+
+	void FindPlayer(GameObject player, int playerNumber){
+		GameObject[] tempPlayers;
+		tempPlayers = GameObject.FindGameObjectsWithTag("Player");
+		
+		for(int i = 0; i < tempPlayers.Length; i++){
+			if(tempPlayers[i].GetComponent<PlayerController>()){
+				if(tempPlayers[i].GetComponent<PlayerController>().playerNumber == playerNumber){
+					player = tempPlayers[i];
+					Debug.Log("found player");
+				}
+			}
+		}
+	}
+
+
+
 }

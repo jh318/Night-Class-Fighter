@@ -135,14 +135,11 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("KO");
 			gameObject.SetActive(false);
 			knockout(playerNumber);
-
 		}
 	}
 
 	void OnNextRound(int player){
-		if(player == playerNumber){
-			gameObject.SetActive(true);
-		}
+		if(player == playerNumber){gameObject.SetActive(true);}
 		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
 		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
 		GetComponent<HealthController>().healthPointCurr = GetComponent<HealthController>().healthPointMax;

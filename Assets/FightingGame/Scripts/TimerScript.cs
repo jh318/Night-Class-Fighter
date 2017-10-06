@@ -5,25 +5,37 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour {
 
+    public static TimerScript instance;
+
     public int time;
-    bool timesUp = false;
+    [HideInInspector]
+    public int timeMax;
     public Text TimeUI;
     public GameObject TimesUpUI;
+    
+    bool timesUp = false;
+
+    void OnEnable(){
+        if(instance == null){
+            instance = this;
+        }
+    }
 
 	void Start () {
+        timeMax = time;
         StartCoroutine("Timer");
 	}
 
     private void Update()
     {
-        if (timesUp == true)
-        {
-            TimesUpUI.gameObject.SetActive(true);
-        }
+        if(timesUp){TimesUpUI.gameObject.SetActive(true);}
     }
 
     IEnumerator Timer()
     {
+        TimesUpUI.gameObject.SetActive(false);
+        time = timeMax;        
+        timesUp = false;
         yield return new WaitForEndOfFrame();
         for (int i = 0; time >= i; time--)
         {

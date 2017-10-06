@@ -743,7 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e10e70b6846d446a650a46742362de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 3
+  timeMax: 0
   TimeUI: {fileID: 1722455360}
   TimesUpUI: {fileID: 867988342}
 --- !u!4 &1121087140
@@ -779,6 +780,8 @@ MonoBehaviour:
   roundsToWin: 2
   player1StartPosition: {x: -1.5, y: 1, z: 0}
   player2StartPosition: {x: 1.5, y: 1, z: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1121087142
 MonoBehaviour:
   m_ObjectHideFlags: 0
