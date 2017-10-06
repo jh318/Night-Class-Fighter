@@ -17,6 +17,8 @@ public class MenuNavigation : MonoBehaviour {
     [Header("Scene")]
     public string scene;
 
+    Vector2 nav;
+    Vector2 preNav;
 
     SceneTransitionTest STT;
 
@@ -35,8 +37,13 @@ public class MenuNavigation : MonoBehaviour {
         float x2 = Input.GetAxisRaw("joystick 2 axis 1");
         float y = Input.GetAxisRaw("joystick 1 axis 2");
         float y2 = Input.GetAxis("joystick 2 axis 2");
-        Vector2 nav = new Vector2(x, y);
-        nextSelection = currentSelection.FindSelectable(nav);
+        preNav = nav;
+        nav = new Vector2(x, y);
+        if ((nav.magnitude > 0.5 && preNav.magnitude <= 0.5))
+        {
+            nextSelection = currentSelection.FindSelectable(nav);
+        }
+        
 
         if (nextSelection != currentSelection && nextSelection != null)
         {

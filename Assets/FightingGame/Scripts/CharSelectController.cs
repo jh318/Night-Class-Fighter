@@ -39,6 +39,11 @@ public class CharSelectController : MonoBehaviour {
     public Animator p1Anim;
     public Animator p2Anim;
 
+    Vector2 p1Dir;
+    Vector2 preP1Dir;
+    Vector2 p2Dir;
+    Vector2 preP2Dir;
+
     SceneTransitionTest test;
 
 
@@ -69,9 +74,13 @@ public class CharSelectController : MonoBehaviour {
                 // Get Input p1
                 float p1Hori = Input.GetAxis("joystick 1 axis 1");
                 float p1Vert = Input.GetAxis("joystick 1 axis 2");
-                Vector2 p1Dir = new Vector2(p1Hori, p1Vert);
+                preP1Dir = p1Dir;
+                p1Dir = new Vector2(p1Hori, p1Vert);
 
-                newSelection1 = p1.FindSelectable(p1Dir);
+                if (p1Dir.magnitude > 0.5 && preP1Dir.magnitude <= 0.5)
+                {
+                    newSelection1 = p1.FindSelectable(p1Dir);
+                }               
 
                 if (newSelection1 != p1 && newSelection1 != null)
                 {
@@ -112,9 +121,13 @@ public class CharSelectController : MonoBehaviour {
                 // Get Input p2
                 float p2Hori = Input.GetAxisRaw("joystick 2 axis 1");
                 float p2Vert = Input.GetAxisRaw("joystick 2 axis 2");
-                Vector2 p2Dir = new Vector2(p2Hori, p2Vert);
+                preP2Dir = p2Dir;
+                p2Dir = new Vector2(p2Hori, p2Vert);
 
-                newSelection2 = p2.FindSelectable(p2Dir);
+                if (p2Dir.magnitude > 0.5 && preP2Dir.magnitude <= 0.5)
+                {
+                    newSelection2 = p2.FindSelectable(p2Dir);
+                }
 
                 if (newSelection2 != p2 && newSelection2 != null)
                 {
