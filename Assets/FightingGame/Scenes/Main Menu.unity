@@ -91,6 +91,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &33321400 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95877446814617070, guid: 4d52b3fe673b40b4dbbc58abff4121cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1267116248}
 --- !u!1 &202383740
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,6 +620,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 323793021}
+--- !u!95 &367771023 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95234509307456714, guid: 56f21ffb0ae36834a9ed848757bb7ffa,
+    type: 2}
+  m_PrefabInternal: {fileID: 2080887995}
 --- !u!1 &423839457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,6 +1681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea33e2c2a683027459f6c640dd92eab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftDoor: {fileID: 367771023}
+  rightDoor: {fileID: 33321400}
 --- !u!4 &1981391004
 Transform:
   m_ObjectHideFlags: 0

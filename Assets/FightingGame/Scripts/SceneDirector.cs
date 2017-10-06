@@ -7,28 +7,51 @@ public class SceneDirector : MonoBehaviour
 {
     public static SceneDirector instance;
 
+    public Animator leftDoor;
+    public Animator rightDoor;
+
+    string scene;
+
     private void Awake()
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        // DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Title ()
     {
-        SceneManager.LoadScene("Title Screen");
+        scene = "Title Screen";
+        ChangeScene();
     }
     public void MainMenu ()
     {
-        SceneManager.LoadScene("Main Menu");
+        scene = "Main Menu";
+        ChangeScene();
     }
     public void CharacterSelect()
     {
-        SceneManager.LoadScene("Character Select");
+        scene = "Character Select";
+        ChangeScene();
     }
     public void FightScene()
     {
-        SceneManager.LoadScene("FightScene");
+        scene = "FightScene";
+        ChangeScene();
+    }
+
+    public void ChangeScene()
+    {
+        StartCoroutine("ChangeSceneRoutine");
+    }
+
+    IEnumerator ChangeSceneRoutine()
+    {
+        leftDoor.SetTrigger("CloseLeft");
+        rightDoor.SetTrigger("CloseRight");
+        yield return new WaitForSeconds(3);
+        // LoadScene -> add scenes together; Ex.) TitleScene + MenuScene; 
+        SceneManager.LoadScene(scene);
     }
 }
