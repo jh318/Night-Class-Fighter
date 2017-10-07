@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject == opponent){
 			Debug.Log("Hit");
+			StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
 			opponent.GetComponent<PlayerController>().CheckHealth();
@@ -144,5 +145,11 @@ public class PlayerController : MonoBehaviour {
 		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
 		GetComponent<HealthController>().healthPointCurr = GetComponent<HealthController>().healthPointMax;
 		GetComponent<HealthController>().healthBarUI.size = 1;
+	}
+
+	IEnumerator HitStop(float time){
+		Time.timeScale = 0.01f;
+		yield return new WaitForSeconds(time);
+		Time.timeScale = 1.0f;
 	}
 }
