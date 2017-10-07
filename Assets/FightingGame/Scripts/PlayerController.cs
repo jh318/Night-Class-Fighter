@@ -56,9 +56,8 @@ public class PlayerController : MonoBehaviour {
 		DirectionUpdate();
 		ButtonUpdate();
 		FlipSide();
-		if(hitBoxController.hitBoxHandRight.GetComponent<BoxCollider>()){
-
-		}
+		animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
+		
 	}
 
 	void ButtonUpdate(){
@@ -91,12 +90,16 @@ public class PlayerController : MonoBehaviour {
 			x = -1;
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Down){
-			animator.Play("Crouch");
+			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
+				animator.Play("Crouch");
+			}
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Up){
 			animator.Play("NeutralJumpStart");
 		}
-		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None){
+			//animator.SetBool("noInput", true);
+		}
 
 		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
@@ -133,7 +136,6 @@ public class PlayerController : MonoBehaviour {
 
 	void CheckHealth(){
 		if(GetComponent<HealthController>().healthPointCurr <= 0){
-			Debug.Log("KO");
 			gameObject.SetActive(false);
 			knockout(playerNumber);
 		}
