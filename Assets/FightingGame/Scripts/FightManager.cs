@@ -131,12 +131,9 @@ public class FightManager : MonoBehaviour {
 		tempPlayers = GameObject.FindGameObjectsWithTag("Player");
 		
 		for(int i = 0; i < tempPlayers.Length; i++){
-			Debug.Log("Loop");
 			if(tempPlayers[i].GetComponent<PlayerController>()){
-				Debug.Log("Finding Players...");
 				if(tempPlayers[i].GetComponent<PlayerController>().playerNumber == playerNumber){
 					player = tempPlayers[i];
-					Debug.Log("found player");
 				}
 			}
 		}

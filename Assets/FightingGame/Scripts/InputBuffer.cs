@@ -70,11 +70,9 @@ public class InputBuffer : MonoBehaviour {
 			}
 			else if (Vector2.Angle (Vector2.left, axis) < 22.5f) {
 					direction = GameButton.Left;
-					Debug.Log("LEFT");	
 			}
 			else if (Vector2.Angle (Vector2.right, axis) < 22.5f) {
 					direction = GameButton.Right;
-					Debug.Log("RIGHT");	
 			}
 			else if (Vector2.Angle (Vector2.one, axis) < 22.5f) {
 				direction = GameButton.UpR;

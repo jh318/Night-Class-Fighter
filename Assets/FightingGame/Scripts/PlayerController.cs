@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject == opponent){
 			Debug.Log("Hit");
-			StartCoroutine("HitStop", 0.001f);
+			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
 			opponent.GetComponent<PlayerController>().CheckHealth();
