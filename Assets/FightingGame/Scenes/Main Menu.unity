@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 311269599}
   - component: {fileID: 311269598}
   - component: {fileID: 311269597}
+  - component: {fileID: 311269600}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -472,6 +473,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311269595}
+--- !u!114 &311269600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 311269595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 11400000, guid: 8331480c4f26d754baf4dba11c5adc3d, type: 2}
 --- !u!1 &315701287
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +716,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 423839462}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
@@ -756,13 +770,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 423839457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbb3d15ec6ebb1a4da2d653786f08899, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftDoor: {fileID: 0}
-  rightDoor: {fileID: 0}
-  scene: FightScene
-  music: AnotherOneBitesTheDust
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 11400000, guid: 8df449d60d679854495fcce494f2b4d5, type: 2}
 --- !u!1 &476957612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1381,7 @@ GameObject:
   - component: {fileID: 1780675849}
   - component: {fileID: 1780675848}
   - component: {fileID: 1780675847}
+  - component: {fileID: 1780675850}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1469,6 +1482,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1780675845}
+--- !u!114 &1780675850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780675845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
 --- !u!1 &1907244632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,6 +1506,7 @@ GameObject:
   - component: {fileID: 1907244636}
   - component: {fileID: 1907244635}
   - component: {fileID: 1907244634}
+  - component: {fileID: 1907244637}
   m_Layer: 5
   m_Name: QUIT
   m_TagString: Untagged
@@ -1580,6 +1607,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1907244632}
+--- !u!114 &1907244637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907244632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
 --- !u!1 &1955645277
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,33 +20,38 @@ public class SceneDirector : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Title ()
+    public void Title()
     {
         scene = "Title Screen";
-        ChangeScene();
+        ChangeScene(scene);
     }
-    public void MainMenu ()
+    public void MainMenu()
     {
         scene = "Main Menu";
-        ChangeScene();
+        ChangeScene(scene);
     }
     public void CharacterSelect()
     {
         scene = "Character Select";
-        ChangeScene();
+        ChangeScene(scene);
     }
     public void FightScene()
     {
         scene = "FightScene";
-        ChangeScene();
+        ChangeScene(scene);
     }
 
-    public void ChangeScene()
+    public void Quit()
     {
-        StartCoroutine("ChangeSceneRoutine");
+        Application.Quit();
     }
 
-    IEnumerator ChangeSceneRoutine()
+    public void ChangeScene(string scene)
+    {
+        StartCoroutine("ChangeSceneRoutine", scene);
+    }
+
+    IEnumerator ChangeSceneRoutine(string scene)
     {
         leftDoor.SetTrigger("CloseLeft");
         rightDoor.SetTrigger("CloseRight");

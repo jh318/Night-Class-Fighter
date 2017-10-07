@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterInfo : MonoBehaviour {
+public class ScriptableObjectHolder : MonoBehaviour {
 
     public CharacterData characterInfo;
+
+    public SceneData sceneInfo;
 
 }

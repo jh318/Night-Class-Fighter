@@ -86,12 +86,12 @@
   <ItemGroup>
     <Compile Include="Assets\DebugTrigger.cs" />
     <Compile Include="Assets\FightManager.cs" />
-    <Compile Include="Assets\FightingGame\Scriptable Objects\CharacterData.cs" />
+    <Compile Include="Assets\FightingGame\Scriptable Objects\CharacterSelect\CharacterData.cs" />
+    <Compile Include="Assets\FightingGame\Scriptable Objects\MenuNavigation\SceneData.cs" />
     <Compile Include="Assets\FightingGame\Scripts\AudioManager.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ButtonCatcher.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ButtonRemapUIController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\CharSelectController.cs" />
-    <Compile Include="Assets\FightingGame\Scripts\CharacterInfo.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ControlMapper.cs" />
     <Compile Include="Assets\FightingGame\Scripts\HealthController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\HitBoxController.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Assets\FightingGame\Scripts\PlayerController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneDirector.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneTransitionTest.cs" />
+    <Compile Include="Assets\FightingGame\Scripts\ScriptableObjectHolder.cs" />
     <Compile Include="Assets\FightingGame\Scripts\TimerScript.cs" />
   </ItemGroup>
   <ItemGroup>

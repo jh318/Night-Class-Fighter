@@ -20,6 +20,8 @@ public class MenuNavigation : MonoBehaviour {
     Vector2 nav;
     Vector2 preNav;
 
+    bool buttonPressed = false;
+
     SceneTransitionTest STT;
 
 	void Start ()
@@ -29,10 +31,6 @@ public class MenuNavigation : MonoBehaviour {
 	}
 	void Update ()
     {
-        //preV = v;
-        //v = input;
-        //if(v.mag > 0.5 && preV.mag <= 0.5) {Go To Next};
-
         float x = Input.GetAxisRaw("joystick 1 axis 1");
         float x2 = Input.GetAxisRaw("joystick 2 axis 1");
         float y = Input.GetAxisRaw("joystick 1 axis 2");
@@ -56,10 +54,20 @@ public class MenuNavigation : MonoBehaviour {
             indicator.transform.position = nextSelection.transform.position;
         }
 
-        if (ControlMapper.GetButton(0, GameButton.LightAttack))
+        if (ControlMapper.GetButton(0, GameButton.LightAttack) && !buttonPressed)
         {
-            // scene = ButtonInfo.scene;
-            SceneDirector.instance.CharacterSelect(); // put scene in parenthesis;
+            ScriptableObjectHolder info = currentSelection.GetComponent<ScriptableObjectHolder>();
+            scene = info.sceneInfo.scene;
+            buttonPressed = true;
+
+            if (scene == "Quit")
+            {
+                SceneDirector.instance.Quit();
+            }
+            else
+            {
+                SceneDirector.instance.ChangeScene(scene); // put scene in parenthesis;
+            }
         }
 
 

@@ -44,6 +44,8 @@ public class CharSelectController : MonoBehaviour {
     Vector2 p2Dir;
     Vector2 preP2Dir;
 
+    bool wait = false;
+
     SceneTransitionTest test;
 
 
@@ -62,6 +64,14 @@ public class CharSelectController : MonoBehaviour {
         newSelection2 = defaultButton;
 
         test = GetComponent<SceneTransitionTest>();
+
+        for (float i = 0; i < 3; i += 1 * Time.deltaTime)
+        {
+            if (i == 3)
+            {
+                wait = true;
+            }
+        }
 
     }
 
@@ -99,7 +109,7 @@ public class CharSelectController : MonoBehaviour {
                 {
                     p1ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
-                    CharacterInfo p1Info = p1.GetComponent<CharacterInfo>();
+                    ScriptableObjectHolder p1Info = p1.GetComponent<ScriptableObjectHolder>();
                     p1CharName.text = p1Info.characterInfo.characterName;
                     p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
                     Debug.Log("I'm Selecting YO!");
@@ -146,7 +156,7 @@ public class CharSelectController : MonoBehaviour {
                 {
                     p2ReadyUI.gameObject.SetActive(true);
                     // Gray out p2Indicator;
-                    CharacterInfo p2Info = p2.GetComponent<CharacterInfo>();
+                    ScriptableObjectHolder p2Info = p2.GetComponent<ScriptableObjectHolder>();
                     p2CharName.text = p2Info.characterInfo.characterName;                   
                     p2MugShot.texture = p2Info.characterInfo.mugShot.texture;
                     p2Ready = true;
