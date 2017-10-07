@@ -69,15 +69,16 @@ public class AudioManager : MonoBehaviour
     }
 
     //SFX group
-    public static void PlayVariedEffect(string clipName, float variation = 0.1f)
+    public static void PlayVariedEffect(string clipName, float variation = 0.1f, float pan = 0)
     {
         PlayEffect(
             clipName,
             Random.Range(1 - variation, 1 + variation),
-            Random.Range(1 - variation, 1 + variation));
+            Random.Range(1 - variation, 1 + variation),
+            pan);
     }
 
-    public static void PlayEffect(string clipName, float pitch = 1, float volume = 1)
+    public static void PlayEffect(string clipName, float pitch = 1, float volume = 1, float pan = 0)
     {
         if (master == null) return;
         AudioClip clip = null;
@@ -94,6 +95,7 @@ public class AudioManager : MonoBehaviour
         source.clip = clip;
         source.pitch = pitch;
         source.volume = volume;
+        source.panStereo = pan;
         source.Play();
     }
     //Music Group
