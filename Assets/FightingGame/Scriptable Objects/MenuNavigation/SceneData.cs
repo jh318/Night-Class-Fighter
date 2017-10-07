@@ -7,6 +7,8 @@ public class SceneData : ScriptableObject {
 
     public string scene;
 
+    public string previousScene;
+
     public string music;
 
 }

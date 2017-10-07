@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: Play
   m_EditorClassIdentifier: 
   scene: Character Select
+  previousScene: Title Screen
   music: 

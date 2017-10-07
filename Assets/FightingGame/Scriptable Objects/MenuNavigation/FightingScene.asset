@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: FightingScene
   m_EditorClassIdentifier: 
   scene: FightScene
+  previousScene: Main Menu
   music: 

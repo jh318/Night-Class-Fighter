@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Name: MainMenu
   m_EditorClassIdentifier: 
   scene: Main Menu
+  previousScene: Title Screen
   music: 

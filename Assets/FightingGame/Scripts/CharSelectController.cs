@@ -79,6 +79,15 @@ public class CharSelectController : MonoBehaviour {
     {
         if (!toFightScene)
         {
+            if (!p1Ready && !p2Ready)
+            {
+                if (ControlMapper.GetButton(0, GameButton.MediumAttack))
+                {
+                    Debug.Log("Going back to the main menu");
+                    SceneDirector.instance.MainMenu();
+                }
+            }
+
             if (!p1Ready)
             {
                 // Get Input p1
