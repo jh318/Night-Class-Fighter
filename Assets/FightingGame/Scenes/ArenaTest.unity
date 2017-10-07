@@ -397,37 +397,9 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 114813135851036980, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: playerNumber
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4211046015632252, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.012
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &627023191 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d,
-    type: 2}
-  m_PrefabInternal: {fileID: 516514516}
---- !u!114 &627023192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 627023191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fe7eb2186d5dd54288ea1fb282fcf08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPointMax: 10
-  healthPointCurr: 10
-  healthBarUI: {fileID: 0}
 --- !u!1 &705172313 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1823497850182734, guid: d3173e6468a9ecb45b2eb7b347bf9ebd,
