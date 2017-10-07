@@ -26,23 +26,18 @@ public class TimerScript : MonoBehaviour {
         StartCoroutine("Timer");
 	}
 
-    private void Update()
-    {
-        if(timesUp){TimesUpUI.gameObject.SetActive(true);}
-    }
-
-    IEnumerator Timer()
-    {
-        TimesUpUI.gameObject.SetActive(false);
+    IEnumerator Timer(){
         time = timeMax;        
+        TimeUI.text = time.ToString();
+        TimesUpUI.gameObject.SetActive(false);
         timesUp = false;
         yield return new WaitForEndOfFrame();
-        for (int i = 0; time >= i; time--)
-        {
+        for (int i = 0; time >= i; time--){
             yield return new WaitForSecondsRealtime(1);
             TimeUI.text = "" + time;
         }
         TimeUI.text = "0";
         timesUp = true;
+        TimesUpUI.gameObject.SetActive(true);
     }
 }

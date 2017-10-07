@@ -15,6 +15,7 @@ public class FightManager : MonoBehaviour {
 	public Vector3 player2StartPosition = new Vector3(1.5f,1.0f,0.0f);
 	public GameObject player1;
 	public GameObject player2;
+	public int endOfRoundTimer = 4;
 
 	int roundsPlayer1 = 0;
 	int roundsPlayer2 = 0;
@@ -39,41 +40,41 @@ public class FightManager : MonoBehaviour {
 		for(int i = 0; i < roundPlayer1Images.Length; i++){
 			roundPlayer1Images[i].enabled = false;
 			roundPlayer2Images[i].enabled = false;
-			Debug.Log("Disable rounds");
 		}
 
-		FindPlayer(player1, 0);
-		FindPlayer(player2, 1);
-		//player1.GetComponent<HealthController>().healthPointCurr = 3;
+		FindPlayer(out player1, 0);
+		FindPlayer(out player2, 1);		
 	}
 
 	void Update(){
+		
 		if(TimerScript.instance.time < 0.0f && !roundOver){
-			Debug.Log("Out of time");
-			StartCoroutine(EndOfRound(2.0f, -1));
+			TimeOverWinConditions();			
+			StartCoroutine(EndOfRoundCoroutine(endOfRoundTimer, -1));
 		}
 		if(matchOver){
-			Debug.Log("STOP TIME");
 			TimerScript.instance.StopCoroutine("Timer");
 		}
 	}
 	
 	void OnKnockout(int player){
-		if(!matchOver){
-			if(player == 0 && player < roundsToWin){
+		if(player1.GetComponent<HealthController>().healthPointCurr <= 0 && player2.GetComponent<HealthController>().healthPointCurr <= 0){
+			if(!roundOver) StartCoroutine(EndOfRoundCoroutine(endOfRoundTimer, player));
+		}
+		else if(!matchOver){
+			if(player == 0 && roundsPlayer2 < roundsToWin){
 				roundsPlayer2++;
-				roundPlayer2Images[roundsPlayer2--].enabled = true;
-				if(roundsPlayer2 < roundsToWin && !roundOver) { StartCoroutine(EndOfRound(2.0f, 0)); }
+				roundPlayer2Images[roundsPlayer2-1].enabled = true;
+				if(roundsPlayer2 < roundsToWin && !roundOver) { StartCoroutine(EndOfRoundCoroutine(endOfRoundTimer, 0)); }
 			}
-			else if(player == 1 && player < roundsToWin){
+			else if(player == 1 && roundsPlayer1 < roundsToWin){
 				roundsPlayer1++;
 				roundPlayer1Images[roundsPlayer1-1].enabled = true;
-				if(roundsPlayer1 < roundsToWin && !roundOver) { StartCoroutine(EndOfRound(2.0f, 1)); }			
+				if(roundsPlayer1 < roundsToWin && !roundOver) { StartCoroutine(EndOfRoundCoroutine(endOfRoundTimer, 1)); }			
 			}			
 		}
 				
 		if(roundsPlayer1 == roundsToWin){
-			Debug.Log("Match over");
 			matchOver = true;
 			StartCoroutine("ResetGameCoroutine", 3.0f);
 		}
@@ -86,15 +87,8 @@ public class FightManager : MonoBehaviour {
 		}
 	}
 
-	void ResetGame(float time){
-		while(time > 0.0f){
-			Debug.Log("GAME OVER");
-			time -= Time.deltaTime;
-		}
-		SceneDirector.instance.Title();
-	}
-
 	IEnumerator ResetGameCoroutine(float time){
+		TimerScript.instance.StopCoroutine("Timer");		
 		while(time >= 0.0f){
 			time -= Time.deltaTime;
 			Debug.Log("Resetting");
@@ -103,35 +97,43 @@ public class FightManager : MonoBehaviour {
 		SceneDirector.instance.Title();
 	}
 
-	IEnumerator EndOfRound(float time, int player){
+	IEnumerator EndOfRoundCoroutine(float time, int player){
 		Debug.Log("Resetting round");
+		TimerScript.instance.StopCoroutine("Timer");
 		roundOver = true;
 		while(time > 0.0f){
 			time -= Time.deltaTime;
+			if(matchOver) yield break;
 			yield return new WaitForEndOfFrame();
 		}
-		if(roundOver) nextRound(player);
-		roundOver = false;
-		TimerScript.instance.StopCoroutine("Timer");
+		if(roundOver && !matchOver){
+		nextRound(player);
 		TimerScript.instance.StartCoroutine("Timer");
+		}
+		roundOver = false;
 	}
 
 	void TimeOverWinConditions(){
-
-		//if player 1 health > player 2
-			//player 1 wins rounds
-		//else if player 2 health > player 1 health
-			//player 2 wins
-		//else
-			//niether player gets a points
+		if(player1.GetComponent<HealthController>().healthPointCurr > player2.GetComponent<HealthController>().healthPointCurr){
+			OnKnockout(1);
+		}
+		else if(player2.GetComponent<HealthController>().healthPointCurr > player1.GetComponent<HealthController>().healthPointCurr){
+			OnKnockout(0);
+		}
+		else{
+			//No rounds rewarded
+		}
 	}
 
-	void FindPlayer(GameObject player, int playerNumber){
+	void FindPlayer(out GameObject player, int playerNumber){
+		player = null;
 		GameObject[] tempPlayers;
 		tempPlayers = GameObject.FindGameObjectsWithTag("Player");
 		
 		for(int i = 0; i < tempPlayers.Length; i++){
+			Debug.Log("Loop");
 			if(tempPlayers[i].GetComponent<PlayerController>()){
+				Debug.Log("Finding Players...");
 				if(tempPlayers[i].GetComponent<PlayerController>().playerNumber == playerNumber){
 					player = tempPlayers[i];
 					Debug.Log("found player");
@@ -139,7 +141,4 @@ public class FightManager : MonoBehaviour {
 			}
 		}
 	}
-
-
-
 }

@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnNextRound(int player){
-		if(player == playerNumber){gameObject.SetActive(true);}
+		gameObject.SetActive(true);
 		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
 		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
 		GetComponent<HealthController>().healthPointCurr = GetComponent<HealthController>().healthPointMax;
