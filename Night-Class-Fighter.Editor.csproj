@@ -18,7 +18,11 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.5.4f1</UnityVersion>
     <RootNamespace></RootNamespace>
+<<<<<<< HEAD
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
+=======
+    <LangVersion>4</LangVersion>
+>>>>>>> origin/david
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -109,12 +113,15 @@
     <Reference Include="UnityEditor.Android.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="UnityEditor.iOS.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.AppleTV.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.AppleTV.Extensions.dll</HintPath>
     </Reference>
+=======
+>>>>>>> origin/david
     <Reference Include="UnityEditor.WebGL.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
     </Reference>
@@ -124,6 +131,7 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+<<<<<<< HEAD
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>Library\UnityAssemblies\UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
@@ -138,6 +146,13 @@
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+=======
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="SabreCSG.Core">
+      <HintPath>Assets\SabreCSG\Scripts\SabreCSG.Core.dll</HintPath>
+>>>>>>> origin/david
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +162,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Assets\FightingGame\Shaders\HologramStuff\Editor\Foldout.cs" />
     <Compile Include="Assets\FightingGame\Shaders\HologramStuff\Editor\HologramShaderGUI.cs" />
     <Compile Include="Assets\FightingGame\Shaders\HologramStuff\Editor\Layout.cs" />
@@ -233,6 +249,31 @@
     <None Include="Assets\FightingGame\Shaders\HologramStuff\PostProcessing\Resources\Shaders\UberSecondPass.cginc" />
     <None Include="Assets\FightingGame\Shaders\HologramStuff\PostProcessing\Utilities\CustomMotionTexture\Shaders\CustomMotionVectorTexture.shader" />
     <None Include="Assets\FightingGame\Shaders\HologramStuff\Shaders\Hologram.shader" />
+=======
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\ExpandPropertiesDrawer.cs" />
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\Inspectors\CSGBuildContextInspector.cs" />
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\Inspectors\CSGModelInspector.cs" />
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\Inspectors\KeyMappingsInspector.cs" />
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\Inspectors\PrimitiveBrushInspector.cs" />
+    <Compile Include="Assets\SabreCSG\Scripts\Editor\Utilities\UtilityShortcuts.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\FightingGame\Notes\FightEnumNotes.txt" />
+    <None Include="Assets\FightingGame\Shaders\Hologram.shader" />
+    <None Include="Assets\FightingGame\Shaders\HologramShader.shader" />
+    <None Include="Assets\SabreCSG\Changelog.txt" />
+    <None Include="Assets\SabreCSG\Internal\Shaders\BrushPreview.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Diffuse-VertexColored.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Handle.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Line.shader" />
+    <None Include="Assets\SabreCSG\Shaders\LineDashed.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Plane.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Preview.shader" />
+    <None Include="Assets\SabreCSG\Shaders\SeeExcluded.shader" />
+    <None Include="Assets\SabreCSG\Shaders\Tri-Planar.shader" />
+    <None Include="Assets\SabreCSG\Shaders\UINoAlpha.shader" />
+    <None Include="Assets\SabreCSG\Shaders\VertexTinted.shader" />
+>>>>>>> origin/david
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

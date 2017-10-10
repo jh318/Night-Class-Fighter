@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Hologram
   m_Shader: {fileID: 4800000, guid: 29fed12d8547e354e90be987488147c1, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _EMISSION _GLITCH_ON _SCAN_ON
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -78,7 +78,7 @@ Material:
     m_Floats:
     - first:
         name: _Alpha
-      second: 1
+      second: 0.25
     - first:
         name: _Brightness
       second: 3
@@ -96,7 +96,7 @@ Material:
       second: 0
     - first:
         name: _FlickerSpeed
-      second: 1
+      second: 1.61
     - first:
         name: _Fold
       second: 3
@@ -120,7 +120,7 @@ Material:
       second: 1
     - first:
         name: _GlowTiling
-      second: 0.05
+      second: 1
     - first:
         name: _Metallic
       second: 0
@@ -141,7 +141,7 @@ Material:
       second: 1
     - first:
         name: _ScanTiling
-      second: 0.05
+      second: 1
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -166,7 +166,7 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _MainColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.113792986, g: 0.9705882, b: 0, a: 1}
     - first:
         name: _RimColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0, g: 1, b: 0.17241383, a: 1}
