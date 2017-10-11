@@ -44,8 +44,6 @@ public class CharSelectController : MonoBehaviour {
     Vector2 p2Dir;
     Vector2 preP2Dir;
 
-    bool wait = false;
-
     SceneTransitionTest test;
 
 
@@ -64,14 +62,6 @@ public class CharSelectController : MonoBehaviour {
         newSelection2 = defaultButton;
 
         test = GetComponent<SceneTransitionTest>();
-
-        for (float i = 0; i < 3; i += 1 * Time.deltaTime)
-        {
-            if (i == 3)
-            {
-                wait = true;
-            }
-        }
 
     }
 

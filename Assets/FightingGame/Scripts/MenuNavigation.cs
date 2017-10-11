@@ -9,6 +9,7 @@ public class MenuNavigation : MonoBehaviour {
     public Selectable currentSelection;
     public Selectable defaultSelection;
     Selectable nextSelection;
+    
 
     [Header("Indicator")]
     public Transform indicator;
