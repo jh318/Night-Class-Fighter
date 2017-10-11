@@ -53,8 +53,8 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
-		DirectionUpdate();
 		ButtonUpdate();
+		DirectionUpdate();		
 		FlipSide();
 		animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
 		
