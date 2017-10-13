@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
 	HitBoxController hitBoxController;
+	bool attacking = false;
 
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
@@ -53,54 +54,72 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
-		ButtonUpdate();
-		DirectionUpdate();		
+		DirectionUpdate();
+		ButtonUpdate();				
 		FlipSide();
-		animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
+		if(inputBuffer.inputBuffer.Count > 0){
+			animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
+		}
 		
 	}
 
 	void ButtonUpdate(){
 		if (inputBuffer.inputBuffer.Count == 0) return;
 
-		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
+		if(!attacking){
+			if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
 			animator.Play("stA");
+			StartCoroutine("AttackTimer");
 			inputBuffer.inputBuffer.Clear();	
-		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
+			}
+			else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
 			animator.Play("stB");
-			inputBuffer.inputBuffer.Clear();	
-			
-		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
+			StartCoroutine("AttackTimer");
+			inputBuffer.inputBuffer.Clear();				
+			}
+			else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
 			animator.Play("stC");
-			inputBuffer.inputBuffer.Clear();	
+			StartCoroutine("AttackTimer");				
+			inputBuffer.inputBuffer.Clear();
+			}
 		}
+		
 	}
 
 	void DirectionUpdate(){
-		if (inputBuffer.inputBuffer.Count == 0) return;
 
+		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stA")) return;
+		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stB")) return;
+		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stC")) return;
 		float x = 0;
 
-		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Right){
-			x = 1;
-		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Left){
-			x = -1;
-		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Down){
-			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
-				animator.Play("Crouch");
+		if(!attacking){
+			GameButton button = inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1];
+			bool buttonIsDir = false;
+			if(button == GameButton.Right){
+				buttonIsDir = true;
+				x = 1;
+			}
+			else if(button == GameButton.Left){
+				buttonIsDir = true;
+				x = -1;
+			}
+			else if(button == GameButton.Down){
+				buttonIsDir = true;
+				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
+					animator.Play("Crouch");
+				}
+			}
+			else if(button == GameButton.Up){
+				buttonIsDir = true;
+				animator.Play("NeutralJumpStart");
+			}
+			
+			if(button == GameButton.None || (inputBuffer.inputBuffer.Count == 0) || buttonIsDir){
+				animator.SetBool("noInput", true);
+				animator.Play("Locomotion");
 			}
 		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Up){
-			animator.Play("NeutralJumpStart");
-		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None){
-			//animator.SetBool("noInput", true);
-		}
-
 		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
 	}
@@ -153,5 +172,21 @@ public class PlayerController : MonoBehaviour {
 		Time.timeScale = 0.01f;
 		yield return new WaitForSeconds(time);
 		Time.timeScale = 1.0f;
+	}
+
+	bool AnimatorIsPlaying(){
+		return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+	}
+
+	IEnumerator AttackTimer(){
+		//float time = 0.0f;
+		attacking = true;
+		//check animation time
+		//when animation time is zero
+		//play next animation
+		//
+
+		yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+		attacking = false;
 	}
 }

@@ -96,5 +96,8 @@ public class InputBuffer : MonoBehaviour {
 		if (direction != lastDirection) {
 			inputBuffer.Add(direction);
 		}
+		else if(direction == GameButton.None){
+			inputBuffer.Add(GameButton.None);
+		}
 	}
 }
