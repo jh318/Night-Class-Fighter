@@ -9,8 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3dffdf4232e6c874bb3dacd9ce3a81af, type: 3}
-  m_Name: Kick Start
+  m_Name: Space Man
   m_EditorClassIdentifier: 
-  characterName: Kick Start
+  characterName: Space Man
+  mugShot: {fileID: 114712413595911176, guid: 4f81ab092e3748c48a939e19ab61f452, type: 2}
   charPrefab: {fileID: 0}
   altCharPrefab: {fileID: 0}

@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dffdf4232e6c874bb3dacd9ce3a81af, type: 3}
-  m_Name: Rocket Man
+  m_Script: {fileID: 11500000, guid: 2f36168ce503a224da1cfc256a302d7c, type: 3}
+  m_Name: Options
   m_EditorClassIdentifier: 
-  characterName: Rocket Man
-  charPrefab: {fileID: 0}
-  altCharPrefab: {fileID: 0}
+  scene: Options
+  previousScene: Title Scene
+  music: 
