@@ -109,7 +109,24 @@ public class PlayerController : MonoBehaviour {
 			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
-			opponent.GetComponent<PlayerController>().CheckHealth();
+			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();
+			otherPlayer.CheckHealth();
+			otherPlayer.KnockBack(new Vector3(1, 1, 0));
+			opponent.GetComponent<Animator>().Play("HitStun");
+		}
+	}
+
+	void KnockBack(Vector3 force){
+		if(rightSide) force *= 1;
+		else if(!rightSide) force *= -1;
+		StartCoroutine("KnockBackCoroutine", force);
+	}
+
+	IEnumerator KnockBackCoroutine(Vector3 force){
+		yield return null;
+		for(float t = 0; t < 1; t+=Time.deltaTime){
+			transform.position = transform.position + force * Time.deltaTime;
+			yield return new WaitForEndOfFrame();
 		}
 	}
 
