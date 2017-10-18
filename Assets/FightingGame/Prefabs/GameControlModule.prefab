@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4641979519158764}
+  - component: {fileID: 114878114869885022}
   m_Layer: 0
   m_Name: GameControlModule
   m_TagString: Untagged
@@ -39,3 +40,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114878114869885022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773312950041644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c191b2d59efd5c4eafc7bf37a1be0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: []
+  musicMixer: {fileID: 243395331517446890, guid: 97219c6590dd20243b7ec2a9f5185e17,
+    type: 2}
+  musicSourcesCount: 5
+  ambient: []
+  ambientMixer: {fileID: 243677548094074488, guid: 97219c6590dd20243b7ec2a9f5185e17,
+    type: 2}
+  ambientSourcesCount: 5
+  clips: []
+  sfxMixer: {fileID: 0}
+  sfxSourcesCount: 5

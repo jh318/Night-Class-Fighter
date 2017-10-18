@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FightingGame\Notes\FightEnumNotes.txt" />
+    <None Include="Assets\FightingGame\Notes\PlayerTranforms.txt" />
     <None Include="Assets\FightingGame\Shaders\Hologram.shader" />
     <None Include="Assets\FightingGame\Shaders\HologramShader.shader" />
     <None Include="Assets\SabreCSG\Changelog.txt" />
