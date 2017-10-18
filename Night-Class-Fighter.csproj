@@ -83,6 +83,7 @@
     <Compile Include="Assets\FightingGame\Scripts\ButtonCatcher.cs" />
     <Compile Include="Assets\FightingGame\Scripts\CharSelectController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ControlMapper.cs" />
+    <Compile Include="Assets\FightingGame\Scripts\CrowdController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\HitBoxController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\InputBuffer.cs" />
     <Compile Include="Assets\FightingGame\Scripts\PlayerController.cs" />
