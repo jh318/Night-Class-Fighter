@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour {
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
 	HitBoxController hitBoxController;
-	bool attacking = false;
 
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
@@ -56,72 +55,33 @@ public class PlayerController : MonoBehaviour {
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
 		DirectionUpdate();
 		ButtonUpdate();				
-		FlipSide();
-		if(inputBuffer.inputBuffer.Count > 0){
-			animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
-		}
-		
+		FlipSide();		
 	}
 
 	void ButtonUpdate(){
 		if (inputBuffer.inputBuffer.Count == 0) return;
 
-		if(!attacking){
-			if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
-			animator.Play("stA");
-			StartCoroutine("AttackTimer");
-			inputBuffer.inputBuffer.Clear();	
-			}
-			else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
-			animator.Play("stB");
-			StartCoroutine("AttackTimer");
-			inputBuffer.inputBuffer.Clear();				
-			}
-			else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
-			animator.Play("stC");
-			StartCoroutine("AttackTimer");				
-			inputBuffer.inputBuffer.Clear();
-			}
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
+			animator.SetInteger("attackStrength", 1);
+			animator.SetTrigger("attack");
 		}
-		
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
+			animator.SetInteger("attackStrength", 2);
+			animator.SetTrigger("attack");
+		}
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
+			animator.SetInteger("attackStrength", 3);
+			animator.SetTrigger("attack");
+		}
 	}
 
 	void DirectionUpdate(){
+		float x = inputBuffer.dirAxis.x;
+		float y = inputBuffer.dirAxis.y;
 
-		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stA")) return;
-		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stB")) return;
-		//if(animator.GetCurrentAnimatorStateInfo(0).IsName("stC")) return;
-		float x = 0;
-
-		if(!attacking){
-			GameButton button = inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1];
-			bool buttonIsDir = false;
-			if(button == GameButton.Right){
-				buttonIsDir = true;
-				x = 1;
-			}
-			else if(button == GameButton.Left){
-				buttonIsDir = true;
-				x = -1;
-			}
-			else if(button == GameButton.Down){
-				buttonIsDir = true;
-				if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
-					animator.Play("Crouch");
-				}
-			}
-			else if(button == GameButton.Up){
-				buttonIsDir = true;
-				animator.Play("NeutralJumpStart");
-			}
-			
-			if(button == GameButton.None || (inputBuffer.inputBuffer.Count == 0) || buttonIsDir){
-				animator.SetBool("noInput", true);
-				animator.Play("Locomotion");
-			}
-		}
 		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
+		animator.SetFloat("yInput", y);
 	}
 
 	void FlipSide(){
@@ -176,17 +136,5 @@ public class PlayerController : MonoBehaviour {
 
 	bool AnimatorIsPlaying(){
 		return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-	}
-
-	IEnumerator AttackTimer(){
-		//float time = 0.0f;
-		attacking = true;
-		//check animation time
-		//when animation time is zero
-		//play next animation
-		//
-
-		yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-		attacking = false;
 	}
 }
