@@ -42,6 +42,7 @@ public class MenuNavigation : MonoBehaviour {
         float y2 = Input.GetAxis("joystick 2 axis 2");
         preNav = nav;
         nav = new Vector2(x, y);
+        
         if ((nav.magnitude > 0.5 && preNav.magnitude <= 0.5))
         {
             nextSelection = currentSelection.FindSelectable(nav);
