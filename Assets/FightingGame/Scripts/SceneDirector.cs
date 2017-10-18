@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneDirector : MonoBehaviour
 {
-    SceneDirector instance;
+    public static SceneDirector instance;
 
     private void Awake()
     {

@@ -101,6 +101,7 @@ public class AudioManager : MonoBehaviour
     //Music Group
     public static void PlayMusic(string songName)
     {
+        if (master == null || master.musicSources == null) return;
         AudioClip song = null;
         for (int i = 0; i < master.music.Length; ++i)
         {

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 m_EditorVersion: 5.5.4f1
-=======
-m_EditorVersion: 5.5.4f1
->>>>>>> created basic character mechanim. imported ryu sprite sheet for prototyping / reference.

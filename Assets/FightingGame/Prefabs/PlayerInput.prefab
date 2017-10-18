@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114651586212875430}
   - component: {fileID: 114626476288214830}
   - component: {fileID: 114771699021805678}
+  - component: {fileID: 114291251423858004}
   m_Layer: 0
   m_Name: PlayerInput
   m_TagString: Untagged
@@ -42,6 +43,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114291251423858004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758363622039236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb149737b3f6444d8250dd5d3462fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
+  inputBuffer: 
+  inputBufferDisplay: {fileID: 0}
+  direction: 0
+  button: 0
+  rightSide: 0
 --- !u!114 &114626476288214830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -75,42 +93,98 @@ MonoBehaviour:
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 1
     keycode: 353
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 0
     keycode: 351
     axis: 
     isAxis: 0
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 3
-    keycode: 350
+    keycode: 0
     axis: joystick 1 axis 2
     isAxis: 1
     isPositive: 1
+    buttonPic: {fileID: 0}
   - name: 4
-    keycode: 350
+    keycode: 0
     axis: joystick 1 axis 2
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 5
-    keycode: 350
+    keycode: 0
     axis: joystick 1 axis 1
     isAxis: 1
     isPositive: 0
+    buttonPic: {fileID: 0}
   - name: 6
-    keycode: 350
+    keycode: 0
     axis: joystick 1 axis 1
     isAxis: 1
     isPositive: 1
-  - name: 6
-    keycode: 350
-    axis: joystick 1 axis 1
+    buttonPic: {fileID: 0}
+  - name: 11
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  player2ControlsArray:
+  - name: 2
+    keycode: 372
+    axis: 
+    isAxis: 0
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  - name: 1
+    keycode: 373
+    axis: 
+    isAxis: 0
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  - name: 0
+    keycode: 371
+    axis: 
+    isAxis: 0
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  - name: 3
+    keycode: 0
+    axis: joystick 2 axis 2
     isAxis: 1
     isPositive: 1
-  player2ControlsArray: []
+    buttonPic: {fileID: 0}
+  - name: 4
+    keycode: 0
+    axis: joystick 2 axis 2
+    isAxis: 1
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  - name: 5
+    keycode: 0
+    axis: joystick 2 axis 1
+    isAxis: 1
+    isPositive: 0
+    buttonPic: {fileID: 0}
+  - name: 6
+    keycode: 0
+    axis: joystick 2 axis 1
+    isAxis: 1
+    isPositive: 1
+    buttonPic: {fileID: 0}
+  - name: 11
+    keycode: 0
+    axis: 
+    isAxis: 0
+    isPositive: 0
+    buttonPic: {fileID: 0}
 --- !u!114 &114771699021805678
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,3 +199,6 @@ MonoBehaviour:
   playerNumber: 0
   inputBuffer: 
   inputBufferDisplay: {fileID: 0}
+  direction: 0
+  button: 0
+  rightSide: 0

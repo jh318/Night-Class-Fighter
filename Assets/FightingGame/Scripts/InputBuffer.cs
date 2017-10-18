@@ -14,6 +14,8 @@ public class InputBuffer : MonoBehaviour {
 	public GameButton direction;
 	[HideInInspector]
 	public GameButton button;
+	[HideInInspector]
+	public bool rightSide = false;
 
 	private ControlMapper controlMapper;
 	private GameButton lastDirection;
@@ -54,6 +56,8 @@ public class InputBuffer : MonoBehaviour {
 		if(ControlMapper.GetButton(playerNumber, GameButton.Right)) axis.x = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Left))  axis.x = -1;
 		
+		//if(rightSide) axis.x = axis.x * -1;
+			
 		if(ControlMapper.GetButton(playerNumber, GameButton.Up)) axis.y = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Down)) axis.y = -1;
 
@@ -81,7 +85,7 @@ public class InputBuffer : MonoBehaviour {
 			}
 			else if (Vector2.Angle (new Vector2(-1,1), axis) < 22.5f) {
 				direction = GameButton.UpL;
-			} 
+			}
 		}
 		else {
 			direction = GameButton.None;
@@ -92,9 +96,8 @@ public class InputBuffer : MonoBehaviour {
 		if (direction != lastDirection) {
 			inputBuffer.Add(direction);
 		}
-		else{
-		
-			inputBuffer.Add(direction);
+		else if(direction == GameButton.None){
+			inputBuffer.Add(GameButton.None);
 		}
-	}	
+	}
 }
