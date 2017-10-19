@@ -21,9 +21,17 @@ public class CrowdController : MonoBehaviour
     private int player2NewHealth;
     private int player2LastHealth = 0;
 
-	void Start ()
+    void Start()
     {
-        AudioManager.AmbientSounds("CrowdLoop");
+        //AudioManager.AmbientSounds("CrowdLoop");
+        p1Fans.volume = 0.1f;
+        p1Fans.panStereo = -1;
+
+        p2Fans.volume = 0.1f;
+        p2Fans.panStereo = 1;
+
+        bandWagoners.volume = 0.1f;
+        bandWagoners.panStereo = 0;
 
         HealthController[] healthControllers = GameObject.FindObjectsOfType<HealthController>();
         foreach (HealthController health in healthControllers)
@@ -42,48 +50,61 @@ public class CrowdController : MonoBehaviour
             player1LastHealth = player1NewHealth;
             player2LastHealth = player2NewHealth;
         }
-	}
-	
-	void Update ()
+    }
+
+    void Update()
     {
         player1NewHealth = player1Health.healthPointCurr;
         player2NewHealth = player2Health.healthPointCurr;
+        Debug.Log("One HP" + player1NewHealth);
+        Debug.Log("Two HP" + player2NewHealth);
 
-        if (player1LastHealth > player1NewHealth) Player1Hurt();
-        if (player2LastHealth > player2NewHealth) Player2Hurt();
-
-        if (player1Health.healthPointCurr > player2Health.healthPointCurr)
+        if (player1NewHealth > player2NewHealth)
         {
-            float dif = (player1Health.healthPointCurr / player1Health.healthPointMax) - (player2Health.healthPointCurr / player2Health.healthPointMax);
-            bandWagoners.panStereo = dif;
+            bandWagoners.panStereo -= 0.1f;
+            if (p2Fans.pitch > 0.1f)
+            {
+                p2Fans.pitch -= 0.1f;
+            }
+            if (p1Fans.pitch < 1)
+            {
+                p1Fans.pitch += 0.1f;
+            }
         }
-        else if (player2Health.healthPointMax > player1Health.healthPointMax)
+        else if (player2NewHealth > player1NewHealth)
         {
-            float dif = (player2Health.healthPointCurr / player2Health.healthPointMax) - (player1Health.healthPointCurr / player1Health.healthPointMax);
-            bandWagoners.panStereo = dif;
-        }
-        else
-        {
-            bandWagoners.panStereo = Mathf.Lerp(bandWagoners.panStereo, 0, (1 * Time.deltaTime)); 
-        }
-	}
-
-    void Player1Hurt ()
-    {
-        if (p2FanVol < 1)
-        {
-            p2FanVol += 0.1f;
-            p2Fans.volume = Mathf.Clamp(p2FanVol, 0, 1.5f);
+            bandWagoners.panStereo += 0.1f;
+            if (p1Fans.pitch > 0.1f)
+            {
+                p1Fans.pitch -= 0.1f;
+            }
+            if (p2Fans.pitch < 1)
+            {
+                p2Fans.pitch += 0.1f;
+            }
         }
 
-        player1LastHealth = player1NewHealth;
+        if (player1NewHealth < player1LastHealth)
+        {
+            AudioManager.PlayVariedEffect(CrowdCheer(), 0.1f, 1);
+        }
+        if (player2NewHealth < player2LastHealth)
+        {
+            AudioManager.PlayVariedEffect(CrowdCheer(), 0.1f, -1);
+        }
     }
-    void Player2Hurt ()
+
+    string CrowdCheer()
     {
-        if (p1FanVol < 1)
-        {
-            p1FanVol += 0.1f;
-            p1Fans.volume.Equals(p1FanVol);
-        }
+        string namePassed = " ";
+        float roll = Random.Range(1, 3);
+        int result = (int)roll;
+
+        if (result == 1) namePassed = "Yeah1";
+        else if (result == 2) namePassed = "Yeah2";
+        else if (result == 3) namePassed = "Yeah3";
+        else namePassed = " ";
+
+        return namePassed;
     }
 }
