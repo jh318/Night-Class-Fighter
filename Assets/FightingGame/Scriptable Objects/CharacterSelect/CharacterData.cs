@@ -8,7 +8,7 @@ public class CharacterData : ScriptableObject {
 
     public string characterName;
 
-    public Sprite mugShot;
+    public RawImage mugShot;
 
     public GameObject charPrefab;
 
