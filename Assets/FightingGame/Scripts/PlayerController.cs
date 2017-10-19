@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	public int playerNumber;
 	public int jumpCountMax = 1;
 	[HideInInspector]
 	public int jumpCount = 1;
 	public float jumpVelocityY = 2.0f;
 	public float jumpVelocityX = 2.0f;
+	[HideInInspector]
+	public bool isGround = true;
+
 
 	bool canJump = true;
+	bool rightSide = false;
+	bool isAttacking = false;
+
 	GameObject playerInput;
 	InputBuffer inputBuffer;
 	Animator animator;
-	public int playerNumber;
 	GameObject opponent;
 	Vector3 flipLeftRotate = new Vector3(0.0f, 140.0f, 0.0f);
 	Vector3 flipRightRotate = new Vector3(0.0f,250.0f,0.0f);
 	Vector3 flipLeftScale = new Vector3(1,1,1);
 	Vector3 flipRightScale = new Vector3(-1,1,1);
-	bool rightSide = false;
 	HitBoxController hitBoxController;
 	Rigidbody body;
 
@@ -33,6 +38,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Start(){
+		isGround = true;
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
 		body = GetComponent<Rigidbody>();
@@ -70,17 +76,20 @@ public class PlayerController : MonoBehaviour {
 	void ButtonUpdate(){
 		if (inputBuffer.inputBuffer.Count == 0) return;
 
-		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack){
+		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack && !isAttacking){
 			animator.SetInteger("attackStrength", 1);
 			animator.SetTrigger("attack");
+			//StartCoroutine("Attacking");
 		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack){
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack && !isAttacking){
 			animator.SetInteger("attackStrength", 2);
 			animator.SetTrigger("attack");
+			//StartCoroutine("Attacking");		
 		}
-		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack){
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack && !isAttacking){
 			animator.SetInteger("attackStrength", 3);
 			animator.SetTrigger("attack");
+			//StartCoroutine("Attacking");
 		}
 	}
 
@@ -98,33 +107,34 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FlipSide(){
-		//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f){
-			if(transform.position.x < opponent.transform.position.x - 0.2f){
+		
+			if(transform.position.x < opponent.transform.position.x - 0.2f && opponent.GetComponent<PlayerController>().isGround && isGround){
 				rightSide = false;
 				transform.localEulerAngles = flipLeftRotate;
 				transform.localScale = flipLeftScale;
-				//transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
+				//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f)
+					//transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
 
 			}
-			else if(transform.position.x > opponent.transform.position.x + 0.2f){
+			else if(transform.position.x > opponent.transform.position.x + 0.2f && opponent.GetComponent<PlayerController>().isGround && isGround){
 				rightSide = true;
 				transform.localEulerAngles = flipRightRotate;
 				transform.localScale = flipRightScale;
-				//transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+				//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f)
+					//transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
 
 			}
-		//}
 	}
 
 	void OnTriggerEnter(Collider c){
-		if(c.gameObject == opponent){
+		if(c.gameObject == opponent && isAttacking){
 			Debug.Log("Hit");
 			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
 			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();
 			otherPlayer.CheckHealth();
-			otherPlayer.KnockBack(new Vector3(1, 1, 0));
+			otherPlayer.KnockBack(new Vector3(1, 0, 0));
 			opponent.GetComponent<Animator>().Play("HitStun");
 		}
 	}
@@ -135,6 +145,7 @@ public class PlayerController : MonoBehaviour {
 			animator.applyRootMotion = true;
 			animator.Play("JumpLand");
 			canJump = true;
+			isGround = true;
 		}
 	}
 
@@ -165,6 +176,7 @@ public class PlayerController : MonoBehaviour {
 			animator.applyRootMotion = false;
 			jumpCount--;
 			canJump = false;
+			isGround = false;
 
 			if(x > 0.5 && y > 0.5){
 				body.velocity = new Vector3(jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
@@ -179,6 +191,7 @@ public class PlayerController : MonoBehaviour {
 		else if(rightSide && y > 0.5){
 			animator.applyRootMotion = false;
 			canJump = false;
+			isGround = false;
 
 			if(x > 0.5 && y > 0.5){
 				body.velocity = new Vector3(-jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
@@ -216,4 +229,19 @@ public class PlayerController : MonoBehaviour {
 	bool AnimatorIsPlaying(){
 		return animator.GetCurrentAnimatorStateInfo(0).length > animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
 	}
+
+	IEnumerator Attacking(){
+		isAttacking = true;
+		yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+		isAttacking = false;
+	}
+
+	public void IsAttackingTrue(){
+		isAttacking = true;
+	}
+
+	public void IsAttackingFalse(){
+		isAttacking = false;
+	}
+
 }

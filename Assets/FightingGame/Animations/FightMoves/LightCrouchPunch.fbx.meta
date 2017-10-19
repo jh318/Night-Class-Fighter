@@ -206,10 +206,26 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.31343284
+        functionName: IsAttackingTrue
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.4767726
         functionName: RightHandReturn
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.47761193
+        functionName: IsAttackingFalse
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
