@@ -10,14 +10,16 @@ public class PlayerController : MonoBehaviour {
 	public int jumpCount = 1;
 	public float jumpVelocityY = 2.0f;
 	public float jumpVelocityX = 2.0f;
+	
+	
+	bool rightSide = false;
 	[HideInInspector]
 	public bool isGround = true;
-
-
+	[HideInInspector]
+	public bool isBlocking = false;
 	bool canJump = true;
-	bool rightSide = false;
 	bool isAttacking = false;
-
+	
 	GameObject playerInput;
 	InputBuffer inputBuffer;
 	Animator animator;
@@ -68,6 +70,9 @@ public class PlayerController : MonoBehaviour {
 
 	void Update(){
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
+		CheckSide();
+		BlockCheck();
+
 		DirectionUpdate();
 		ButtonUpdate();				
 		FlipSide();		
@@ -106,28 +111,43 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
-	void FlipSide(){
-		
-			if(transform.position.x < opponent.transform.position.x - 0.2f && opponent.GetComponent<PlayerController>().isGround && isGround){
-				rightSide = false;
+	void FlipSide(){	
+			if(!rightSide  && opponent.GetComponent<PlayerController>().isGround && isGround){
 				transform.localEulerAngles = flipLeftRotate;
 				transform.localScale = flipLeftScale;
 				//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f)
 					//transform.position = new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
-
 			}
-			else if(transform.position.x > opponent.transform.position.x + 0.2f && opponent.GetComponent<PlayerController>().isGround && isGround){
+			else if(rightSide && opponent.GetComponent<PlayerController>().isGround && isGround){
 				rightSide = true;
 				transform.localEulerAngles = flipRightRotate;
 				transform.localScale = flipRightScale;
 				//if(Mathf.Abs(transform.position.x - opponent.transform.position.x) <= 1.0f)
 					//transform.position = new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
-
 			}
 	}
 
+	void CheckSide(){
+		if(transform.position.x < opponent.transform.position.x - 0.2f)
+			rightSide = false;
+		else if(transform.position.x > opponent.transform.position.x + 0.2f)
+			rightSide = true;
+	}
+
+	void BlockCheck(){
+		if(!rightSide && inputBuffer.dirAxis.x < -0.5 && !isAttacking && isGround){
+			isBlocking = true;
+		}
+		else if(rightSide && inputBuffer.dirAxis.x > 0.5 && !isAttacking && isGround){
+			isBlocking = true;
+		}
+		else{
+			isBlocking = false;
+		}
+	}
+
 	void OnTriggerEnter(Collider c){
-		if(c.gameObject == opponent && isAttacking){
+		if(c.gameObject == opponent && isAttacking && !opponent.GetComponent<PlayerController>().isBlocking){
 			Debug.Log("Hit");
 			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
@@ -136,6 +156,10 @@ public class PlayerController : MonoBehaviour {
 			otherPlayer.CheckHealth();
 			otherPlayer.KnockBack(new Vector3(1, 0, 0));
 			opponent.GetComponent<Animator>().Play("HitStun");
+		}
+		else if(c.gameObject == opponent && isAttacking && opponent.GetComponent<PlayerController>().isBlocking){
+			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();			
+			otherPlayer.KnockBack(new Vector3(1, 0, 0));
 		}
 	}
 
