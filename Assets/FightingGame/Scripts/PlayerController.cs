@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	
+	public int jumpCountMax = 1;
+	[HideInInspector]
+	public int jumpCount = 1;
+	public float jumpVelocityY = 2.0f;
+	public float jumpVelocityX = 2.0f;
+
+	bool canJump = true;
 	GameObject playerInput;
 	InputBuffer inputBuffer;
 	Animator animator;
@@ -16,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
 	HitBoxController hitBoxController;
+	Rigidbody body;
 
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
@@ -28,6 +35,8 @@ public class PlayerController : MonoBehaviour {
 	void Start(){
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
+		body = GetComponent<Rigidbody>();
+		jumpCount = jumpCountMax;
 		//Find player's input buffer
 		InputBuffer[] buff = FindObjectsOfType(typeof(InputBuffer)) as InputBuffer[];
 		for(int i = 0; i < buff.Length; i++){
@@ -82,6 +91,10 @@ public class PlayerController : MonoBehaviour {
 		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
 		animator.SetFloat("yInput", y);
+
+		if(jumpCount > 0 && canJump) JumpCheck(x,y);
+
+		
 	}
 
 	void FlipSide(){
@@ -116,6 +129,19 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter(Collision c){
+		if (c.gameObject.tag == "Ground"){
+			jumpCount = jumpCountMax;
+			animator.applyRootMotion = true;
+			animator.Play("JumpLand");
+			canJump = true;
+		}
+	}
+
+	void OnCollisionExit(Collision c){
+	
+	}
+
 	void KnockBack(Vector3 force){
 		if(rightSide) force *= 1;
 		else if(!rightSide) force *= -1;
@@ -127,6 +153,42 @@ public class PlayerController : MonoBehaviour {
 		for(float t = 0; t < 1; t+=Time.deltaTime){
 			transform.position = transform.position + force * Time.deltaTime;
 			yield return new WaitForEndOfFrame();
+		}
+	}
+
+	float JumpVelocity(float height){
+		return Mathf.Sqrt(2*height*Mathf.Abs(Physics.gravity.y));
+	}
+
+	void JumpCheck(float x, float y){
+		if(!rightSide && y > 0.5){
+			animator.applyRootMotion = false;
+			jumpCount--;
+			canJump = false;
+
+			if(x > 0.5 && y > 0.5){
+				body.velocity = new Vector3(jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
+			}
+			else if(x < -0.5 && y > 0.5){
+				body.velocity = new Vector3(-jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
+			}
+			else if(y > 0.5){
+				body.velocity = new Vector3(body.velocity.x, JumpVelocity(2), body.velocity.z);
+			}
+		}
+		else if(rightSide && y > 0.5){
+			animator.applyRootMotion = false;
+			canJump = false;
+
+			if(x > 0.5 && y > 0.5){
+				body.velocity = new Vector3(-jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
+			}
+			else if(x < -0.5 && y > 0.5){
+				body.velocity = new Vector3(jumpVelocityX, JumpVelocity(jumpVelocityY), body.velocity.z);
+			}
+			else if(y > 0.5){
+				body.velocity = new Vector3(body.velocity.x, JumpVelocity(2), body.velocity.z);
+			}
 		}
 	}
 
