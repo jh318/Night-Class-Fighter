@@ -199,6 +199,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.35394457
+        functionName: IsAttackingTrue
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.35452324
         functionName: RightFootStrike
         data: 
@@ -207,9 +215,18 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.443038
-        functionName: RightFootReturn
+        functionName: IsAttackingTrue
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4434968
+        functionName: IsAttackingFalse
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

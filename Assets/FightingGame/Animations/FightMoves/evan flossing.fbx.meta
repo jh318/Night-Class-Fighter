@@ -1,0 +1,489 @@
+fileFormatVersion: 2
+guid: b3028db46d2ca03418e722ab1f453b26
+timeCreated: 1508300746
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: C3D:Evan_Chest_1
+    100002: C3D:Evan_Chest_2
+    100004: C3D:Evan_Chest_3
+    100006: C3D:Evan_Chest_4
+    100008: C3D:Evan_Head_1
+    100010: C3D:Evan_Head_2
+    100012: C3D:Evan_Head_3
+    100014: C3D:Evan_Hip_1
+    100016: C3D:Evan_Hip_2
+    100018: C3D:Evan_Hip_3
+    100020: C3D:Evan_Hip_4
+    100022: C3D:Evan_LFoot_1
+    100024: C3D:Evan_LFoot_2
+    100026: C3D:Evan_LHand_1
+    100028: C3D:Evan_LHand_2
+    100030: C3D:Evan_LHand_3
+    100032: C3D:Evan_LShin_1
+    100034: C3D:Evan_LShin_2
+    100036: C3D:Evan_LShoulder_1
+    100038: C3D:Evan_LShoulder_2
+    100040: C3D:Evan_LThigh_1
+    100042: C3D:Evan_LThigh_2
+    100044: C3D:Evan_LUArm_1
+    100046: C3D:Evan_LUArm_2
+    100048: C3D:Evan_RFoot_1
+    100050: C3D:Evan_RFoot_2
+    100052: C3D:Evan_RHand_1
+    100054: C3D:Evan_RHand_2
+    100056: C3D:Evan_RHand_3
+    100058: C3D:Evan_RShin_1
+    100060: C3D:Evan_RShin_2
+    100062: C3D:Evan_RShoulder_1
+    100064: C3D:Evan_RShoulder_2
+    100066: C3D:Evan_RThigh_1
+    100068: C3D:Evan_RThigh_2
+    100070: C3D:Evan_RUArm_1
+    100072: C3D:Evan_RUArm_2
+    100074: C3D:Marker_100
+    100076: C3D:Marker_101
+    100078: C3D:Marker_102
+    100080: C3D:Marker_103
+    100082: C3D:Marker_104
+    100084: C3D:Marker_105
+    100086: C3D:Marker_106
+    100088: C3D:Marker_108
+    100090: C3D:Marker_109
+    100092: C3D:Marker_110
+    100094: C3D:Marker_115
+    100096: C3D:Marker_120
+    100098: C3D:Marker_122
+    100100: C3D:Marker_123
+    100102: C3D:Marker_124
+    100104: C3D:Marker_128
+    100106: C3D:Marker_133
+    100108: C3D:Marker_134
+    100110: C3D:Marker_135
+    100112: C3D:Marker_141
+    100114: C3D:Marker_142
+    100116: //RootNode
+    400000: C3D:Evan_Chest_1
+    400002: C3D:Evan_Chest_2
+    400004: C3D:Evan_Chest_3
+    400006: C3D:Evan_Chest_4
+    400008: C3D:Evan_Head_1
+    400010: C3D:Evan_Head_2
+    400012: C3D:Evan_Head_3
+    400014: C3D:Evan_Hip_1
+    400016: C3D:Evan_Hip_2
+    400018: C3D:Evan_Hip_3
+    400020: C3D:Evan_Hip_4
+    400022: C3D:Evan_LFoot_1
+    400024: C3D:Evan_LFoot_2
+    400026: C3D:Evan_LHand_1
+    400028: C3D:Evan_LHand_2
+    400030: C3D:Evan_LHand_3
+    400032: C3D:Evan_LShin_1
+    400034: C3D:Evan_LShin_2
+    400036: C3D:Evan_LShoulder_1
+    400038: C3D:Evan_LShoulder_2
+    400040: C3D:Evan_LThigh_1
+    400042: C3D:Evan_LThigh_2
+    400044: C3D:Evan_LUArm_1
+    400046: C3D:Evan_LUArm_2
+    400048: C3D:Evan_RFoot_1
+    400050: C3D:Evan_RFoot_2
+    400052: C3D:Evan_RHand_1
+    400054: C3D:Evan_RHand_2
+    400056: C3D:Evan_RHand_3
+    400058: C3D:Evan_RShin_1
+    400060: C3D:Evan_RShin_2
+    400062: C3D:Evan_RShoulder_1
+    400064: C3D:Evan_RShoulder_2
+    400066: C3D:Evan_RThigh_1
+    400068: C3D:Evan_RThigh_2
+    400070: C3D:Evan_RUArm_1
+    400072: C3D:Evan_RUArm_2
+    400074: C3D:Marker_100
+    400076: C3D:Marker_101
+    400078: C3D:Marker_102
+    400080: C3D:Marker_103
+    400082: C3D:Marker_104
+    400084: C3D:Marker_105
+    400086: C3D:Marker_106
+    400088: C3D:Marker_108
+    400090: C3D:Marker_109
+    400092: C3D:Marker_110
+    400094: C3D:Marker_115
+    400096: C3D:Marker_120
+    400098: C3D:Marker_122
+    400100: C3D:Marker_123
+    400102: C3D:Marker_124
+    400104: C3D:Marker_128
+    400106: C3D:Marker_133
+    400108: C3D:Marker_134
+    400110: C3D:Marker_135
+    400112: C3D:Marker_141
+    400114: C3D:Marker_142
+    400116: //RootNode
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton:
+    - name: evan flossing(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Chest_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.70316, y: 0.25426, z: -0.60773}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Chest_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.4208, y: 0.14635, z: -0.71484}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Chest_3
+      parentName: evan flossing(Clone)
+      position: {x: -0.45897996, y: 0.20506, z: -0.47801998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Chest_4
+      parentName: evan flossing(Clone)
+      position: {x: -0.71669996, y: 0.01475, z: -0.5434}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Head_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.97042996, y: 0.19298999, z: -0.40801996}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Head_2
+      parentName: evan flossing(Clone)
+      position: {x: -1.01867, y: 0.22153999, z: -0.52445996}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Head_3
+      parentName: evan flossing(Clone)
+      position: {x: -0.90665, y: 0.25252, z: -0.54726}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Hip_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.37348, y: 0.013979999, z: -0.61158997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Hip_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.41803, y: 0.01831, z: -0.39845002}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Hip_3
+      parentName: evan flossing(Clone)
+      position: {x: -0.12437999, y: 0.07114, z: -0.69147}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_Hip_4
+      parentName: evan flossing(Clone)
+      position: {x: -0.20098, y: 0.17617, z: -0.35172}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LFoot_1
+      parentName: evan flossing(Clone)
+      position: {x: 0.67573994, y: 0.046350002, z: -0.46319}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LFoot_2
+      parentName: evan flossing(Clone)
+      position: {x: 0.71491, y: 0.10262, z: -0.55753}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LHand_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.79690003, y: 0.04463, z: -0.79490995}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LHand_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.79339, y: 0.02344, z: -0.85594}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LHand_3
+      parentName: evan flossing(Clone)
+      position: {x: -0.68524003, y: 0.077199996, z: -0.80016}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LShin_1
+      parentName: evan flossing(Clone)
+      position: {x: 0.63786, y: 0.2119, z: -0.51351}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LShin_2
+      parentName: evan flossing(Clone)
+      position: {x: 0.60383, y: 0.09608, z: -0.51497}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LShoulder_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.83599997, y: 0.122370005, z: -0.67560995}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LShoulder_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.71338993, y: 0.18439, z: -0.75774}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LThigh_1
+      parentName: evan flossing(Clone)
+      position: {x: 0.26527998, y: 0.04222, z: -0.52238}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LThigh_2
+      parentName: evan flossing(Clone)
+      position: {x: 0.31375, y: 0.08321, z: -0.62276}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LUArm_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.97630996, y: 0.086509995, z: -0.52654}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_LUArm_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.92217, y: 0.081149995, z: -0.63993996}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RFoot_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.53481, y: 0.046469998, z: 0.06986}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RFoot_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.45956, y: 0.034590002, z: 0.00017999999}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RHand_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.62282, y: 0.040469997, z: -0.13733}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RHand_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.57395, y: 0.032369997, z: -0.07651}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RHand_3
+      parentName: evan flossing(Clone)
+      position: {x: -0.52396, y: 0.0735, z: -0.18981001}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RShin_1
+      parentName: evan flossing(Clone)
+      position: {x: 0.58015, y: 0.23089, z: -0.22636}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RShin_2
+      parentName: evan flossing(Clone)
+      position: {x: 0.65375, y: 0.10182999, z: -0.1866}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RShoulder_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.80410004, y: 0.19514999, z: -0.41345}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RShoulder_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.66674, y: 0.2634, z: -0.43387}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RThigh_1
+      parentName: evan flossing(Clone)
+      position: {x: 0.21254998, y: 0.01184, z: -0.342}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RThigh_2
+      parentName: evan flossing(Clone)
+      position: {x: 0.23926, y: 0.108229995, z: -0.2354}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RUArm_1
+      parentName: evan flossing(Clone)
+      position: {x: -0.97603995, y: 0.07902, z: -0.53988}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Evan_RUArm_2
+      parentName: evan flossing(Clone)
+      position: {x: -0.86726993, y: 0.0817, z: -0.46526998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_100
+      parentName: evan flossing(Clone)
+      position: {x: -0.84296995, y: 0.05921, z: -0.24483998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_101
+      parentName: evan flossing(Clone)
+      position: {x: -0.73389995, y: 0.09623999, z: -0.25891998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_102
+      parentName: evan flossing(Clone)
+      position: {x: 0.64851, y: 0.033159997, z: -0.23086}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_103
+      parentName: evan flossing(Clone)
+      position: {x: 0.65546995, y: 0.08788999, z: -0.15254}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_104
+      parentName: evan flossing(Clone)
+      position: {x: -0.41829, y: 0.01705, z: -0.39821}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_105
+      parentName: evan flossing(Clone)
+      position: {x: 0.53967994, y: 0.08819, z: -0.2191}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_106
+      parentName: evan flossing(Clone)
+      position: {x: 0.29619, y: 0.06591, z: -0.20974}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_108
+      parentName: evan flossing(Clone)
+      position: {x: -1.02263, y: 0.071059994, z: -0.45272997}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_109
+      parentName: evan flossing(Clone)
+      position: {x: 0.58119, y: 0.19969, z: -0.22468}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_110
+      parentName: evan flossing(Clone)
+      position: {x: -0.19642, y: 0.17719999, z: -0.35757}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_115
+      parentName: evan flossing(Clone)
+      position: {x: -0.95738995, y: 0.09929, z: -0.84801}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_120
+      parentName: evan flossing(Clone)
+      position: {x: -0.92093, y: 0.08265, z: -0.63834}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_122
+      parentName: evan flossing(Clone)
+      position: {x: -0.84655, y: 0.067839995, z: -0.8714}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_123
+      parentName: evan flossing(Clone)
+      position: {x: -0.91279, y: 0.079619996, z: -0.58686}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_124
+      parentName: evan flossing(Clone)
+      position: {x: -0.21614999, y: 0.54314995, z: -0.39993998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_128
+      parentName: evan flossing(Clone)
+      position: {x: -0.12482999, y: 0.062979996, z: -0.69727993}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_133
+      parentName: evan flossing(Clone)
+      position: {x: 0.29124, y: 0.01199, z: -0.56855}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_134
+      parentName: evan flossing(Clone)
+      position: {x: -0.93871, y: 0.01584, z: -0.52009}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_135
+      parentName: evan flossing(Clone)
+      position: {x: -0.87679, y: 0.02555, z: -0.53682}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_141
+      parentName: evan flossing(Clone)
+      position: {x: 0.2126, y: 0.65376997, z: -0.34748}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: C3D:Marker_142
+      parentName: evan flossing(Clone)
+      position: {x: -4.38094, y: -0.43710998, z: 0.26479}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
