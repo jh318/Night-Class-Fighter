@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Options
   m_EditorClassIdentifier: 
   scene: Options
-  previousScene: Title Scene
+  previousScene: Title Screen
   music: 
