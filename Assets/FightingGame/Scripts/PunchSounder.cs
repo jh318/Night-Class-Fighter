@@ -41,5 +41,7 @@ public class PunchSounder : MonoBehaviour
         else if (soundIndex == 9) currentSound = "Punch9";
 
         AudioManager.PlayVariedEffect(currentSound, 1.1f, 0);
+
+        ++soundIndex;
     }	
 }
