@@ -94,6 +94,7 @@
     <Compile Include="Assets\FightingGame\Scripts\MenuNavigation.cs" />
     <Compile Include="Assets\FightingGame\Scripts\PictureToButtonMapper.cs" />
     <Compile Include="Assets\FightingGame\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\FightingGame\Scripts\PunchSounder.cs" />
     <Compile Include="Assets\FightingGame\Scripts\ReMapNavigationController.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneDirector.cs" />
     <Compile Include="Assets\FightingGame\Scripts\SceneTransitionTest.cs" />

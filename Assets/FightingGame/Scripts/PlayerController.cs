@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject == opponent && isAttacking && !opponent.GetComponent<PlayerController>().isBlocking){
 			Debug.Log("Hit");
+            PunchSounder.instance.GoodHit(); //DAVID - added to get SXF for hits.
 			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
