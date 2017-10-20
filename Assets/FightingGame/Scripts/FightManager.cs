@@ -94,7 +94,7 @@ public class FightManager : MonoBehaviour {
 			Debug.Log("Resetting");
 			yield return new WaitForEndOfFrame();
 		}
-		SceneDirector.instance.Title();
+		SceneManager.LoadScene("Title Screen");
 	}
 
 	IEnumerator EndOfRoundCoroutine(float time, int player){

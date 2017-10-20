@@ -933,7 +933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08668003, y: 0.544}
   m_AnchorMax: {x: 0.45612, y: 0.9366591}
-  m_AnchoredPosition: {x: -1, y: -0.43574524}
+  m_AnchoredPosition: {x: -1.0000038, y: -0.43574524}
   m_SizeDelta: {x: -0.76982117, y: -0.34713745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590550043
@@ -1152,6 +1152,7 @@ MonoBehaviour:
   p1Ready: 0
   p2Ready: 0
   toFightScene: 0
+  goBack: 0
   p1: {fileID: 590550043}
   p2: {fileID: 755190930}
   defaultButton: {fileID: 590550043}
@@ -1172,7 +1173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 892578954}
   rightDoor: {fileID: 1195474338}
-  scene: Test
+  scene: FightSceneJohn
   music: 
 --- !u!1 &727430031
 GameObject:

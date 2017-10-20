@@ -650,6 +650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae36ee165ed89c04b8bdd588221c1de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuGroup: {fileID: 0}
+  optionsGroup: {fileID: 0}
+  creditsGroup: {fileID: 0}
   currentSelection: {fileID: 1661981976}
   defaultSelection: {fileID: 1661981976}
   indicator: {fileID: 672991217}
@@ -821,7 +824,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1896102213}
   - component: {fileID: 1896102212}
-  - component: {fileID: 1896102211}
   - component: {fileID: 1896102210}
   - component: {fileID: 1896102209}
   m_Layer: 0
@@ -867,18 +869,6 @@ MonoBehaviour:
   direction: 0
   button: 0
   rightSide: 0
---- !u!114 &1896102211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114626476288214830, guid: 773c0f402171b7648b13ea67e32deef2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1896102208}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1896102212
 MonoBehaviour:
   m_ObjectHideFlags: 0
