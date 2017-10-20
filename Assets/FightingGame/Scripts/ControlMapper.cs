@@ -42,8 +42,7 @@ public class ControlMapper : MonoBehaviour {
     public static ControlMapper instance;
 
     public static Dictionary<GameButton, Control> player1Mapping = new Dictionary<GameButton, Control>();
-
-    public static Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
+    private static Dictionary<GameButton, Control> player2Mapping = new Dictionary<GameButton, Control>();
 
     private void Awake()
     {
