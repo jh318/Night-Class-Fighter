@@ -34,12 +34,12 @@ public class PlayerController : MonoBehaviour {
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
 
-	void OnEnable(){
-		FightManager.nextRound += OnNextRound;
+	void OnDestroy(){
+		FightManager.nextRound -= OnNextRound;
 	}
 
-
 	void Start(){
+		FightManager.nextRound += OnNextRound;
 		isGround = true;
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();

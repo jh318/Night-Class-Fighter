@@ -27,9 +27,15 @@ public class FightManager : MonoBehaviour {
 	public delegate void NextRound(int player);
 	public static event NextRound nextRound = delegate{};
 
+	void Awake(){
+		if(instance == null) instance = this;
+		else Destroy(gameObject);
+	}
+
 	void OnEnable(){
 		if(instance == null){ instance = this;}
 		PlayerController.knockout += OnKnockout;
+		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 	void OnDisable(){
 		PlayerController.knockout -= OnKnockout;
@@ -47,6 +53,10 @@ public class FightManager : MonoBehaviour {
 
 		FindPlayer(out player1, 0);
 		FindPlayer(out player2, 1);		
+	}
+
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+		ResetRounds();
 	}
 
 	void Update(){
@@ -140,5 +150,10 @@ public class FightManager : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	void ResetRounds(){
+		roundsPlayer1 = 0;
+		roundsPlayer2 = 0;
 	}
 }
