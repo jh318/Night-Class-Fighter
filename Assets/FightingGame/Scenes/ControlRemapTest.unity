@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 49766096}
   - component: {fileID: 49766095}
   - component: {fileID: 49766097}
+  - component: {fileID: 49766098}
   m_Layer: 5
   m_Name: QuickAttack (1)
   m_TagString: Untagged
@@ -225,6 +226,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &49766098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49766093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: a0ac5e0d3aea30b4f829ee38f853e31a, type: 2}
 --- !u!1 &50859787
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +251,7 @@ GameObject:
   - component: {fileID: 50859790}
   - component: {fileID: 50859789}
   - component: {fileID: 50859791}
+  - component: {fileID: 50859792}
   m_Layer: 5
   m_Name: Left (1)
   m_TagString: Untagged
@@ -359,6 +375,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &50859792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50859787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 70fce11de5edd31478d89c19ca4b8ab0, type: 2}
 --- !u!1 &209369525
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,6 +400,7 @@ GameObject:
   - component: {fileID: 209369529}
   - component: {fileID: 209369528}
   - component: {fileID: 209369527}
+  - component: {fileID: 209369530}
   m_Layer: 5
   m_Name: Down
   m_TagString: Untagged
@@ -493,6 +524,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 209369525}
+--- !u!114 &209369530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209369525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 7eecd95bba227ee45b0d4d9f14ca1506, type: 2}
 --- !u!1 &257865777
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +549,7 @@ GameObject:
   - component: {fileID: 257865781}
   - component: {fileID: 257865780}
   - component: {fileID: 257865779}
+  - component: {fileID: 257865782}
   m_Layer: 5
   m_Name: MediumAttack
   m_TagString: Untagged
@@ -627,6 +673,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257865777}
+--- !u!114 &257865782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257865777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 20cb48cc9eea1fd4b8fe496e570b9fa0, type: 2}
 --- !u!1 &298857863
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +865,7 @@ MonoBehaviour:
   p1Selectable: {fileID: 569494423}
   p2Selectable: {fileID: 49766097}
   defaultSelectable: {fileID: 0}
+  navigate: 1
 --- !u!4 &345142985
 Transform:
   m_ObjectHideFlags: 0
@@ -816,7 +877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &346454629
 GameObject:
@@ -1057,7 +1118,6 @@ MonoBehaviour:
     controlButtonSprite: {fileID: 1738228627}
   - uiButtonName: {fileID: 1525598568}
     controlButtonSprite: {fileID: 1453601541}
-  eventSystem: {fileID: 1044572620}
 --- !u!1 &350657476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1489,6 +1549,7 @@ GameObject:
   - component: {fileID: 569494425}
   - component: {fileID: 569494424}
   - component: {fileID: 569494423}
+  - component: {fileID: 569494426}
   m_Layer: 5
   m_Name: QuickAttack
   m_TagString: Untagged
@@ -1612,6 +1673,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569494421}
+--- !u!114 &569494426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569494421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 4a990c1afb07e644ab34138d7d62c662, type: 2}
 --- !u!1 &649879182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1698,7 @@ GameObject:
   - component: {fileID: 649879186}
   - component: {fileID: 649879185}
   - component: {fileID: 649879184}
+  - component: {fileID: 649879187}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -1746,6 +1822,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649879182}
+--- !u!114 &649879187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649879182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 53cc7a2b601c41548bab7ee5a5a979e1, type: 2}
 --- !u!1 &667833173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1921,7 @@ GameObject:
   - component: {fileID: 745541298}
   - component: {fileID: 745541297}
   - component: {fileID: 745541299}
+  - component: {fileID: 745541300}
   m_Layer: 5
   m_Name: Up (1)
   m_TagString: Untagged
@@ -1954,6 +2045,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &745541300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745541295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 3fae7a2a62413e7438984c1f4d63bc3d, type: 2}
 --- !u!1 &763316624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2144,7 @@ GameObject:
   - component: {fileID: 782021408}
   - component: {fileID: 782021407}
   - component: {fileID: 782021409}
+  - component: {fileID: 782021410}
   m_Layer: 5
   m_Name: MediumAttack (1)
   m_TagString: Untagged
@@ -2162,6 +2268,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &782021410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 782021405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: ff25ae0c09b29c24184d775304db947e, type: 2}
 --- !u!1 &790723763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2429,7 @@ GameObject:
   - component: {fileID: 866352714}
   - component: {fileID: 866352713}
   - component: {fileID: 866352715}
+  - component: {fileID: 866352716}
   m_Layer: 5
   m_Name: Down (1)
   m_TagString: Untagged
@@ -2432,68 +2553,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1 &1044572618
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1044572621}
-  - component: {fileID: 1044572620}
-  - component: {fileID: 1044572619}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1044572619
+--- !u!114 &866352716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044572618}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalAxis: joystick 1 axis 1
-  m_VerticalAxis: joystick 1 axis 2
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1044572620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044572618}
+  m_GameObject: {fileID: 866352711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 569494421}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
---- !u!4 &1044572621
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044572618}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: dbc4bd70a32f8524484bbf1e8e54aa6e, type: 2}
 --- !u!1 &1097279222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2649,6 +2722,7 @@ GameObject:
   - component: {fileID: 1107735983}
   - component: {fileID: 1107735982}
   - component: {fileID: 1107735981}
+  - component: {fileID: 1107735984}
   m_Layer: 5
   m_Name: Up
   m_TagString: Untagged
@@ -2772,6 +2846,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107735979}
+--- !u!114 &1107735984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1107735979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 69a252531cdd81d45a53d334d3cece21, type: 2}
 --- !u!1 &1123695972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,6 +3325,7 @@ GameObject:
   - component: {fileID: 1525598567}
   - component: {fileID: 1525598566}
   - component: {fileID: 1525598568}
+  - component: {fileID: 1525598569}
   m_Layer: 5
   m_Name: Right (1)
   m_TagString: Untagged
@@ -3360,6 +3449,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1525598569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1525598564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: feecaed5567767e438fb2e87811c791a, type: 2}
 --- !u!1 &1558307691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3371,6 +3474,7 @@ GameObject:
   - component: {fileID: 1558307695}
   - component: {fileID: 1558307694}
   - component: {fileID: 1558307693}
+  - component: {fileID: 1558307696}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -3494,6 +3598,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558307691}
+--- !u!114 &1558307696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558307691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 62afce610813d1e4ab4104c63180cf2d, type: 2}
 --- !u!1 &1645985255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,6 +3623,7 @@ GameObject:
   - component: {fileID: 1645985259}
   - component: {fileID: 1645985258}
   - component: {fileID: 1645985257}
+  - component: {fileID: 1645985260}
   m_Layer: 5
   m_Name: HeavyAttack
   m_TagString: Untagged
@@ -3628,6 +3747,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1645985255}
+--- !u!114 &1645985260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645985255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: 32fda8a589dde874ebb8d5e7d6403601, type: 2}
 --- !u!1 &1672325286
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,6 +4724,7 @@ GameObject:
   - component: {fileID: 2057711820}
   - component: {fileID: 2057711819}
   - component: {fileID: 2057711821}
+  - component: {fileID: 2057711822}
   m_Layer: 5
   m_Name: HeavyAttack (1)
   m_TagString: Untagged
@@ -4714,6 +4848,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &2057711822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057711817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e21c1c821426fa47ad5a930f2818d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 11400000, guid: a707d2afe09f460429907b30247a46cc, type: 2}
 --- !u!1 &2122634965
 GameObject:
   m_ObjectHideFlags: 0

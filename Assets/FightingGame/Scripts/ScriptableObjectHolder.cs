@@ -8,4 +8,6 @@ public class ScriptableObjectHolder : MonoBehaviour {
 
     public SceneData sceneInfo;
 
+    public ButtonData buttonInfo;
+
 }

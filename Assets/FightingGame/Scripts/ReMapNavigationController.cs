@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ReMapNavigationController : MonoBehaviour {
+    public static ReMapNavigationController instance;
+
+    void OnAwake ()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
 
     public Selectable p1Selectable;
     public Selectable p2Selectable;
@@ -17,11 +27,14 @@ public class ReMapNavigationController : MonoBehaviour {
 	public static bool p1selected = false;
 	public static bool p2selected = false;
 
+    public bool navigate = true;
+
     bool exitPressed = false;
 
     Color defaultColor; 
 
-
+    ScriptableObjectHolder p1Info;
+    ScriptableObjectHolder p2Info;
     
     // Use this for initialization
     void Start () 
@@ -33,10 +46,20 @@ public class ReMapNavigationController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        p1Info = p1Selectable.GetComponent<ScriptableObjectHolder>();
+        p2Info = p2Selectable.GetComponent<ScriptableObjectHolder>();
+
+        int buttonNumber1 = p1Info.buttonInfo.buttonNumber;
+        int controllerNumber1 = p1Info.buttonInfo.controlNumber;
+
+        int buttonNumber2 = p2Info.buttonInfo.buttonNumber;
+        int controllerNumber2 = p2Info.buttonInfo.controlNumber;
+
         if (!exitPressed)
         {   if (!p1selected)
 		    {
-			    if (ControlMapper.GetButtonDown (0, GameButton.Down)) 
+			    if (ControlMapper.GetButtonDown (0, GameButton.Down) && navigate) 
 			    {
                     Debug.Log("Down Pressed");
 				    nextSelectable1 = p1Selectable.FindSelectableOnDown();
@@ -50,7 +73,8 @@ public class ReMapNavigationController : MonoBehaviour {
                         
                     }
 			    }
-                if (ControlMapper.GetButtonDown(0, GameButton.Up))
+
+                if (ControlMapper.GetButtonDown(0, GameButton.Up) && navigate)
                 {
                     Debug.Log("Up Pressed");
                     nextSelectable1 = p1Selectable.FindSelectableOnUp();
@@ -64,10 +88,12 @@ public class ReMapNavigationController : MonoBehaviour {
                         
                     }
                 }
+
                 if (Input A)
                 {
-                    // Set Navigation to false;
                     // Call a function in the ButtonRemapUIController that uses scriptable objects;
+                    ButtonRemapUIController.instance.ButtonSelected(buttonNumber1);
+                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber2);
                     {
                         if (Button Pressed To Switch)
                         {
@@ -79,7 +105,7 @@ public class ReMapNavigationController : MonoBehaviour {
 
             if (!p2selected)
             {
-                if (ControlMapper.GetButtonDown(1, GameButton.Down))
+                if (ControlMapper.GetButtonDown(1, GameButton.Down) && navigate)
                 {
                     Debug.Log("Down Pressed");
                     nextSelectable2 = p2Selectable.FindSelectableOnDown();
@@ -93,7 +119,8 @@ public class ReMapNavigationController : MonoBehaviour {
 
                     }
                 }
-                if (ControlMapper.GetButtonDown(1, GameButton.Up))
+
+                if (ControlMapper.GetButtonDown(1, GameButton.Up) && navigate)
                 {
                     Debug.Log("Up Pressed");
                     nextSelectable2 = p2Selectable.FindSelectableOnUp();
@@ -105,6 +132,19 @@ public class ReMapNavigationController : MonoBehaviour {
                         prevSelectable2.image.color = defaultColor;
                         p2Selectable.image.color = Color.blue;
 
+                    }
+                }
+
+                if (Input A)
+                {
+                    // Call a function in the ButtonRemapUIController that uses scriptable objects;
+                    ButtonRemapUIController.instance.ButtonSelected(buttonNumber2);
+                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber2);
+                    {
+                        if (Button Pressed To Switch)
+                        {
+                            // go back and set navigation to true;
+                        }
                     }
                 }
             }

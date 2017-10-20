@@ -15,6 +15,16 @@ public class ControlMap
 
 public class ButtonRemapUIController : MonoBehaviour
 {
+    public static ButtonRemapUIController instance;
+
+    void OnAwake ()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+
     public ControlMap[] cm;
     public ControlMap[] cmP2;
 
@@ -63,7 +73,8 @@ public class ButtonRemapUIController : MonoBehaviour
     {
         if (!newButtonSelected)
         {
-            eventSystem.sendNavigationEvents = false;
+            ReMapNavigationController.instance.navigate = false;
+            //eventSystem.sendNavigationEvents = false;
             //EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             int controlMapIndex = globalControlMapIndex;
 
@@ -104,7 +115,8 @@ public class ButtonRemapUIController : MonoBehaviour
                 {
                     cm[controlMapIndex].control.keycode = newButtonpressedKeycode;
                     cm[controlMapIndex].controlButtonSprite.sprite = PictureToButtonMapper.c1ButtonMap[cm[controlMapIndex].control.keycode];
-                    eventSystem.sendNavigationEvents = true;
+                    ReMapNavigationController.instance.navigate = true;
+                    //eventSystem.sendNavigationEvents = true;
                     ReMapNavigationController.p1selected = false;
                     globalControlMapIndex = -1;
                 }
@@ -113,7 +125,8 @@ public class ButtonRemapUIController : MonoBehaviour
                     //do the remap stuff for player 2
                     cmP2[controlMapIndex].control.keycode = newButtonpressedKeycode;
                     cmP2[controlMapIndex].controlButtonSprite.sprite = PictureToButtonMapper.c2ButtonMap[cmP2[controlMapIndex].control.keycode];
-                    eventSystem.sendNavigationEvents = true;
+                    ReMapNavigationController.instance.navigate = true;
+                    //eventSystem.sendNavigationEvents = true;
                     ReMapNavigationController.p2selected = false;
                     globalControlMapIndex = -1;
                 }
@@ -126,7 +139,8 @@ public class ButtonRemapUIController : MonoBehaviour
 
         if (!newAxisSelected)
         {
-            eventSystem.sendNavigationEvents = false;
+            ReMapNavigationController.instance.navigate = false;
+            //eventSystem.sendNavigationEvents = false;
             
             int controlMapIndex = globalControlMapIndex;
 
@@ -165,7 +179,8 @@ public class ButtonRemapUIController : MonoBehaviour
                     {
                         cm[controlMapIndex].control.isPositive = false;
                     }
-                    eventSystem.sendNavigationEvents = true;
+                    ReMapNavigationController.instance.navigate = true;
+                    //eventSystem.sendNavigationEvents = true;
                     ReMapNavigationController.p1selected = false;
                     globalControlMapIndex = -1;
                 }
@@ -181,7 +196,8 @@ public class ButtonRemapUIController : MonoBehaviour
                     {
                         cmP2[controlMapIndex].control.isPositive = false;
                     }
-                    eventSystem.sendNavigationEvents = true;
+                    ReMapNavigationController.instance.navigate = true;
+                    //eventSystem.sendNavigationEvents = true;
                     ReMapNavigationController.p2selected = false;
                     globalControlMapIndex = -1;
                 }
