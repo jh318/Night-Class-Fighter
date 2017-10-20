@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CharSelectController : MonoBehaviour {
 
@@ -39,6 +40,8 @@ public class CharSelectController : MonoBehaviour {
     [Header("Indicator Animators")]
     public Animator p1Anim;
     public Animator p2Anim;
+
+    public string sceneToLoad;
 
     Vector2 p1Dir;
     Vector2 preP1Dir;
@@ -177,7 +180,8 @@ public class CharSelectController : MonoBehaviour {
         }
         else
         {
-            SceneDirector.instance.FightScene();
+            //SceneDirector.instance.FightScene();
+            SceneManager.LoadScene(sceneToLoad);
         }
         
 

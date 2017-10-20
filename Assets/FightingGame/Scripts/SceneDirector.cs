@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; 
+using UnityEngine.UI;
 
 public class SceneDirector : MonoBehaviour
 {
@@ -20,6 +21,19 @@ public class SceneDirector : MonoBehaviour
         // DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        leftDoor = GameObject.Find("Blast Door Left").GetComponent<Animator>();
+        rightDoor = GameObject.Find("Blast Door Right").GetComponent<Animator>();
+    }
     public void Title()
     {
         scene = "Title Screen";

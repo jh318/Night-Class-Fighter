@@ -31,6 +31,9 @@ public class FightManager : MonoBehaviour {
 		if(instance == null){ instance = this;}
 		PlayerController.knockout += OnKnockout;
 	}
+	void OnDisable(){
+		PlayerController.knockout -= OnKnockout;
+	}
 
 	void Start(){
 		AudioManager.PlayMusic("MainTheme");
