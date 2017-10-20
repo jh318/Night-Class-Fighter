@@ -18,7 +18,7 @@ public class ButtonRemapUIController : MonoBehaviour
     public ControlMap[] cm;
     public ControlMap[] cmP2;
 
-    public EventSystem eventSystem;
+    // public EventSystem eventSystem;
 
     string[] gameButtonName = System.Enum.GetNames(typeof(GameButton));
 

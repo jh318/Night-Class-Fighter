@@ -20,7 +20,7 @@ public class CharSelectController : MonoBehaviour {
     public bool p1Ready = false;
     public bool p2Ready = false;
     public bool toFightScene = false;
-    public bool goBack = false;
+    public bool waiting = false;
 
     [Header("Selected Button")]
     public Selectable p1;
@@ -72,16 +72,11 @@ public class CharSelectController : MonoBehaviour {
         {
             if (!p1Ready && !p2Ready)
             {
-                if (ControlMapper.GetButton(0, GameButton.MediumAttack) && goBack)
+                if (ControlMapper.GetButton(0, GameButton.MediumAttack) && !waiting)
                 {
                     Debug.Log("Going back to the main menu");
                     SceneDirector.instance.MainMenu();
                 }
-                else if (ControlMapper.GetButton(0, GameButton.MediumAttack))
-                {
-                    goBack = true;
-                }
-                
             }
 
             if (!p1Ready)
@@ -105,6 +100,7 @@ public class CharSelectController : MonoBehaviour {
 
                 if (newSelection1 != null)
                 {
+                    // Move this inside of if statement above;
                     p1Indicator.transform.position = newSelection1.transform.position;
                 }
 
@@ -123,6 +119,7 @@ public class CharSelectController : MonoBehaviour {
             }        // Below is the B Button Input;
             else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p1Ready)
             {
+                StartCoroutine("WaitTime");
                 p1Ready = false;
                 p1ReadyUI.gameObject.SetActive(false);
                 // Color p1Indicator;
@@ -152,6 +149,7 @@ public class CharSelectController : MonoBehaviour {
 
                 if (newSelection2 != null)
                 {
+                    // Move this inside of if statement above;
                     p2Indicator.transform.position = newSelection2.transform.position;
                 }
 
@@ -169,6 +167,7 @@ public class CharSelectController : MonoBehaviour {
             }        // Below is the B Button Input;
             else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p2Ready)
             {
+                StartCoroutine("WaitTime");
                 p2Ready = false;
                 p2ReadyUI.gameObject.SetActive(false);
                 // Color p2Indicator;
@@ -206,6 +205,13 @@ public class CharSelectController : MonoBehaviour {
         {
             toFightScene = true;
         }
+    }
+
+    IEnumerator WaitTime()
+    {
+        waiting = true;
+        yield return new WaitForSeconds(1);
+        waiting = false;
     }
 
 }

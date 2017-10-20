@@ -64,6 +64,17 @@ public class ReMapNavigationController : MonoBehaviour {
                         
                     }
                 }
+                if (Input A)
+                {
+                    // Set Navigation to false;
+                    // Call a function in the ButtonRemapUIController that uses scriptable objects;
+                    {
+                        if (Button Pressed To Switch)
+                        {
+                            // go back and set navigation to true;
+                        }
+                    }
+                }
             }
 
             if (!p2selected)
@@ -97,9 +108,6 @@ public class ReMapNavigationController : MonoBehaviour {
                     }
                 }
             }
-
         }
-        
-
 	}
 }
