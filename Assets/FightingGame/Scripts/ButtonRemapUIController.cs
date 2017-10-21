@@ -17,7 +17,7 @@ public class ButtonRemapUIController : MonoBehaviour
 {
     public static ButtonRemapUIController instance;
 
-    void OnAwake ()
+    void Awake ()
     {
         if (instance == null)
         {
@@ -81,7 +81,7 @@ public class ButtonRemapUIController : MonoBehaviour
             waitTime += Time.deltaTime;
 
             KeyCode newButtonpressedKeycode = KeyCode.None;
-            if(!newButtonSelected && waitTime > 1)
+            if(!newButtonSelected && waitTime > .5f)
             {             
                     for (int j = 0; j < 20; j++)
                     {

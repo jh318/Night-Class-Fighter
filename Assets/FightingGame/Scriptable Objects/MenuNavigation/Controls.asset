@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f36168ce503a224da1cfc256a302d7c, type: 3}
-  m_Name: MainMenu
+  m_Name: Controls
   m_EditorClassIdentifier: 
-  scene: Main Menu
-  previousScene: 
+  scene: ControlRemapTest
+  previousScene: Title Screen
   music: 

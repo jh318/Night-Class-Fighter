@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ReMapNavigationController : MonoBehaviour {
     public static ReMapNavigationController instance;
 
-    void OnAwake ()
+    void Awake ()
     {
         if (instance == null)
         {
@@ -89,17 +89,12 @@ public class ReMapNavigationController : MonoBehaviour {
                     }
                 }
 
-                if (Input A)
+                if (Input.GetButton("P1Select"))
                 {
+                    Debug.Log("Hey buddy!");
                     // Call a function in the ButtonRemapUIController that uses scriptable objects;
                     ButtonRemapUIController.instance.ButtonSelected(buttonNumber1);
-                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber2);
-                    {
-                        if (Button Pressed To Switch)
-                        {
-                            // go back and set navigation to true;
-                        }
-                    }
+                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber1);                   
                 }
             }
 
@@ -135,17 +130,11 @@ public class ReMapNavigationController : MonoBehaviour {
                     }
                 }
 
-                if (Input A)
+                if (Input.GetButtonDown("P2Select"))
                 {
                     // Call a function in the ButtonRemapUIController that uses scriptable objects;
                     ButtonRemapUIController.instance.ButtonSelected(buttonNumber2);
                     ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber2);
-                    {
-                        if (Button Pressed To Switch)
-                        {
-                            // go back and set navigation to true;
-                        }
-                    }
                 }
             }
         }
