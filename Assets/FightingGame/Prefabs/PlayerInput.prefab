@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4989005459486944}
   - component: {fileID: 114651586212875430}
-  - component: {fileID: 114626476288214830}
   - component: {fileID: 114771699021805678}
   - component: {fileID: 114291251423858004}
   m_Layer: 0
@@ -60,17 +59,6 @@ MonoBehaviour:
   direction: 0
   button: 0
   rightSide: 0
---- !u!114 &114626476288214830
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758363622039236}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e22520940719742bb118b6bf912f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114651586212875430
 MonoBehaviour:
   m_ObjectHideFlags: 1

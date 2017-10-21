@@ -31,16 +31,25 @@ public class InputBuffer : MonoBehaviour {
 		GetButtonInput();
 		ParseDirection();
 		ParseButton();
+
+		// if (playerNumber == 0) {
+		// 	string bufferString = "";
+		// 	for (int i = Mathf.Max(0, inputBuffer.Count - 4); i < inputBuffer.Count; i++) {
+		// 		GameButton b = inputBuffer[i];
+		// 		bufferString += b.ToString().Replace("Button.", "") + " > ";
+		// 	}
+		// 	Debug.Log(bufferString);
+		// }
 	}
 
 	void GetButtonInput(){		
 		button = GameButton.None;
 
-		if(ControlMapper.GetButton(playerNumber, GameButton.LightAttack))
+		if(ControlMapper.GetButtonDown(playerNumber, GameButton.LightAttack))
 			button = GameButton.LightAttack;
-		if(ControlMapper.GetButton(playerNumber, GameButton.MediumAttack))
+		if(ControlMapper.GetButtonDown(playerNumber, GameButton.MediumAttack))
 			button = GameButton.MediumAttack;
-		if(ControlMapper.GetButton(playerNumber, GameButton.HeavyAttack))
+		if(ControlMapper.GetButtonDown(playerNumber, GameButton.HeavyAttack))
 			button = GameButton.HeavyAttack;
 	}
 
@@ -49,10 +58,15 @@ public class InputBuffer : MonoBehaviour {
 			inputBuffer.Add(button);
 	}
 
+	private Vector2 axis;
+	public Vector2 dirAxis {
+		get { return axis; }
+	}
+
 	void GetDirectionInput(){
 		lastDirection = direction;
 
-		Vector2 axis = Vector2.zero;
+		axis = Vector2.zero;
 		if(ControlMapper.GetButton(playerNumber, GameButton.Right)) axis.x = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Left))  axis.x = -1;
 		
@@ -60,6 +74,8 @@ public class InputBuffer : MonoBehaviour {
 			
 		if(ControlMapper.GetButton(playerNumber, GameButton.Up)) axis.y = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Down)) axis.y = -1;
+
+		if (playerNumber == 0) Debug.Log(axis);
 
 		if (axis.sqrMagnitude > ControlMapper.instance.threshold) {
 			if (Vector2.Angle (Vector2.up, axis) < 22.5f) {
@@ -95,6 +111,9 @@ public class InputBuffer : MonoBehaviour {
 	void ParseDirection(){
 		if (direction != lastDirection) {
 			inputBuffer.Add(direction);
+		}
+		else {
+			inputBuffer.Add(GameButton.None);
 		}
 	}
 }

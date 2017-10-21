@@ -68,6 +68,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public static void AmbientSounds(string soundName, float pitch =1, float volume =1, float pan = 0)
+    {
+        if (master == null) return;
+        AudioClip sound = null;
+        for (int i = 0; i < master.clips.Length; ++i)
+        {
+            if (master.clips[i].name == soundName) sound = master.clips[i];
+        }
+
+        if (sound == null) return;
+
+        AudioSource source = master.sfxSources[master.currentSFXSource];
+        master.currentSFXSource = (master.currentSFXSource + 1) % master.sfxSourcesCount;
+
+        source.clip = sound;
+        source.pitch = pitch;
+        source.volume = volume;
+        source.panStereo = pan;
+        source.Play();
+    }
+
     //SFX group
     public static void PlayVariedEffect(string clipName, float variation = 0.1f, float pan = 0)
     {
@@ -98,6 +119,7 @@ public class AudioManager : MonoBehaviour
         source.panStereo = pan;
         source.Play();
     }
+
     //Music Group
     public static void PlayMusic(string songName)
     {

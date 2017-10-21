@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CharSelectController : MonoBehaviour {
 
@@ -20,6 +21,7 @@ public class CharSelectController : MonoBehaviour {
     public bool p1Ready = false;
     public bool p2Ready = false;
     public bool toFightScene = false;
+    public bool goBack = false;
 
     [Header("Selected Button")]
     public Selectable p1;
@@ -38,6 +40,8 @@ public class CharSelectController : MonoBehaviour {
     [Header("Indicator Animators")]
     public Animator p1Anim;
     public Animator p2Anim;
+
+    public string sceneToLoad;
 
     Vector2 p1Dir;
     Vector2 preP1Dir;
@@ -71,11 +75,16 @@ public class CharSelectController : MonoBehaviour {
         {
             if (!p1Ready && !p2Ready)
             {
-                if (ControlMapper.GetButton(0, GameButton.MediumAttack))
+                if (ControlMapper.GetButton(0, GameButton.MediumAttack) && goBack)
                 {
                     Debug.Log("Going back to the main menu");
                     SceneDirector.instance.MainMenu();
                 }
+                else if (ControlMapper.GetButton(0, GameButton.MediumAttack))
+                {
+                    goBack = true;
+                }
+                
             }
 
             if (!p1Ready)
@@ -171,7 +180,8 @@ public class CharSelectController : MonoBehaviour {
         }
         else
         {
-            SceneDirector.instance.FightScene();
+            //SceneDirector.instance.FightScene();
+            SceneManager.LoadScene(sceneToLoad);
         }
         
 
