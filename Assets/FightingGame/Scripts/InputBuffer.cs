@@ -75,7 +75,7 @@ public class InputBuffer : MonoBehaviour {
 		if(ControlMapper.GetButton(playerNumber, GameButton.Up)) axis.y = 1;
 		else if (ControlMapper.GetButton(playerNumber, GameButton.Down)) axis.y = -1;
 
-		if (playerNumber == 0) Debug.Log(axis);
+		// if (playerNumber == 0) Debug.Log(axis);
 
 		if (axis.sqrMagnitude > ControlMapper.instance.threshold) {
 			if (Vector2.Angle (Vector2.up, axis) < 22.5f) {

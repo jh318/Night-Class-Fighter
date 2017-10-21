@@ -12,7 +12,7 @@ public class HealthController : MonoBehaviour {
 
 	void Start(){	
 		if(GetComponent<PlayerController>().playerNumber == 0){
-			healthBarUI = GameObject.Find("PlayerUI").GetComponentInChildren<Scrollbar>();
+			healthBarUI = GameObject.Find("Player1UI").GetComponentInChildren<Scrollbar>();
 		}
 		else if(GetComponent<PlayerController>().playerNumber == 1){
 			healthBarUI = GameObject.Find("Player2UI").GetComponentInChildren<Scrollbar>();

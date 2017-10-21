@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isBlocking = false;
 	bool canJump = true;
 	bool isAttacking = false;
+	int attackStrength;
 	
 	GameObject playerInput;
 	InputBuffer inputBuffer;
@@ -34,12 +35,12 @@ public class PlayerController : MonoBehaviour {
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
 
-	void OnEnable(){
-		FightManager.nextRound += OnNextRound;
+	void OnDestroy(){
+		FightManager.nextRound -= OnNextRound;
 	}
 
-
 	void Start(){
+		FightManager.nextRound += OnNextRound;
 		isGround = true;
 		playerInput = GameObject.Find("PlayerInput");
 		animator = GetComponentInParent<Animator>();
@@ -82,17 +83,20 @@ public class PlayerController : MonoBehaviour {
 		if (inputBuffer.inputBuffer.Count == 0) return;
 
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack && !isAttacking){
-			animator.SetInteger("attackStrength", 1);
+			attackStrength = 1;
+			animator.SetInteger("attackStrength", attackStrength);
 			animator.SetTrigger("attack");
 			//StartCoroutine("Attacking");
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack && !isAttacking){
-			animator.SetInteger("attackStrength", 2);
+			attackStrength = 2;
+			animator.SetInteger("attackStrength", attackStrength);
 			animator.SetTrigger("attack");
 			//StartCoroutine("Attacking");		
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack && !isAttacking){
-			animator.SetInteger("attackStrength", 3);
+			attackStrength = 3;
+			animator.SetInteger("attackStrength", attackStrength);
 			animator.SetTrigger("attack");
 			//StartCoroutine("Attacking");
 		}
@@ -149,13 +153,17 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject == opponent && isAttacking && !opponent.GetComponent<PlayerController>().isBlocking){
 			Debug.Log("Hit");
-			//StartCoroutine("HitStop", 0.001f);
+			GameObject partTemp = Spawner.Spawn("HitEffect");
+			partTemp.transform.position = opponent.transform.position;
+			if(attackStrength >= 3) StartCoroutine("HitStop", 0.1f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
 			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();
 			otherPlayer.CheckHealth();
-			otherPlayer.KnockBack(new Vector3(1, 0, 0));
+			float knockbackPower = (float)attackStrength / 3;
+			otherPlayer.KnockBack(new Vector3(knockbackPower, 0, 0));
 			opponent.GetComponent<Animator>().Play("HitStun");
+			attackStrength = 0;
 		}
 		else if(c.gameObject == opponent && isAttacking && opponent.GetComponent<PlayerController>().isBlocking){
 			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();			
@@ -245,7 +253,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	IEnumerator HitStop(float time){
-		Time.timeScale = 0.01f;
+		Time.timeScale = 0.1f;
 		yield return new WaitForSeconds(time);
 		Time.timeScale = 1.0f;
 	}
