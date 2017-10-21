@@ -161,8 +161,12 @@ public class ControlMapper : MonoBehaviour {
         }
     }
 
-    private void Update()
+    void Update()
     {
+        float x = Input.GetAxisRaw("joystick 1 axis 1");
+        float y = Input.GetAxisRaw("joystick 1 axis 2");
+        Debug.Log("X:" + x + " Y:" + y);
+
         foreach (Control c in player1ControlsArray)
         {
             if (c.isAxis)
@@ -171,6 +175,7 @@ public class ControlMapper : MonoBehaviour {
                 c.currentValue = Input.GetAxisRaw(c.axis);
             }
         }
+
         foreach (Control c in player2ControlsArray)
         {
             if (c.isAxis)
