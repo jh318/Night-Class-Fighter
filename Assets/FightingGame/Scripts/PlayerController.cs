@@ -76,7 +76,13 @@ public class PlayerController : MonoBehaviour {
 
 		DirectionUpdate();
 		ButtonUpdate();				
-		FlipSide();		
+		FlipSide();	
+		if(transform.position.y > 1.04f){
+			gameObject.GetComponent<CapsuleCollider>().enabled = false;
+		}
+		else{
+			gameObject.GetComponent<CapsuleCollider>().enabled = true;
+		}	
 	}
 
 	void ButtonUpdate(){
@@ -132,10 +138,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void CheckSide(){
-		if(transform.position.x < opponent.transform.position.x - 0.2f)
+		if(Mathf.Abs((transform.position - opponent.transform.position).x) < 0.1f && Mathf.Abs((transform.position - opponent.transform.position).y) < 0.1f){
+			Debug.Log("Resting");
+			if(rightSide) transform.position += new Vector3(1,0,0);
+			else if(!rightSide) transform.position -= new Vector3(1,0,0);
+		}	
+		else if(transform.position.x < opponent.transform.position.x - 0.0f)
 			rightSide = false;
-		else if(transform.position.x > opponent.transform.position.x + 0.2f)
+		else if(transform.position.x > opponent.transform.position.x + 0.0f)
 			rightSide = true;
+		
 	}
 
 	void BlockCheck(){
