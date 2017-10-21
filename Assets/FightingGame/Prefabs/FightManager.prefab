@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1533704506998016}
+  m_IsPrefabParent: 1
+--- !u!1 &1533704506998016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4095843490697814}
+  - component: {fileID: 114626115089255562}
+  - component: {fileID: 114889570558414502}
+  - component: {fileID: 114964805248181824}
+  - component: {fileID: 114230824679991812}
+  m_Layer: 0
+  m_Name: FightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4095843490697814
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533704506998016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.93537, y: 22.773846, z: 88.86637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114230824679991812
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533704506998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c191b2d59efd5c4eafc7bf37a1be0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - {fileID: 8300000, guid: d6e5bca3c8b780441989e1c62cd52aae, type: 3}
+  musicMixer: {fileID: 0}
+  musicSourcesCount: 5
+  ambient: []
+  ambientMixer: {fileID: 0}
+  ambientSourcesCount: 5
+  clips: []
+  sfxMixer: {fileID: 0}
+  sfxSourcesCount: 5
+--- !u!114 &114626115089255562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533704506998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e10e70b6846d446a650a46742362de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 60
+  timeMax: 0
+  TimeUI: {fileID: 0}
+  TimesUpUI: {fileID: 0}
+--- !u!114 &114889570558414502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533704506998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4831781e4d4c9e64694fb7690a328eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundPlayer1Images:
+  - {fileID: 0}
+  - {fileID: 0}
+  roundPlayer2Images:
+  - {fileID: 0}
+  - {fileID: 0}
+  roundsToWin: 2
+  player1StartPosition: {x: -1.5, y: 1, z: 0}
+  player2StartPosition: {x: 1.5, y: 1, z: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
+  endOfRoundTimer: 4
+--- !u!114 &114964805248181824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533704506998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea33e2c2a683027459f6c640dd92eab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

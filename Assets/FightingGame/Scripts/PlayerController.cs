@@ -10,19 +10,19 @@ public class PlayerController : MonoBehaviour {
 	Animator animator;
 	public int playerNumber;
 	GameObject opponent;
-
-
 	Vector3 flipLeftRotate = new Vector3(0.0f, 140.0f, 0.0f);
 	Vector3 flipRightRotate = new Vector3(0.0f,250.0f,0.0f);
 	Vector3 flipLeftScale = new Vector3(1,1,1);
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	bool rightSide = false;
-
 	HitBoxController hitBoxController;
-
 
 	public delegate void Knockout(int player);
 	public static event Knockout knockout = delegate{};
+
+	void OnEnable(){
+		FightManager.nextRound += OnNextRound;
+	}
 
 
 	void Start(){
@@ -47,16 +47,17 @@ public class PlayerController : MonoBehaviour {
 
 		hitBoxController = GetComponent<HitBoxController>();
 
+		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
+		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
 	}
 
 	void Update(){
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
-		DirectionUpdate();
 		ButtonUpdate();
+		DirectionUpdate();		
 		FlipSide();
-		if(hitBoxController.hitBoxHandRight.GetComponent<BoxCollider>()){
-
-		}
+		animator.SetBool("noInput", inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None);
+		
 	}
 
 	void ButtonUpdate(){
@@ -89,12 +90,16 @@ public class PlayerController : MonoBehaviour {
 			x = -1;
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Down){
-			animator.Play("Crouch");
+			if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
+				animator.Play("Crouch");
+			}
 		}
 		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.Up){
 			animator.Play("NeutralJumpStart");
 		}
-		Debug.Log(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1]);
+		else if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.None){
+			//animator.SetBool("noInput", true);
+		}
 
 		if(rightSide) x *= -1;
 		animator.SetFloat("xInput", x);
@@ -122,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider c){
 		if(c.gameObject == opponent){
 			Debug.Log("Hit");
+			//StartCoroutine("HitStop", 0.001f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;
 			opponent.GetComponent<HealthController>().healthBarUI.size = (float)opponent.GetComponent<HealthController>().healthPointCurr/(float)opponent.GetComponent<HealthController>().healthPointMax;
 			opponent.GetComponent<PlayerController>().CheckHealth();
@@ -130,10 +136,22 @@ public class PlayerController : MonoBehaviour {
 
 	void CheckHealth(){
 		if(GetComponent<HealthController>().healthPointCurr <= 0){
-			Debug.Log("KO");
 			gameObject.SetActive(false);
 			knockout(playerNumber);
-
 		}
+	}
+
+	void OnNextRound(int player){
+		gameObject.SetActive(true);
+		if(playerNumber == 0) transform.position = FightManager.instance.player1StartPosition;
+		else if(playerNumber == 1) transform.position = FightManager.instance.player2StartPosition;
+		GetComponent<HealthController>().healthPointCurr = GetComponent<HealthController>().healthPointMax;
+		GetComponent<HealthController>().healthBarUI.size = 1;
+	}
+
+	IEnumerator HitStop(float time){
+		Time.timeScale = 0.01f;
+		yield return new WaitForSeconds(time);
+		Time.timeScale = 1.0f;
 	}
 }

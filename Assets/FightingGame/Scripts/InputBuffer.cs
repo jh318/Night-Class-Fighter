@@ -69,12 +69,10 @@ public class InputBuffer : MonoBehaviour {
 				direction = GameButton.Down;
 			}
 			else if (Vector2.Angle (Vector2.left, axis) < 22.5f) {
-					direction = GameButton.Left;
-					Debug.Log("LEFT");	
+				direction = GameButton.Left;
 			}
 			else if (Vector2.Angle (Vector2.right, axis) < 22.5f) {
-					direction = GameButton.Right;
-					Debug.Log("RIGHT");	
+				direction = GameButton.Right;
 			}
 			else if (Vector2.Angle (Vector2.one, axis) < 22.5f) {
 				direction = GameButton.UpR;
@@ -87,7 +85,7 @@ public class InputBuffer : MonoBehaviour {
 			}
 			else if (Vector2.Angle (new Vector2(-1,1), axis) < 22.5f) {
 				direction = GameButton.UpL;
-			} 
+			}
 		}
 		else {
 			direction = GameButton.None;
@@ -96,9 +94,6 @@ public class InputBuffer : MonoBehaviour {
 
 	void ParseDirection(){
 		if (direction != lastDirection) {
-			inputBuffer.Add(direction);
-		}
-		else{	
 			inputBuffer.Add(direction);
 		}
 	}
