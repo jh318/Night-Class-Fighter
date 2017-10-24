@@ -47,14 +47,6 @@ public class CharSelectController : MonoBehaviour {
 
     SceneTransitionTest test;
 
-
-    // To-Do
-
-    // Selection(Transfer to ready state after selecting a character);
-    // Make sound when moving or selecting(Play animations);
-    // Make a previous newSelection to allow for sounds to play during selection changes;
-    // Select Character, change sprite for selection, gray out selection, transfer to ready(give option to go back with (B)), and load character data;
-
     void Start ()
     {
         p1 = defaultButton;
@@ -105,18 +97,17 @@ public class CharSelectController : MonoBehaviour {
                 }
 
                 CheckSelectionChange();
-                // Below is the A Button Input;
+                
                 if (ControlMapper.GetButton(0, GameButton.LightAttack) && !p1Ready)
                 {
                     p1ReadyUI.gameObject.SetActive(true);
-                    // Gray out p2Indicator;
                     ScriptableObjectHolder p1Info = p1.GetComponent<ScriptableObjectHolder>();
                     p1CharName.text = p1Info.characterInfo.characterName;
                     p1MugShot.texture = p1Info.characterInfo.mugShot.texture;
                     Debug.Log("I'm Selecting YO!");
                     p1Ready = true;
                 }
-            }        // Below is the B Button Input;
+            }
             else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p1Ready)
             {
                 StartCoroutine("WaitTime");
@@ -154,24 +145,23 @@ public class CharSelectController : MonoBehaviour {
                 }
 
                 CheckSelectionChange();
-                // Below is the A Button Input;
+                
                 if (ControlMapper.GetButton(1, GameButton.LightAttack) && !p2Ready)
                 {
                     p2ReadyUI.gameObject.SetActive(true);
-                    // Gray out p2Indicator;
                     ScriptableObjectHolder p2Info = p2.GetComponent<ScriptableObjectHolder>();
                     p2CharName.text = p2Info.characterInfo.characterName;                   
                     p2MugShot.texture = p2Info.characterInfo.mugShot.texture;
                     p2Ready = true;
                 }
-            }        // Below is the B Button Input;
+            }
             else if (ControlMapper.GetButton(0, GameButton.MediumAttack) && p2Ready)
             {
                 StartCoroutine("WaitTime");
                 p2Ready = false;
                 p2ReadyUI.gameObject.SetActive(false);
-                // Color p2Indicator;
             }
+
             TransitionCheck();
         }
         else

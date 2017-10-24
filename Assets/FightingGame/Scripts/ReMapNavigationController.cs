@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ReMapNavigationController : MonoBehaviour {
     public static ReMapNavigationController instance;
@@ -28,7 +29,7 @@ public class ReMapNavigationController : MonoBehaviour {
 	public static bool p2selected = false;
 
     public bool navigate = true;
-
+    bool waiting = false;
     bool exitPressed = false;
 
     Color defaultColor; 
@@ -36,7 +37,6 @@ public class ReMapNavigationController : MonoBehaviour {
     ScriptableObjectHolder p1Info;
     ScriptableObjectHolder p2Info;
     
-    // Use this for initialization
     void Start () 
     {
         defaultColor = p1Selectable.image.color;
@@ -44,8 +44,8 @@ public class ReMapNavigationController : MonoBehaviour {
         p2Selectable.image.color = Color.blue;		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
 
         p1Info = p1Selectable.GetComponent<ScriptableObjectHolder>();
         p2Info = p2Selectable.GetComponent<ScriptableObjectHolder>();
@@ -92,9 +92,13 @@ public class ReMapNavigationController : MonoBehaviour {
                 if (Input.GetButton("P1Select"))
                 {
                     Debug.Log("Hey buddy!");
-                    // Call a function in the ButtonRemapUIController that uses scriptable objects;
                     ButtonRemapUIController.instance.ButtonSelected(buttonNumber1);
-                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber1);                   
+                    ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber1);    
+                    StartCoroutine("WaitTime");               
+                }
+                else if (Input.GetButton("P1Back") && !waiting)
+                {
+                    exitPressed = true;
                 }
             }
 
@@ -132,11 +136,25 @@ public class ReMapNavigationController : MonoBehaviour {
 
                 if (Input.GetButtonDown("P2Select"))
                 {
-                    // Call a function in the ButtonRemapUIController that uses scriptable objects;
                     ButtonRemapUIController.instance.ButtonSelected(buttonNumber2);
                     ButtonRemapUIController.instance.PlayerNumberSelected(controllerNumber2);
+                    StartCoroutine("WaitTime");
+                }
+                else if (Input.GetButton("P2Back") && !waiting)
+                {
+                    exitPressed = true;
                 }
             }
         }
+        else 
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
 	}
+    IEnumerator WaitTime()
+    {
+        waiting = true;
+        yield return new WaitForSeconds(1);
+        waiting = false;
+    }
 }

@@ -558,6 +558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 11400000, guid: 61a786ffb6efb1146b0365daf6fee36a, type: 2}
   sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 0}
 --- !u!1 &546593144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 11400000, guid: 09b11d32695a14c48b054c3440f278bb, type: 2}
   sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 0}
 --- !u!1 &609013973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1154,7 @@ MonoBehaviour:
   p1Ready: 0
   p2Ready: 0
   toFightScene: 0
+  waiting: 0
   p1: {fileID: 590550043}
   p2: {fileID: 755190930}
   defaultButton: {fileID: 590550043}
@@ -1367,6 +1370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 11400000, guid: 5d3b3701976e55046827b770a3e64ba6, type: 2}
   sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 0}
 --- !u!1 &877335781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1636140333792422, guid: 56f21ffb0ae36834a9ed848757bb7ffa, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56f21ffb0ae36834a9ed848757bb7ffa, type: 2}
@@ -1801,7 +1805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1755662156332002, guid: 4d52b3fe673b40b4dbbc58abff4121cb, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d52b3fe673b40b4dbbc58abff4121cb, type: 2}
@@ -2084,6 +2088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 11400000, guid: 7ffa39e3f3f49f345a45684c2f83737f, type: 2}
   sceneInfo: {fileID: 0}
+  buttonInfo: {fileID: 0}
 --- !u!1 &1305683958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,8 +2973,8 @@ Camera:
   m_GameObject: {fileID: 1974748035}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.21176472, g: 0.21176472, b: 0.21176472, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

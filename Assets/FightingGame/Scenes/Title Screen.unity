@@ -243,7 +243,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: afb25154b0bf3094387fad506316abc3, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Universal Warrior
+  m_Text: INFINITE ICOROZ
 --- !u!222 &536115556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: afb25154b0bf3094387fad506316abc3, type: 3}
     m_FontSize: 21
     m_FontStyle: 0
     m_BestFit: 0
@@ -650,6 +650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae36ee165ed89c04b8bdd588221c1de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuGroup: {fileID: 0}
+  optionsGroup: {fileID: 0}
+  creditsGroup: {fileID: 0}
   currentSelection: {fileID: 1661981976}
   defaultSelection: {fileID: 1661981976}
   indicator: {fileID: 672991217}
@@ -720,6 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterInfo: {fileID: 0}
   sceneInfo: {fileID: 11400000, guid: 36b736dd8b114774083d9e2281751966, type: 2}
+  buttonInfo: {fileID: 0}
 --- !u!1 &1719051857
 GameObject:
   m_ObjectHideFlags: 0
