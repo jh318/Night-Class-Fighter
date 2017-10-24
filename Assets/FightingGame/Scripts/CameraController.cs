@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour {
 
         if (distance <= distanceMax)
         {
-            camera.transform.position = new Vector3(center.x, height, cameraZ.z) + offset;
+            camera.transform.position = new Vector3(center.x, camera.transform.position.y, camera.transform.position.z) + offset;
         }
     }
 }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public int jumpCount = 1;
 	public float jumpVelocityY = 2.0f;
 	public float jumpVelocityX = 2.0f;
+	public Camera fightCam;
 	
 	
 	bool rightSide = false;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Start(){
+		fightCam = Camera.main;
 		FightManager.nextRound += OnNextRound;
 		isGround = true;
 		playerInput = GameObject.Find("PlayerInput");
@@ -70,10 +72,9 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update(){
-		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
+		SetPosition();
 		CheckSide();
 		BlockCheck();
-
 		DirectionUpdate();
 		ButtonUpdate();				
 		FlipSide();	
@@ -286,6 +287,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void IsAttackingFalse(){
 		isAttacking = false;
+	}
+
+	void SetPosition(){
+		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
+		Vector3 pos = fightCam.WorldToViewportPoint(transform.position);
+		pos.x = Mathf.Clamp(pos.x,0.0f,1.0f);
+		transform.position = fightCam.ViewportToWorldPoint(pos);
 	}
 
 }
