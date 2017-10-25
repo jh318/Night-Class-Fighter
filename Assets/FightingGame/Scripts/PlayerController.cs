@@ -141,7 +141,6 @@ public class PlayerController : MonoBehaviour {
 
 	void CheckSide(){
 		if(Mathf.Abs((transform.position - opponent.transform.position).x) < 0.2f && Mathf.Abs((transform.position - opponent.transform.position).y) < 0.2f){
-			Debug.Log("Resting");
 			if(rightSide) transform.position += new Vector3(1,0,0);
 			else if(!rightSide) transform.position -= new Vector3(1,0,0);
 		}	
@@ -181,7 +180,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else if(c.gameObject == opponent && isAttacking && opponent.GetComponent<PlayerController>().isBlocking){
 			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();			
-			otherPlayer.KnockBack(new Vector3(1, 0, 0));
+			otherPlayer.KnockBack(new Vector3(attackStrength, 0, 0));
 		}
 	}
 
@@ -292,6 +291,7 @@ public class PlayerController : MonoBehaviour {
 
 	void SetPosition(){
 		transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
+		//if(rightSide) transform.rotation = Quaternion.identity ()
 		Vector3 pos = fightCam.WorldToViewportPoint(transform.position);
 		pos.x = Mathf.Clamp(pos.x,0.0f,1.0f);
 		transform.position = fightCam.ViewportToWorldPoint(pos);
