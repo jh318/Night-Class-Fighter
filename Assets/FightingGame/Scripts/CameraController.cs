@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject[] players;
+    public float clampX = 5.0f;
     Vector3 player1;
     Vector3 player2;
     public Vector3 offset;
@@ -31,6 +32,8 @@ public class CameraController : MonoBehaviour {
     private void Update()
     {
          UpdateCamera();
+         	transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clampX, clampX), transform.position.y, transform.position.z);
+
     }
 
     public void UpdateCamera()

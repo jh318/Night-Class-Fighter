@@ -2586,11 +2586,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f7972789f5de0478b4f2f9fc85c8cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   jumpCountMax: 3
   jumpCount: 1
   jumpVelocityY: 2
   jumpVelocityX: 2
-  playerNumber: 0
+  fightCam: {fileID: 0}
+  isGround: 1
+  isBlocking: 0
 --- !u!114 &114899978213813854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2615,7 +2618,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
+  m_Radius: 0.23
   m_Height: 1.68
   m_Direction: 1
   m_Center: {x: 0, y: -0.15, z: 0.38}

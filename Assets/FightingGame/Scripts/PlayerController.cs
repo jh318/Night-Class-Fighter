@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float jumpVelocityY = 2.0f;
 	public float jumpVelocityX = 2.0f;
 	public Camera fightCam;
+	public float clampX = 8.0f;
 	
 	
 	bool rightSide = false;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	Animator animator;
 	GameObject opponent;
 	Vector3 flipLeftRotate = new Vector3(0.0f, 140.0f, 0.0f);
-	Vector3 flipRightRotate = new Vector3(0.0f,250.0f,0.0f);
+	Vector3 flipRightRotate = new Vector3(0.0f,220.0f,0.0f);
 	Vector3 flipLeftScale = new Vector3(1,1,1);
 	Vector3 flipRightScale = new Vector3(-1,1,1);
 	HitBoxController hitBoxController;
@@ -139,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void CheckSide(){
-		if(Mathf.Abs((transform.position - opponent.transform.position).x) < 0.1f && Mathf.Abs((transform.position - opponent.transform.position).y) < 0.1f){
+		if(Mathf.Abs((transform.position - opponent.transform.position).x) < 0.2f && Mathf.Abs((transform.position - opponent.transform.position).y) < 0.2f){
 			Debug.Log("Resting");
 			if(rightSide) transform.position += new Vector3(1,0,0);
 			else if(!rightSide) transform.position -= new Vector3(1,0,0);
@@ -294,6 +295,8 @@ public class PlayerController : MonoBehaviour {
 		Vector3 pos = fightCam.WorldToViewportPoint(transform.position);
 		pos.x = Mathf.Clamp(pos.x,0.0f,1.0f);
 		transform.position = fightCam.ViewportToWorldPoint(pos);
+		
+		transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clampX, clampX), transform.position.y, transform.position.z);
 	}
 
 }
