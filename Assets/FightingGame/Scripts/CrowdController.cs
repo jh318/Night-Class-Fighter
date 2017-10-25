@@ -24,13 +24,13 @@ public class CrowdController : MonoBehaviour
     void Start()
     {
         //AudioManager.AmbientSounds("CrowdLoop");
-        p1Fans.volume = 0.1f;
+        p1Fans.volume = 1f;
         p1Fans.panStereo = -1;
 
-        p2Fans.volume = 0.1f;
+        p2Fans.volume = 1f;
         p2Fans.panStereo = 1;
 
-        bandWagoners.volume = 0.1f;
+        bandWagoners.volume = 1f;
         bandWagoners.panStereo = 0;
 
         HealthController[] healthControllers = GameObject.FindObjectsOfType<HealthController>();
@@ -56,8 +56,6 @@ public class CrowdController : MonoBehaviour
     {
         player1NewHealth = player1Health.healthPointCurr;
         player2NewHealth = player2Health.healthPointCurr;
-        // Debug.Log("One HP" + player1NewHealth);
-        // Debug.Log("Two HP" + player2NewHealth);
 
         if (player1NewHealth > player2NewHealth)
         {
@@ -86,11 +84,13 @@ public class CrowdController : MonoBehaviour
 
         if (player1NewHealth < player1LastHealth)
         {
-            AudioManager.PlayVariedEffect(CrowdCheer(), 0.1f, 1);
+            AudioManager.PlayVariedEffect(CrowdCheer(), (0.2f + p2Fans.volume), 1);
+            p2Fans.volume += 0.1f;
         }
         if (player2NewHealth < player2LastHealth)
         {
-            AudioManager.PlayVariedEffect(CrowdCheer(), 0.1f, -1);
+            AudioManager.PlayVariedEffect(CrowdCheer(), (0.2f + p1Fans.volume), -1);
+            p1Fans.volume += 0.1f;
         }
     }
 
