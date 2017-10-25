@@ -424,6 +424,11 @@ Prefab:
       propertyPath: clampX
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 54634145470106552, guid: 2d0810d86eda5ae43b6d97649158260d,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
   m_IsPrefabParent: 0
@@ -1170,36 +1175,6 @@ Prefab:
     - target: {fileID: 1010184205770812, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
       propertyPath: m_Name
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65624991267278604, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 65624991267278604, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.z
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 65624991267278604, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 65587930666806074, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 65587930666806074, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 65587930666806074, guid: 2d0810d86eda5ae43b6d97649158260d,
-        type: 2}
-      propertyPath: m_Size.z
-      value: 0.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d0810d86eda5ae43b6d97649158260d, type: 2}
