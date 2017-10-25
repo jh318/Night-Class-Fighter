@@ -345,7 +345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.35637534, y: 0.01866696}
   m_AnchorMax: {x: 0.6471863, y: 0.39033306}
-  m_AnchoredPosition: {x: -0.20000076, y: -2.199997}
+  m_AnchoredPosition: {x: -0.20000076, y: -2.2000122}
   m_SizeDelta: {x: -2.300003, y: -1.6000061}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446153794
@@ -981,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08668003, y: 0.544}
   m_AnchorMax: {x: 0.45612, y: 0.9366591}
-  m_AnchoredPosition: {x: -1.0000038, y: -0.43574524}
+  m_AnchoredPosition: {x: -1.0000076, y: -0.43574524}
   m_SizeDelta: {x: -0.76982117, y: -0.34713745}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590550043
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   p2Indicator: {fileID: 727430032}
   p1Anim: {fileID: 0}
   p2Anim: {fileID: 0}
-  sceneToLoad: FightSceneJohn
+  sceneToLoad: FightScene
 --- !u!114 &609013979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,7 +1814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.55700004, y: 0.06931812}
   m_AnchorMax: {x: 0.92688006, y: 0.4746591}
-  m_AnchoredPosition: {x: -0.5, y: -0.2743492}
+  m_AnchoredPosition: {x: -0.5, y: -0.27435303}
   m_SizeDelta: {x: -0.7499237, y: -1.7079315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305533165
@@ -2010,7 +2010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59375, y: 0.19433305}
   m_AnchorMax: {x: 0.9142501, y: 0.82500005}
-  m_AnchoredPosition: {x: 0.00021362305, y: -1.8342}
+  m_AnchoredPosition: {x: 0.00021362305, y: -1.8341999}
   m_SizeDelta: {x: -0.020325, y: 3.6497}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408970329

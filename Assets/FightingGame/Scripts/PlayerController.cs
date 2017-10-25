@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 		DirectionUpdate();
 		ButtonUpdate();				
 		FlipSide();	
-		if(transform.position.y > 1.04f){
+		if(transform.position.y > 1.06f){
 			gameObject.GetComponent<CapsuleCollider>().enabled = false;
 		}
 		else{
@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour {
 		if(c.gameObject == opponent && isAttacking && !opponent.GetComponent<PlayerController>().isBlocking){
 			Debug.Log("Hit");
 			GameObject partTemp = Spawner.Spawn("HitEffect");
+			PunchSounder.instance.GoodHit();
 			partTemp.transform.position = opponent.transform.position;
 			if(attackStrength >= 3) StartCoroutine("HitStop", 0.1f);
 			opponent.GetComponent<HealthController>().healthPointCurr -= 2;

@@ -82,16 +82,16 @@ public class CrowdController : MonoBehaviour
             }
         }
 
-        if (player1NewHealth < player1LastHealth)
-        {
-            AudioManager.PlayVariedEffect(CrowdCheer(), (0.2f + p2Fans.volume), 1);
-            p2Fans.volume += 0.1f;
-        }
-        if (player2NewHealth < player2LastHealth)
-        {
-            AudioManager.PlayVariedEffect(CrowdCheer(), (0.2f + p1Fans.volume), -1);
-            p1Fans.volume += 0.1f;
-        }
+        // if (player1NewHealth < player1LastHealth)
+        // {
+        //     AudioManager.PlayEffect(CrowdCheer(), (0.2f + p2Fans.volume), 1);
+        //     p2Fans.volume += 0.1f;
+        // }
+        // if (player2NewHealth < player2LastHealth)
+        // {
+        //     AudioManager.PlayEffect(CrowdCheer(), (0.2f + p1Fans.volume), -1);
+        //     p1Fans.volume += 0.1f;
+        // }
     }
 
     string CrowdCheer()
