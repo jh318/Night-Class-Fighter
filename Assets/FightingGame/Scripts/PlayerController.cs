@@ -182,6 +182,8 @@ public class PlayerController : MonoBehaviour {
 		else if(c.gameObject == opponent && isAttacking && opponent.GetComponent<PlayerController>().isBlocking){
 			PlayerController otherPlayer = opponent.GetComponent<PlayerController>();			
 			otherPlayer.KnockBack(new Vector3(attackStrength, 0, 0));
+			GameObject blockPart = Spawner.Spawn("BlockEffect");
+			blockPart.transform.position = opponent.transform.position;
 		}
 	}
 
