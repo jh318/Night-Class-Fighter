@@ -9,6 +9,8 @@ public class InputBuffer : MonoBehaviour {
 	[HideInInspector]
 	public List<GameButton> inputBuffer;
 	[HideInInspector]
+	public List<GameButton> commandBuffer;
+	[HideInInspector]
 	public Text inputBufferDisplay;
 	[HideInInspector]
 	public GameButton direction;
@@ -24,6 +26,10 @@ public class InputBuffer : MonoBehaviour {
 
 	void Start(){
 		controlMapper = GetComponent<ControlMapper>();
+		for(int i = 0; i < 8; i++){
+			commandBuffer.Add(GameButton.None);
+		}
+		
 	}
 
 	void Update(){
@@ -31,6 +37,7 @@ public class InputBuffer : MonoBehaviour {
 		GetButtonInput();
 		ParseDirection();
 		ParseButton();
+		ParseCommand();
 
 		// if (playerNumber == 0) {
 		// 	string bufferString = "";
@@ -114,6 +121,22 @@ public class InputBuffer : MonoBehaviour {
 		}
 		else {
 			inputBuffer.Add(GameButton.None);
+		}
+	}
+
+	void ParseCommand(){
+		if(button != GameButton.None){
+			//ClearCommandBuffer();
+		}
+		else if(direction != commandBuffer[commandBuffer.Count-1] && direction != GameButton.None){
+			commandBuffer.Add(direction);
+		}
+	}
+
+	public void ClearCommandBuffer(){
+		commandBuffer.Clear();
+		for(int i = 0; i < 8; i++){
+			commandBuffer.Add(GameButton.None);
 		}
 	}
 }

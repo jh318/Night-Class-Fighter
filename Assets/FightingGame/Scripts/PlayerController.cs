@@ -84,11 +84,21 @@ public class PlayerController : MonoBehaviour {
 		}
 		else{
 			gameObject.GetComponent<CapsuleCollider>().enabled = true;
-		}	
+		}
+		//sDebug.Log(inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-1]);
 	}
 
 	void ButtonUpdate(){
 		if (inputBuffer.inputBuffer.Count == 0) return;
+
+
+		if(!isAttacking && 
+		(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack ||
+		inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.MediumAttack ||
+		inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.HeavyAttack))
+		{
+			if(Fireball()) return;
+		} 
 
 		if(inputBuffer.inputBuffer[inputBuffer.inputBuffer.Count-1] == GameButton.LightAttack && !isAttacking){
 			attackStrength = 1;
@@ -108,6 +118,9 @@ public class PlayerController : MonoBehaviour {
 			animator.SetTrigger("attack");
 			//StartCoroutine("Attacking");
 		}
+
+		
+
 	}
 
 	void DirectionUpdate(){
@@ -118,9 +131,7 @@ public class PlayerController : MonoBehaviour {
 		animator.SetFloat("xInput", x);
 		animator.SetFloat("yInput", y);
 
-		if(jumpCount > 0 && canJump) JumpCheck(x,y);
-
-		
+		if(jumpCount > 0 && canJump) JumpCheck(x,y);	
 	}
 
 	void FlipSide(){	
@@ -300,6 +311,44 @@ public class PlayerController : MonoBehaviour {
 		transform.position = fightCam.ViewportToWorldPoint(pos);
 		
 		transform.position = new Vector3(Mathf.Clamp(transform.position.x, -clampX, clampX), transform.position.y, transform.position.z);
+	}
+
+	bool Fireball(){
+		if(inputBuffer.commandBuffer.Count > 0){
+		
+			//if (playerNumber == 0) Debug.Log(inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-3] + " " + inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-2] + " " + inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-1] );
+			
+			if(!rightSide &&
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-3] == GameButton.Down && 
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-2] == GameButton.DownR &&
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-1] == GameButton.Right)
+			{
+				Debug.Log("FIREBALL");
+				inputBuffer.ClearCommandBuffer();
+				ThrowFireball();
+				return true;
+			}	
+			else if(rightSide &&
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-3] == GameButton.Down && 
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-2] == GameButton.DownL &&
+			inputBuffer.commandBuffer[inputBuffer.commandBuffer.Count-1] == GameButton.Left)
+			{
+				Debug.Log("FIREBALL LEFT");
+				inputBuffer.ClearCommandBuffer();
+				ThrowFireball();
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	void ThrowFireball(){
+		GameObject tempFire = Spawner.Spawn("Fireball");
+		int direction = 1;
+		if(rightSide) direction = -1;
+		tempFire.transform.position = transform.position + new Vector3(1.0f * direction, 0.0f, 0.0f);
+		tempFire.GetComponent<Rigidbody>().velocity = new Vector3(1.8f * direction, 0.0f, 0.0f);
 	}
 
 }
